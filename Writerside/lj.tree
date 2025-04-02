@@ -10,5 +10,8 @@
     <toc-element topic="Create-Strucure-Project.md">
         <toc-element topic="Create-structue-with-maven-intelijj.md"/>
     </toc-element>
-    <toc-element topic="Criando-a-Primeira-tela.md"/>
+    <toc-element topic="Criando-a-Primeira-tela.md">
+        <toc-element topic="Connect-FXML-with-Java.md"/>
+    </toc-element>
+    <toc-element topic="Create-first-Controller.md"/>
 </instance-profile>

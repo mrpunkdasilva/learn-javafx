@@ -122,16 +122,3 @@ Agora que analisamos os elementos, vamos entender os atributos que são usados n
 * `xmlns` e `xmlns:fx`: são atributos que são usados para definir o namespace do arquivo FXML.
 
 
-
-
-## Conectando o arquivo FXML ao código Java
-
-Agora que entendemos o arquivo FXML, vamos conectar ele ao código Java. No nosso caso, o arquivo FXML é conectado ao
-arquivo `StudentController.java`.
-
-O arquivo `StudentController.java` é responsável por controlar a interface gráfica da nossa aplicação. Ele tem métodos
-que são chamados quando os eventos são disparados.
-
-No nosso caso, o método `initialize` é chamado quando a interface gráfica é carregada. Ele é usado para inicializar os
-elementos da interface e definir os eventos que são disparados quando os elementos são clicados.
-
