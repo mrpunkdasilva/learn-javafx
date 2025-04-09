@@ -1,4 +1,4 @@
-# Create first Controller
+# Criar primeiro Controller
 
 Controllers são componentes fundamentais em aplicações JavaFX, responsáveis por gerenciar a lógica de interação entre a interface do usuário (FXML) e o modelo de dados.
 
