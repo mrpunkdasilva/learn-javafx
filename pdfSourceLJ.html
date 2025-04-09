@@ -1,0 +1,731 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-java.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-markup.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-none.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-sql.min.js"></script><style>
+        .article {
+            position: relative;
+            padding-bottom: 24px;
+        }
+        
+
+        .bordered-element {
+            border: 1px solid #c4c4c4;
+            overflow: hidden;
+        }
+        
+
+        .bordered-element-rounded {
+            border: 1px solid #c4c4c4;
+            border-radius: 7px;
+            overflow: hidden;
+        }
+        
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+
+        .center-text {
+            text-align: center;
+        }
+        
+
+        .code-block {
+            overflow: hidden;
+            position: relative;
+            padding: 0;
+            border-radius: 8px;
+            font-variant-ligatures: none;
+            background-color: rgba(25, 25, 28, .05);
+            word-break: break-all;
+        }
+        
+
+        .container {
+            max-width: 100%;
+            overflow: hidden;
+            page-break-inside: avoid;
+            display: block;
+        }
+        
+
+        .control {
+            color: #19191c;
+            font-size: 16px;
+            font-weight: 670;
+        }
+        
+
+        .detached {
+            margin-block-start: 0;
+            margin-block-end: 0;
+            margin-bottom: 8px;
+        }
+        
+
+        .flex {
+            display: flex;
+        }
+        
+
+        .image {
+            max-width: 100%;
+            max-height: 90vh;
+            height: auto;
+        }
+        
+
+        .image-container {
+            max-width: 100vw;
+        }
+        
+
+        .image-size {
+            height: auto;
+        }
+        
+
+        .inline-code {
+            border-radius: 4px;
+            display: inline;
+            padding: 2px 1px;
+            font-family: JetBrains Sans,monospace;
+            background: #e6e6e6;
+        }
+        
+
+        .list {
+            list-style-type: disc;
+            padding-left: 0;
+            margin-left: 15px;
+        }
+        
+
+        .list-decimal {
+            list-style-type: decimal;
+        }
+        
+
+        .list-item {
+            margin-top: 6px;
+            margin-bottom: 6px;
+            margin-left: 4px;
+        }
+        
+
+        .main-title {
+            padding-bottom: 24px;
+            margin-top: 0;
+            font-size: 40px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+
+        .mermaid {
+            page-break-inside: avoid;
+        }
+        
+        /* Light theme */
+/** Common */
+#mermaid .label, #mermaid {font-family:"trebuchet ms",arial,sans-serif; font-size:16px;fill:#333;}#mermaid .error-icon{fill:#552222;}#mermaid .error-text{fill:#552222;stroke:#552222;}#mermaid .edge-thickness-normal{stroke-width:2px;}#mermaid .edge-thickness-thick{stroke-width:3.5px;}#mermaid .edge-pattern-solid{stroke-dasharray:0;}#mermaid .edge-pattern-dashed{stroke-dasharray:3;}#mermaid .edge-pattern-dotted{stroke-dasharray:2;}#mermaid .marker{fill:#333333;stroke:#333333;}#mermaid .marker.cross{stroke:#333333;} #mermaid {max-width: 100%;}
+/** Flowchart */
+#mermaid .cluster-label text{fill:#333;}#mermaid .cluster-label span{color:#333;}#mermaid .label text,#mermaid span{fill:#333;color:#333;}#mermaid .node rect,#mermaid .node circle,#mermaid .node ellipse,#mermaid .node polygon,#mermaid .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid .node .label{text-align:center;}#mermaid .node.clickable{cursor:pointer;}#mermaid .arrowheadPath{fill:#333333;}#mermaid .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid .flowchart-link{stroke:#333333;fill:none;}#mermaid .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid .cluster text{fill:#333;}#mermaid .cluster span{color:#333;}#mermaid div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}
+/** Sequence diagram */
+#mermaid .actor{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid text.actor>tspan{fill:black;stroke:none;}#mermaid .actor-line{stroke:grey;}#mermaid .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:#333;}#mermaid .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:#333;}#mermaid #arrowhead path{fill:#333;stroke:#333;}#mermaid .sequenceNumber{fill:white;}#mermaid #sequencenumber{fill:#333;}#mermaid #crosshead path{fill:#333;stroke:#333;}#mermaid .messageText{fill:#333;stroke:none;}#mermaid .labelBox{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid .labelText,#mermaid .labelText>tspan{fill:black;stroke:none;}#mermaid .loopText,#mermaid .loopText>tspan{fill:black;stroke:none;}#mermaid .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);}#mermaid .note{stroke:#aaaa33;fill:#fff5ad;}#mermaid .noteText,#mermaid .noteText>tspan{fill:black;stroke:none;}#mermaid .activation0{fill:#f4f4f4;stroke:#666;}#mermaid .activation1{fill:#f4f4f4;stroke:#666;}#mermaid .activation2{fill:#f4f4f4;stroke:#666;}#mermaid .actorPopupMenu{position:absolute;}#mermaid .actorPopupMenuPanel{position:absolute;fill:#ECECFF;box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);filter:drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}#mermaid .actor-man line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;}#mermaid .actor-man circle,#mermaid line{stroke:hsl(259.6261682243, 59.7765363128%, 87.9019607843%);fill:#ECECFF;stroke-width:2px;}
+/** Gantt */
+#mermaid .exclude-range{fill:#eeeeee;}#mermaid .section{stroke:none;opacity:0.2;}#mermaid .section0{fill:rgba(102, 102, 255, 0.49);}#mermaid .section2{fill:#fff400;}#mermaid .section1,#mermaid .section3{fill:white;opacity:0.2;}#mermaid .sectionTitle0{fill:#333;}#mermaid .sectionTitle1{fill:#333;}#mermaid .sectionTitle2{fill:#333;}#mermaid .sectionTitle3{fill:#333;}#mermaid .sectionTitle{text-anchor:start;}#mermaid .grid .tick{stroke:lightgrey;opacity:0.8;shape-rendering:crispEdges;}#mermaid .grid .tick text{fill:#333;}#mermaid .grid path{stroke-width:0;}#mermaid .today{fill:none;stroke:red;stroke-width:2px;}#mermaid .task{stroke-width:2;}#mermaid .taskText{text-anchor:middle;}#mermaid .taskTextOutsideRight{fill:black;text-anchor:start;}#mermaid .taskTextOutsideLeft{fill:black;text-anchor:end;}#mermaid .task.clickable{cursor:pointer;}#mermaid .taskText.clickable{cursor:pointer;fill:#003163!important;font-weight:bold;}#mermaid .taskTextOutsideLeft.clickable{cursor:pointer;fill:#003163!important;font-weight:bold;}#mermaid .taskTextOutsideRight.clickable{cursor:pointer;fill:#003163!important;font-weight:bold;}#mermaid .taskText0,#mermaid .taskText1,#mermaid .taskText2,#mermaid .taskText3{fill:white;}#mermaid .task0,#mermaid .task1,#mermaid .task2,#mermaid .task3{fill:#8a90dd;stroke:#534fbc;}#mermaid .taskTextOutside0,#mermaid .taskTextOutside2{fill:black;}#mermaid .taskTextOutside1,#mermaid .taskTextOutside3{fill:black;}#mermaid .active0,#mermaid .active1,#mermaid .active2,#mermaid .active3{fill:#bfc7ff;stroke:#534fbc;}#mermaid .activeText0,#mermaid .activeText1,#mermaid .activeText2,#mermaid .activeText3{fill:black!important;}#mermaid .done0,#mermaid .done1,#mermaid .done2,#mermaid .done3{stroke:grey;fill:lightgrey;stroke-width:2;}#mermaid .doneText0,#mermaid .doneText1,#mermaid .doneText2,#mermaid .doneText3{fill:black!important;}#mermaid .crit0,#mermaid .crit1,#mermaid .crit2,#mermaid .crit3{stroke:#ff8888;fill:red;stroke-width:2;}#mermaid .activeCrit0,#mermaid .activeCrit1,#mermaid .activeCrit2,#mermaid .activeCrit3{stroke:#ff8888;fill:#bfc7ff;stroke-width:2;}#mermaid .doneCrit0,#mermaid .doneCrit1,#mermaid .doneCrit2,#mermaid .doneCrit3{stroke:#ff8888;fill:lightgrey;stroke-width:2;cursor:pointer;shape-rendering:crispEdges;}#mermaid .milestone{transform:rotate(45deg) scale(0.8,0.8);}#mermaid .milestoneText{font-style:italic;}#mermaid .doneCritText0,#mermaid .doneCritText1,#mermaid .doneCritText2,#mermaid .doneCritText3{fill:black!important;}#mermaid .activeCritText0,#mermaid .activeCritText1,#mermaid .activeCritText2,#mermaid .activeCritText3{fill:black!important;}#mermaid .titleText{text-anchor:middle;font-size:18px;fill:#333;}
+/** Class diagram */
+#mermaid g.classGroup text{fill:#9370DB;fill:#131300;stroke:none;font-size:10px;}#mermaid g.classGroup text .title{font-weight:bolder;}#mermaid .nodeLabel,#mermaid .edgeLabel{color:#131300;}#mermaid .edgeLabel .label rect{fill:#ECECFF;}#mermaid .label text{fill:#131300;}#mermaid .edgeLabel .label span{background:#ECECFF;}#mermaid .classTitle{font-weight:bolder;}#mermaid .node rect,#mermaid .node circle,#mermaid .node ellipse,#mermaid .node polygon,#mermaid .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid .divider{stroke:#9370DB;stroke:1;}#mermaid g.clickable{cursor:pointer;}#mermaid g.classGroup rect{fill:#ECECFF;stroke:#9370DB;}#mermaid g.classGroup line{stroke:#9370DB;stroke-width:1;}#mermaid .classLabel .box{stroke:none;stroke-width:0;fill:#ECECFF;opacity:0.5;}#mermaid .classLabel .label{fill:#9370DB;font-size:10px;}#mermaid .relation{stroke:#333333;stroke-width:1;fill:none;}#mermaid .dashed-line{stroke-dasharray:3;}#mermaid #compositionStart,#mermaid .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid #compositionEnd,#mermaid .composition{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid #dependencyStart,#mermaid .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid #dependencyStart,#mermaid .dependency{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid #extensionStart,#mermaid .extension{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid #extensionEnd,#mermaid .extension{fill:#333333!important;stroke:#333333!important;stroke-width:1;}#mermaid #aggregationStart,#mermaid .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid #aggregationEnd,#mermaid .aggregation{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid #lollipopStart,#mermaid .lollipop{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid #lollipopEnd,#mermaid .lollipop{fill:#ECECFF!important;stroke:#333333!important;stroke-width:1;}#mermaid .edgeTerminals{font-size:11px;}
+/** Git graph */
+#mermaid .commit-id,#mermaid .commit-msg{fill:lightgrey;}#mermaid .commit0{stroke:hsl(240, 100%, 46.2745098039%);fill:hsl(240, 100%, 46.2745098039%);}#mermaid .commit-highlight0{stroke:hsl(60, 100%, 3.7254901961%);fill:hsl(60, 100%, 3.7254901961%);}#mermaid .label0{fill:hsl(240, 100%, 46.2745098039%);}#mermaid .arrow0{stroke:hsl(240, 100%, 46.2745098039%);}#mermaid .branch-label1{fill:black;}#mermaid .commit1{stroke:hsl(60, 100%, 43.5294117647%);fill:hsl(60, 100%, 43.5294117647%);}#mermaid .commit-highlight1{stroke:rgb(0, 0, 160.5);fill:rgb(0, 0, 160.5);}#mermaid .label1{fill:hsl(60, 100%, 43.5294117647%);}#mermaid .arrow1{stroke:hsl(60, 100%, 43.5294117647%);}#mermaid .branch-label2{fill:black;}#mermaid .commit2{stroke:hsl(80, 100%, 46.2745098039%);fill:hsl(80, 100%, 46.2745098039%);}#mermaid .commit-highlight2{stroke:rgb(48.8333333334, 0, 146.5000000001);fill:rgb(48.8333333334, 0, 146.5000000001);}#mermaid .label2{fill:hsl(80, 100%, 46.2745098039%);}#mermaid .arrow2{stroke:hsl(80, 100%, 46.2745098039%);}#mermaid .branch-label3{fill:#ffffff;}#mermaid .commit3{stroke:hsl(210, 100%, 46.2745098039%);fill:hsl(210, 100%, 46.2745098039%);}#mermaid .commit-highlight3{stroke:rgb(146.5000000001, 73.2500000001, 0);fill:rgb(146.5000000001, 73.2500000001, 0);}#mermaid .label3{fill:hsl(210, 100%, 46.2745098039%);}#mermaid .arrow3{stroke:hsl(210, 100%, 46.2745098039%);}#mermaid .branch-label4{fill:black;}#mermaid .commit4{stroke:hsl(180, 100%, 46.2745098039%);fill:hsl(180, 100%, 46.2745098039%);}#mermaid .commit-highlight4{stroke:rgb(146.5000000001, 0, 0);fill:rgb(146.5000000001, 0, 0);}#mermaid .label4{fill:hsl(180, 100%, 46.2745098039%);}#mermaid .arrow4{stroke:hsl(180, 100%, 46.2745098039%);}#mermaid .branch-label5{fill:black;}#mermaid .commit5{stroke:hsl(150, 100%, 46.2745098039%);fill:hsl(150, 100%, 46.2745098039%);}#mermaid .commit-highlight5{stroke:rgb(146.5000000001, 0, 73.2500000001);fill:rgb(146.5000000001, 0, 73.2500000001);}#mermaid .label5{fill:hsl(150, 100%, 46.2745098039%);}#mermaid .arrow5{stroke:hsl(150, 100%, 46.2745098039%);}#mermaid .branch-label6{fill:black;}#mermaid .commit6{stroke:hsl(300, 100%, 46.2745098039%);fill:hsl(300, 100%, 46.2745098039%);}#mermaid .commit-highlight6{stroke:rgb(0, 146.5000000001, 0);fill:rgb(0, 146.5000000001, 0);}#mermaid .label6{fill:hsl(300, 100%, 46.2745098039%);}#mermaid .arrow6{stroke:hsl(300, 100%, 46.2745098039%);}#mermaid .branch-label7{fill:black;}#mermaid .commit7{stroke:hsl(0, 100%, 46.2745098039%);fill:hsl(0, 100%, 46.2745098039%);}#mermaid .commit-highlight7{stroke:rgb(0, 146.5000000001, 146.5000000001);fill:rgb(0, 146.5000000001, 146.5000000001);}#mermaid .label7{fill:hsl(0, 100%, 46.2745098039%);}#mermaid .arrow7{stroke:hsl(0, 100%, 46.2745098039%);}#mermaid .branch{stroke-width:1;stroke:#333333;stroke-dasharray:2;}#mermaid .commit-label{font-size:10px;fill:#000021;}#mermaid .commit-label-bkg{font-size:10px;fill:#ffffde;opacity:0.5;}#mermaid .tag-label{font-size:10px;fill:#131300;}#mermaid .tag-label-bkg{fill:#ECECFF;stroke:hsl(240, 60%, 86.2745098039%);}#mermaid .tag-hole{fill:#333;}#mermaid .commit-merge{stroke:#ECECFF;fill:#ECECFF;}#mermaid .commit-reverse{stroke:#ECECFF;fill:#ECECFF;stroke-width:3;}#mermaid .commit-highlight-inner{stroke:#ECECFF;fill:#ECECFF;}#mermaid .arrow{stroke-width:8;stroke-linecap:round;fill:none;}
+#mermaid .branchLabel .label {font-size:16px;} #mermaid g.label.branch-label0 text, #mermaid g.label.branch-label3 text { fill: #eee; }
+/** Entity relationship */
+#mermaid .entityBox{fill:#ECECFF;stroke:#9370DB;}#mermaid .attributeBoxOdd{fill:#ffffff;stroke:#9370DB;}#mermaid .attributeBoxEven{fill:#f2f2f2;stroke:#9370DB;}#mermaid .relationshipLabelBox{fill:hsl(80, 100%, 96.2745098039%);opacity:0.7;background-color:hsl(80, 100%, 96.2745098039%);}#mermaid .relationshipLabelBox rect{opacity:0.5;}#mermaid .relationshipLine{stroke:#333333;}
+/** Journey */
+#mermaid .label{color:#333;}#mermaid .mouth{stroke:#666;}#mermaid line{stroke:#333;}#mermaid .legend{fill:#333;}#mermaid .label text{fill:#333;}#mermaid .label{color:#333;}#mermaid .face{fill:#FFF8DC;stroke:#999;}#mermaid .node rect,#mermaid .node circle,#mermaid .node ellipse,#mermaid .node polygon,#mermaid .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid .node .label{text-align:center;}#mermaid .node.clickable{cursor:pointer;}#mermaid .arrowheadPath{fill:#333333;}#mermaid .edgePath .path{stroke:#333333;stroke-width:1.5px;}#mermaid .flowchart-link{stroke:#333333;fill:none;}#mermaid .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid .edgeLabel rect{opacity:0.5;}#mermaid .cluster text{fill:#333;}#mermaid div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid .task-type-0,#mermaid .section-type-0{fill:#ECECFF;}#mermaid .task-type-1,#mermaid .section-type-1{fill:#ffffde;}#mermaid .task-type-2,#mermaid .section-type-2{fill:hsl(304, 100%, 96.2745098039%);}#mermaid .task-type-3,#mermaid .section-type-3{fill:hsl(124, 100%, 93.5294117647%);}#mermaid .task-type-4,#mermaid .section-type-4{fill:hsl(176, 100%, 96.2745098039%);}#mermaid .task-type-5,#mermaid .section-type-5{fill:hsl(-4, 100%, 93.5294117647%);}#mermaid .task-type-6,#mermaid .section-type-6{fill:hsl(8, 100%, 96.2745098039%);}#mermaid .task-type-7,#mermaid .section-type-7{fill:hsl(188, 100%, 93.5294117647%);}
+/** State diagram */
+#mermaid defs #statediagram-barbEnd{fill:#333333;stroke:#333333;}#mermaid g.stateGroup text{fill:#9370DB;stroke:none;font-size:10px;}#mermaid g.stateGroup text{fill:#333;stroke:none;font-size:10px;}#mermaid g.stateGroup .state-title{font-weight:bolder;fill:#131300;}#mermaid g.stateGroup rect{fill:#ECECFF;stroke:#9370DB;}#mermaid g.stateGroup line{stroke:#333333;stroke-width:1;}#mermaid .transition{stroke:#333333;stroke-width:1;fill:none;}#mermaid .stateGroup .composit{fill:white;border-bottom:1px;}#mermaid .stateGroup .alt-composit{fill:#e0e0e0;border-bottom:1px;}#mermaid .state-note{stroke:#aaaa33;fill:#fff5ad;}#mermaid .state-note text{fill:black;stroke:none;font-size:10px;}#mermaid .stateLabel .box{stroke:none;stroke-width:0;fill:#ECECFF;opacity:0.5;}#mermaid .edgeLabel .label rect{fill:#ECECFF;opacity:0.5;}#mermaid .edgeLabel .label text{fill:#333;}#mermaid .label div .edgeLabel{color:#333;}#mermaid .stateLabel text{fill:#131300;font-size:10px;font-weight:bold;}#mermaid .node circle.state-start{fill:#333333;stroke:#333333;}#mermaid .node .fork-join{fill:#333333;stroke:#333333;}#mermaid .node circle.state-end{fill:#9370DB;stroke:white;stroke-width:1.5;}#mermaid .end-state-inner{fill:white;stroke-width:1.5;}#mermaid .node rect{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid .node polygon{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid #statediagram-barbEnd{fill:#333333;}#mermaid .statediagram-cluster rect{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid .cluster-label,#mermaid .nodeLabel{color:#131300;}#mermaid .statediagram-cluster rect.outer{rx:5px;ry:5px;}#mermaid .statediagram-state .divider{stroke:#9370DB;}#mermaid .statediagram-state .title-state{rx:5px;ry:5px;}#mermaid .statediagram-cluster.statediagram-cluster .inner{fill:white;}#mermaid .statediagram-cluster.statediagram-cluster-alt .inner{fill:#f0f0f0;}#mermaid .statediagram-cluster .inner{rx:0;ry:0;}#mermaid .statediagram-state rect.basic{rx:5px;ry:5px;}#mermaid .statediagram-state rect.divider{stroke-dasharray:10,10;fill:#f0f0f0;}#mermaid .note-edge{stroke-dasharray:5;}#mermaid .statediagram-note rect{fill:#fff5ad;stroke:#aaaa33;stroke-width:1px;rx:0;ry:0;}#mermaid .statediagram-note rect{fill:#fff5ad;stroke:#aaaa33;stroke-width:1px;rx:0;ry:0;}#mermaid .statediagram-note text{fill:black;}#mermaid .statediagram-note .nodeLabel{color:black;}#mermaid .statediagram .edgeLabel{color:red;}#mermaid #dependencyStart,#mermaid #dependencyEnd{fill:#333333;stroke:#333333;stroke-width:1;}
+/** Pie chart */
+#mermaid .pieCircle{stroke:#222;stroke-width:1px;}#mermaid .pieTitleText{text-anchor:middle;font-size:25px;fill:black;}#mermaid .slice{fill:#333;font-size:17px;}#mermaid .legend text{fill:black;font-size:17px;}
+/** Requirements */
+#mermaid marker{fill:#333333;stroke:#333333;}#mermaid marker.cross{stroke:#333333;}#mermaid svg{font-size:16px;}#mermaid .reqBox{fill:#ECECFF;fill-opacity:100%;stroke:hsl(240, 60%, 86.2745098039%);stroke-width:hsl(240, 60%, 86.2745098039%);}#mermaid .reqTitle,#mermaid .reqLabel{fill:#131300;}#mermaid .reqLabelBox{fill:#e8e8e8;fill-opacity:100%;}#mermaid .req-title-line{stroke:hsl(240, 60%, 86.2745098039%);stroke-width:hsl(240, 60%, 86.2745098039%);}#mermaid .relationshipLine{stroke:#333333;stroke-width:1;}#mermaid .relationshipLabel{fill:black;}
+/** C4 system */
+#mermaid .person{stroke:calculated;fill:calculated;}
+/** Mind map */
+#mermaid .section-root.mindmap-node { fill: hsl(240, 100%, 50%); } #mermaid .section-root.mindmap-node text { fill: white; }
+#mermaid .mindmap-edges .edge-depth-0 { stroke-width: 14; }
+#mermaid .mindmap-edges .edge-depth-1 { stroke-width: 11; }
+#mermaid .mindmap-edges .edge-depth-2 { stroke-width: 8; }
+#mermaid .mindmap-edges .edge-depth-3 { stroke-width: 5; }
+#mermaid .mindmap-edges .edge-depth-4 { stroke-width: 3; }
+#mermaid .mindmap-edges .edge-depth-5 { stroke-width: 2; }
+#mermaid .mindmap-edges .edge-depth-6 { stroke-width: 1; }
+#mermaid .mindmap-edges .section-edge-0,  #mermaid .mindmap-node.section-0  path { fill: hsl(60, 100%, 70%); stroke: hsl(60, 100%, 70%); } #mermaid .mindmap-node.section-0  text { fill: black; }
+#mermaid .mindmap-edges .section-edge-1,  #mermaid .mindmap-node.section-1  path { fill: hsl(170, 90%, 70%); stroke: hsl(170, 90%, 70%); } #mermaid .mindmap-node.section-1  text { fill: black; }
+#mermaid .mindmap-edges .section-edge-2,  #mermaid .mindmap-node.section-2  path { fill: hsl(280, 90%, 70%); stroke: hsl(280, 90%, 70%); } #mermaid .mindmap-node.section-2  text { fill: white; }
+#mermaid .mindmap-edges .section-edge-3,  #mermaid .mindmap-node.section-3  path { fill: hsl(30, 90%, 70%);  stroke: hsl(30, 90%, 70%);  } #mermaid .mindmap-node.section-3  text { fill: black; }
+#mermaid .mindmap-edges .section-edge-4,  #mermaid .mindmap-node.section-4  path { fill: hsl(140, 90%, 70%); stroke: hsl(140, 90%, 70%); } #mermaid .mindmap-node.section-4  text { fill: black; }
+#mermaid .mindmap-edges .section-edge-5,  #mermaid .mindmap-node.section-5  path { fill: hsl(250, 90%, 70%); stroke: hsl(250, 90%, 70%); } #mermaid .mindmap-node.section-5  text { fill: white; }
+#mermaid .mindmap-edges .section-edge-6,  #mermaid .mindmap-node.section-6  path { fill: hsl(0, 90%, 70%);   stroke: hsl(0, 90%, 70%);   } #mermaid .mindmap-node.section-6  text { fill: black; }
+#mermaid .mindmap-edges .section-edge-7,  #mermaid .mindmap-node.section-7  path { fill: hsl(110, 90%, 70%); stroke: hsl(110, 90%, 70%); } #mermaid .mindmap-node.section-7  text { fill: black; }
+#mermaid .mindmap-edges .section-edge-8,  #mermaid .mindmap-node.section-8  path { fill: hsl(220, 90%, 70%); stroke: hsl(220, 90%, 70%); } #mermaid .mindmap-node.section-8  text { fill: white; }
+#mermaid .mindmap-edges .section-edge-9,  #mermaid .mindmap-node.section-9  path { fill: hsl(330, 90%, 70%); stroke: hsl(330, 90%, 70%); } #mermaid .mindmap-node.section-9  text { fill: black; }
+#mermaid .mindmap-edges .section-edge-10, #mermaid .mindmap-node.section-10 path { fill: hsl(80, 90%, 70%);  stroke: hsl(80, 90%, 70%);  } #mermaid .mindmap-node.section-10 text { fill: black; }
+#mermaid .mindmap-edges .section-edge-11, #mermaid .mindmap-node.section-11 path { fill: hsl(190, 90%, 70%); stroke: hsl(190, 90%, 70%); } #mermaid .mindmap-node.section-11 text { fill: black; }
+#mermaid .mindmap-edges .section-edge-12, #mermaid .mindmap-node.section-12 path { fill: hsl(300, 90%, 70%); stroke: hsl(300, 90%, 70%); } #mermaid .mindmap-node.section-12 text { fill: black; }
+/** Timeline */
+#mermaid .timeline text tspan { fill: #222; } #mermaid .timeline-node path { fill: #ccc; }
+
+/* Dark theme */
+/** Common */
+html.theme-dark #mermaid {fill:#ccc;}html.theme-dark #mermaid .error-icon{fill:#a44141;}html.theme-dark #mermaid .error-text{fill:#ddd;stroke:#ddd;}html.theme-dark #mermaid .edge-pattern-solid{stroke-dasharray:0;}html.theme-dark #mermaid .edge-pattern-dashed{stroke-dasharray:3;}html.theme-dark #mermaid .edge-pattern-dotted{stroke-dasharray:2;}html.theme-dark #mermaid .marker{fill:lightgrey;stroke:lightgrey;}html.theme-dark #mermaid .marker.cross{stroke:lightgrey;}
+/** Flowchart */
+html.theme-dark #mermaid .label{color:#ccc;}html.theme-dark #mermaid .cluster-label text{fill:#F9FFFE;}html.theme-dark #mermaid .cluster-label span{color:#F9FFFE;}html.theme-dark #mermaid .label text,html.theme-dark #mermaid span{fill:#ccc;color:#ccc;}html.theme-dark #mermaid .node rect,html.theme-dark #mermaid .node circle,html.theme-dark #mermaid .node ellipse,html.theme-dark #mermaid .node polygon,html.theme-dark #mermaid .node path{fill:#1f2020;stroke:#81B1DB;stroke-width:1px;}html.theme-dark #mermaid .node .label{text-align:center;}html.theme-dark #mermaid .node.clickable{cursor:pointer;}html.theme-dark #mermaid .arrowheadPath{fill:lightgrey;}html.theme-dark #mermaid .edgePath .path{stroke:lightgrey;stroke-width:2.0px;}html.theme-dark #mermaid .flowchart-link{stroke:lightgrey;fill:none;}html.theme-dark #mermaid .edgeLabel{background-color:hsl(0, 0%, 34.4117647059%);text-align:center;}html.theme-dark #mermaid .edgeLabel rect{opacity:0.5;background-color:hsl(0, 0%, 34.4117647059%);fill:hsl(0, 0%, 34.4117647059%);}html.theme-dark #mermaid .cluster rect{fill:hsl(180, 1.5873015873%, 28.3529411765%);stroke:rgba(255, 255, 255, 0.25);stroke-width:1px;}html.theme-dark #mermaid .cluster text{fill:#F9FFFE;}html.theme-dark #mermaid .cluster span{color:#F9FFFE;}html.theme-dark #mermaid div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;background:hsl(20, 1.5873015873%, 12.3529411765%);border:1px solid rgba(255, 255, 255, 0.25);border-radius:2px;pointer-events:none;z-index:100;}html.theme-dark #mermaid :root{--mermaid-}
+/** Sequence diagram */
+html.theme-dark #mermaid .actor{stroke:#81B1DB;fill:#1f2020;}html.theme-dark #mermaid text.actor>tspan{fill:lightgrey;stroke:none;}html.theme-dark #mermaid .actor-line{stroke:lightgrey;}html.theme-dark #mermaid .messageLine0{stroke-width:1.5;stroke-dasharray:none;stroke:lightgrey;}html.theme-dark #mermaid .messageLine1{stroke-width:1.5;stroke-dasharray:2,2;stroke:lightgrey;}html.theme-dark #mermaid #arrowhead path{fill:lightgrey;stroke:lightgrey;}html.theme-dark #mermaid .sequenceNumber{fill:black;}html.theme-dark #mermaid #sequencenumber{fill:lightgrey;}html.theme-dark #mermaid #crosshead path{fill:lightgrey;stroke:lightgrey;}html.theme-dark #mermaid .messageText{fill:lightgrey;stroke:none;}html.theme-dark #mermaid .labelBox{stroke:#81B1DB;fill:#1f2020;}html.theme-dark #mermaid .labelText,html.theme-dark #mermaid .labelText>tspan{fill:lightgrey;stroke:none;}html.theme-dark #mermaid .loopText,html.theme-dark #mermaid .loopText>tspan{fill:lightgrey;stroke:none;}html.theme-dark #mermaid .loopLine{stroke-width:2px;stroke-dasharray:2,2;stroke:#81B1DB;fill:#81B1DB;}html.theme-dark #mermaid .note{stroke:hsl(180, 0%, 18.3529411765%);fill:hsl(180, 1.5873015873%, 28.3529411765%);}html.theme-dark #mermaid .noteText,html.theme-dark #mermaid .noteText>tspan{fill:rgb(183.8476190475, 181.5523809523, 181.5523809523);stroke:none;}html.theme-dark #mermaid .activation0{fill:hsl(180, 1.5873015873%, 28.3529411765%);stroke:#81B1DB;}html.theme-dark #mermaid .activation1{fill:hsl(180, 1.5873015873%, 28.3529411765%);stroke:#81B1DB;}html.theme-dark #mermaid .activation2{fill:hsl(180, 1.5873015873%, 28.3529411765%);stroke:#81B1DB;}html.theme-dark #mermaid .actorPopupMenu{position:absolute;}html.theme-dark #mermaid .actorPopupMenuPanel{position:absolute;fill:#1f2020;box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);filter:drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));}html.theme-dark #mermaid .actor-man line{stroke:#81B1DB;fill:#1f2020;}html.theme-dark #mermaid .actor-man circle,html.theme-dark #mermaid line{stroke:#81B1DB;fill:#1f2020;stroke-width:2px;}html.theme-dark #mermaid :root{--mermaid-}
+/** Gantt */
+html.theme-dark #mermaid .exclude-range{fill:#444;}html.theme-dark #mermaid .section{stroke:none;opacity:0.2;}html.theme-dark #mermaid .section0{fill:hsl(52.9411764706, 28.813559322%, 58.431372549%);}html.theme-dark #mermaid .section2{fill:#EAE8D9;}html.theme-dark #mermaid .section1,html.theme-dark #mermaid .section3{fill:#333;opacity:0.2;}html.theme-dark #mermaid .sectionTitle0{fill:#F9FFFE;}html.theme-dark #mermaid .sectionTitle1{fill:#F9FFFE;}html.theme-dark #mermaid .sectionTitle2{fill:#F9FFFE;}html.theme-dark #mermaid .sectionTitle3{fill:#F9FFFE;}html.theme-dark #mermaid .sectionTitle{text-anchor:start;}html.theme-dark #mermaid .grid .tick{stroke:lightgrey;opacity:0.8;shape-rendering:crispEdges;}html.theme-dark #mermaid .grid .tick text{fill:#ccc;}html.theme-dark #mermaid .grid path{stroke-width:0;}html.theme-dark #mermaid .today{fill:none;stroke:#DB5757;stroke-width:2px;}html.theme-dark #mermaid .task{stroke-width:2;}html.theme-dark #mermaid .taskText{text-anchor:middle;}html.theme-dark #mermaid .taskTextOutsideRight{fill:hsl(28.5714285714, 17.3553719008%, 86.2745098039%);text-anchor:start;}html.theme-dark #mermaid .taskTextOutsideLeft{fill:hsl(28.5714285714, 17.3553719008%, 86.2745098039%);text-anchor:end;}html.theme-dark #mermaid .task.clickable{cursor:pointer;}html.theme-dark #mermaid .taskText.clickable{cursor:pointer;fill:#003163!important;font-weight:bold;}html.theme-dark #mermaid .taskTextOutsideLeft.clickable{cursor:pointer;fill:#003163!important;font-weight:bold;}html.theme-dark #mermaid .taskTextOutsideRight.clickable{cursor:pointer;fill:#003163!important;font-weight:bold;}html.theme-dark #mermaid .taskText0,html.theme-dark #mermaid .taskText1,html.theme-dark #mermaid .taskText2,html.theme-dark #mermaid .taskText3{fill:hsl(28.5714285714, 17.3553719008%, 86.2745098039%);}html.theme-dark #mermaid .task0,html.theme-dark #mermaid .task1,html.theme-dark #mermaid .task2,html.theme-dark #mermaid .task3{fill:hsl(180, 1.5873015873%, 35.3529411765%);stroke:#ffffff;}html.theme-dark #mermaid .taskTextOutside0,html.theme-dark #mermaid .taskTextOutside2{fill:lightgrey;}html.theme-dark #mermaid .taskTextOutside1,html.theme-dark #mermaid .taskTextOutside3{fill:lightgrey;}html.theme-dark #mermaid .active0,html.theme-dark #mermaid .active1,html.theme-dark #mermaid .active2,html.theme-dark #mermaid .active3{fill:#81B1DB;stroke:#ffffff;}html.theme-dark #mermaid .activeText0,html.theme-dark #mermaid .activeText1,html.theme-dark #mermaid .activeText2,html.theme-dark #mermaid .activeText3{fill:hsl(28.5714285714, 17.3553719008%, 86.2745098039%)!important;}html.theme-dark #mermaid .done0,html.theme-dark #mermaid .done1,html.theme-dark #mermaid .done2,html.theme-dark #mermaid .done3{stroke:grey;fill:lightgrey;stroke-width:2;}html.theme-dark #mermaid .doneText0,html.theme-dark #mermaid .doneText1,html.theme-dark #mermaid .doneText2,html.theme-dark #mermaid .doneText3{fill:hsl(28.5714285714, 17.3553719008%, 86.2745098039%)!important;}html.theme-dark #mermaid .crit0,html.theme-dark #mermaid .crit1,html.theme-dark #mermaid .crit2,html.theme-dark #mermaid .crit3{stroke:#E83737;fill:#E83737;stroke-width:2;}html.theme-dark #mermaid .activeCrit0,html.theme-dark #mermaid .activeCrit1,html.theme-dark #mermaid .activeCrit2,html.theme-dark #mermaid .activeCrit3{stroke:#E83737;fill:#81B1DB;stroke-width:2;}html.theme-dark #mermaid .doneCrit0,html.theme-dark #mermaid .doneCrit1,html.theme-dark #mermaid .doneCrit2,html.theme-dark #mermaid .doneCrit3{stroke:#E83737;fill:lightgrey;stroke-width:2;cursor:pointer;shape-rendering:crispEdges;}html.theme-dark #mermaid .milestone{transform:rotate(45deg) scale(0.8,0.8);}html.theme-dark #mermaid .milestoneText{font-style:italic;}html.theme-dark #mermaid .doneCritText0,html.theme-dark #mermaid .doneCritText1,html.theme-dark #mermaid .doneCritText2,html.theme-dark #mermaid .doneCritText3{fill:hsl(28.5714285714, 17.3553719008%, 86.2745098039%)!important;}html.theme-dark #mermaid .activeCritText0,html.theme-dark #mermaid .activeCritText1,html.theme-dark #mermaid .activeCritText2,html.theme-dark #mermaid .activeCritText3{fill:hsl(28.5714285714, 17.3553719008%, 86.2745098039%)!important;}html.theme-dark #mermaid .titleText{text-anchor:middle;fill:#ccc;}html.theme-dark #mermaid :root{--mermaid-}
+/** Class diagram */
+html.theme-dark #mermaid g.classGroup text{fill:#e0dfdf;stroke:none;}html.theme-dark #mermaid g.classGroup text .title{font-weight:bolder;}html.theme-dark #mermaid .nodeLabel,html.theme-dark #mermaid .edgeLabel{color:#e0dfdf;}html.theme-dark #mermaid .edgeLabel .label rect{fill:#1f2020;}html.theme-dark #mermaid .label text{fill:#e0dfdf;}html.theme-dark #mermaid .edgeLabel .label span{background:#1f2020;}html.theme-dark #mermaid .classTitle{font-weight:bolder;}html.theme-dark #mermaid .node rect,html.theme-dark #mermaid .node circle,html.theme-dark #mermaid .node ellipse,html.theme-dark #mermaid .node polygon,html.theme-dark #mermaid .node path{fill:#1f2020;stroke:#81B1DB;stroke-width:1px;}html.theme-dark #mermaid .divider{stroke:#81B1DB;stroke:1;}html.theme-dark #mermaid g.clickable{cursor:pointer;}html.theme-dark #mermaid g.classGroup rect{fill:#1f2020;stroke:#81B1DB;}html.theme-dark #mermaid g.classGroup line{stroke:#81B1DB;stroke-width:1;}html.theme-dark #mermaid .classLabel .box{stroke:none;stroke-width:0;fill:#1f2020;opacity:0.5;}html.theme-dark #mermaid .classLabel .label{fill:#81B1DB;}html.theme-dark #mermaid .relation{stroke:lightgrey;stroke-width:1;fill:none;}html.theme-dark #mermaid .dashed-line{stroke-dasharray:3;}html.theme-dark #mermaid #compositionStart,html.theme-dark #mermaid .composition{fill:lightgrey!important;stroke:lightgrey!important;stroke-width:1;}html.theme-dark #mermaid #compositionEnd,html.theme-dark #mermaid .composition{fill:lightgrey!important;stroke:lightgrey!important;stroke-width:1;}html.theme-dark #mermaid #dependencyStart,html.theme-dark #mermaid .dependency{fill:lightgrey!important;stroke:lightgrey!important;stroke-width:1;}html.theme-dark #mermaid #dependencyStart,html.theme-dark #mermaid .dependency{fill:lightgrey!important;stroke:lightgrey!important;stroke-width:1;}html.theme-dark #mermaid #extensionStart,html.theme-dark #mermaid .extension{fill:lightgrey!important;stroke:lightgrey!important;stroke-width:1;}html.theme-dark #mermaid #extensionEnd,html.theme-dark #mermaid .extension{fill:lightgrey!important;stroke:lightgrey!important;stroke-width:1;}html.theme-dark #mermaid #aggregationStart,html.theme-dark #mermaid .aggregation{fill:#1f2020!important;stroke:lightgrey!important;stroke-width:1;}html.theme-dark #mermaid #aggregationEnd,html.theme-dark #mermaid .aggregation{fill:#1f2020!important;stroke:lightgrey!important;stroke-width:1;}html.theme-dark #mermaid #lollipopStart,html.theme-dark #mermaid .lollipop{fill:#1f2020!important;stroke:lightgrey!important;stroke-width:1;}html.theme-dark #mermaid #lollipopEnd,html.theme-dark #mermaid .lollipop{fill:#1f2020!important;stroke:lightgrey!important;stroke-width:1;}html.theme-dark #mermaid .edgeTerminals{}html.theme-dark #mermaid :root{--mermaid-}
+/** Git graph */
+html.theme-dark #mermaid .commit-id,html.theme-dark #mermaid .commit-msg,html.theme-dark #mermaid .branch-label{fill:lightgrey;color:lightgrey;}html.theme-dark #mermaid .branch-label0{fill:undefined;}html.theme-dark #mermaid .commit0{stroke:hsl(180, 1.5873015873%, 48.3529411765%);fill:hsl(180, 1.5873015873%, 48.3529411765%);}html.theme-dark #mermaid .commit-highlight0{stroke:rgb(133.6571428571, 129.7428571428, 129.7428571428);fill:rgb(133.6571428571, 129.7428571428, 129.7428571428);}html.theme-dark #mermaid .label0{fill:hsl(180, 1.5873015873%, 48.3529411765%);}html.theme-dark #mermaid .arrow0{stroke:hsl(180, 1.5873015873%, 48.3529411765%);}html.theme-dark #mermaid .branch-label1{fill:undefined;}html.theme-dark #mermaid .commit1{stroke:hsl(321.6393442623, 65.5913978495%, 38.2352941176%);fill:hsl(321.6393442623, 65.5913978495%, 38.2352941176%);}html.theme-dark #mermaid .commit-highlight1{stroke:rgb(93.5483870969, 221.4516129033, 139.677419355);fill:rgb(93.5483870969, 221.4516129033, 139.677419355);}html.theme-dark #mermaid .label1{fill:hsl(321.6393442623, 65.5913978495%, 38.2352941176%);}html.theme-dark #mermaid .arrow1{stroke:hsl(321.6393442623, 65.5913978495%, 38.2352941176%);}html.theme-dark #mermaid .branch-label2{fill:undefined;}html.theme-dark #mermaid .commit2{stroke:hsl(194.4, 16.5562913907%, 49.6078431373%);fill:hsl(194.4, 16.5562913907%, 49.6078431373%);}html.theme-dark #mermaid .commit-highlight2{stroke:rgb(149.4437086091, 117.6092715231, 107.5562913906);fill:rgb(149.4437086091, 117.6092715231, 107.5562913906);}html.theme-dark #mermaid .label2{fill:hsl(194.4, 16.5562913907%, 49.6078431373%);}html.theme-dark #mermaid .arrow2{stroke:hsl(194.4, 16.5562913907%, 49.6078431373%);}html.theme-dark #mermaid .branch-label3{fill:undefined;}html.theme-dark #mermaid .commit3{stroke:hsl(23.0769230769, 49.0566037736%, 40.7843137255%);fill:hsl(23.0769230769, 49.0566037736%, 40.7843137255%);}html.theme-dark #mermaid .commit-highlight3{stroke:rgb(99.9811320754, 162.7735849057, 202.0188679245);fill:rgb(99.9811320754, 162.7735849057, 202.0188679245);}html.theme-dark #mermaid .label3{fill:hsl(23.0769230769, 49.0566037736%, 40.7843137255%);}html.theme-dark #mermaid .arrow3{stroke:hsl(23.0769230769, 49.0566037736%, 40.7843137255%);}html.theme-dark #mermaid .branch-label4{fill:undefined;}html.theme-dark #mermaid .commit4{stroke:hsl(0, 83.3333333333%, 43.5294117647%);fill:hsl(0, 83.3333333333%, 43.5294117647%);}html.theme-dark #mermaid .commit-highlight4{stroke:rgb(51.5000000001, 236.5, 236.5);fill:rgb(51.5000000001, 236.5, 236.5);}html.theme-dark #mermaid .label4{fill:hsl(0, 83.3333333333%, 43.5294117647%);}html.theme-dark #mermaid .arrow4{stroke:hsl(0, 83.3333333333%, 43.5294117647%);}html.theme-dark #mermaid .branch-label5{fill:undefined;}html.theme-dark #mermaid .commit5{stroke:hsl(289.1666666667, 100%, 24.1176470588%);fill:hsl(289.1666666667, 100%, 24.1176470588%);}html.theme-dark #mermaid .commit-highlight5{stroke:rgb(154.2083333334, 255, 132.0000000001);fill:rgb(154.2083333334, 255, 132.0000000001);}html.theme-dark #mermaid .label5{fill:hsl(289.1666666667, 100%, 24.1176470588%);}html.theme-dark #mermaid .arrow5{stroke:hsl(289.1666666667, 100%, 24.1176470588%);}html.theme-dark #mermaid .branch-label6{fill:undefined;}html.theme-dark #mermaid .commit6{stroke:hsl(35.1315789474, 98.7012987013%, 40.1960784314%);fill:hsl(35.1315789474, 98.7012987013%, 40.1960784314%);}html.theme-dark #mermaid .commit-highlight6{stroke:rgb(51.331168831, 135.1948051946, 253.6688311688);fill:rgb(51.331168831, 135.1948051946, 253.6688311688);}html.theme-dark #mermaid .label6{fill:hsl(35.1315789474, 98.7012987013%, 40.1960784314%);}html.theme-dark #mermaid .arrow6{stroke:hsl(35.1315789474, 98.7012987013%, 40.1960784314%);}html.theme-dark #mermaid .branch-label7{fill:undefined;}html.theme-dark #mermaid .commit7{stroke:hsl(106.1538461538, 84.4155844156%, 35.0980392157%);fill:hsl(106.1538461538, 84.4155844156%, 35.0980392157%);}html.theme-dark #mermaid .commit-highlight7{stroke:rgb(206.1818181817, 89.948051948, 241.051948052);fill:rgb(206.1818181817, 89.948051948, 241.051948052);}html.theme-dark #mermaid .label7{fill:hsl(106.1538461538, 84.4155844156%, 35.0980392157%);}html.theme-dark #mermaid .arrow7{stroke:hsl(106.1538461538, 84.4155844156%, 35.0980392157%);}html.theme-dark #mermaid .branch{stroke-width:1;stroke:lightgrey;stroke-dasharray:2;}html.theme-dark #mermaid .commit-label{fill:rgb(183.8476190475, 181.5523809523, 181.5523809523);}html.theme-dark #mermaid .commit-label-bkg{fill:hsl(180, 1.5873015873%, 28.3529411765%);opacity:0.5;}html.theme-dark #mermaid .tag-label{fill:#e0dfdf;}html.theme-dark #mermaid .tag-label-bkg{fill:#1f2020;stroke:#cccccc;}html.theme-dark #mermaid .tag-hole{fill:#ccc;}html.theme-dark #mermaid .commit-merge{stroke:#1f2020;fill:#1f2020;}html.theme-dark #mermaid .commit-reverse{stroke:#1f2020;fill:#1f2020;stroke-width:3;}html.theme-dark #mermaid .commit-highlight-inner{stroke:#1f2020;fill:#1f2020;}html.theme-dark #mermaid .arrow{stroke-width:8;stroke-linecap:round;fill:none;}:root{--mermaid-}
+/** Entity relationship */
+html.theme-dark #mermaid .entityBox{fill:#1f2020;stroke:#81B1DB;}html.theme-dark #mermaid .attributeBoxOdd{fill:hsl(0, 0%, 32%);stroke:#81B1DB;}html.theme-dark #mermaid .attributeBoxEven{fill:hsl(0, 0%, 22%);stroke:#81B1DB;}html.theme-dark #mermaid .relationshipLabelBox{fill:hsl(20, 1.5873015873%, 12.3529411765%);opacity:0.7;background-color:hsl(20, 1.5873015873%, 12.3529411765%);}html.theme-dark #mermaid .relationshipLabelBox rect{opacity:0.5;}html.theme-dark #mermaid .relationshipLine{stroke:lightgrey;}html.theme-dark #mermaid :root{--mermaid-}
+/** Journey */
+html.theme-dark #mermaid .label{color:#ccc;}html.theme-dark #mermaid .mouth{stroke:#666;}html.theme-dark #mermaid line{stroke:#ccc;}html.theme-dark #mermaid .legend{fill:#ccc;}html.theme-dark #mermaid .label text{fill:#333;}html.theme-dark #mermaid .label{color:#ccc;}html.theme-dark #mermaid .face{fill:#FFF8DC;stroke:#999;}html.theme-dark #mermaid .node rect,html.theme-dark #mermaid .node circle,html.theme-dark #mermaid .node ellipse,html.theme-dark #mermaid .node polygon,html.theme-dark #mermaid .node path{fill:#1f2020;stroke:#81B1DB;stroke-width:1px;}html.theme-dark #mermaid .node .label{text-align:center;}html.theme-dark #mermaid .node.clickable{cursor:pointer;}html.theme-dark #mermaid .arrowheadPath{fill:lightgrey;}html.theme-dark #mermaid .edgePath .path{stroke:lightgrey;stroke-width:1.5px;}html.theme-dark #mermaid .flowchart-link{stroke:lightgrey;fill:none;}html.theme-dark #mermaid .edgeLabel{background-color:hsl(0, 0%, 34.4117647059%);text-align:center;}html.theme-dark #mermaid .edgeLabel rect{opacity:0.5;}html.theme-dark #mermaid .cluster text{fill:#F9FFFE;}html.theme-dark #mermaid div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;background:hsl(20, 1.5873015873%, 12.3529411765%);border:1px solid rgba(255, 255, 255, 0.25);border-radius:2px;pointer-events:none;z-index:100;}html.theme-dark #mermaid .task-type-0,html.theme-dark #mermaid .section-type-0{fill:#1f2020;}html.theme-dark #mermaid .task-type-1,html.theme-dark #mermaid .section-type-1{fill:hsl(180, 1.5873015873%, 28.3529411765%);}html.theme-dark #mermaid .task-type-2,html.theme-dark #mermaid .section-type-2{fill:hsl(244, 1.5873015873%, 12.3529411765%);}html.theme-dark #mermaid .task-type-3,html.theme-dark #mermaid .section-type-3{fill:hsl(244, 1.5873015873%, 28.3529411765%);}html.theme-dark #mermaid .task-type-4,html.theme-dark #mermaid .section-type-4{fill:hsl(116, 1.5873015873%, 12.3529411765%);}html.theme-dark #mermaid .task-type-5,html.theme-dark #mermaid .section-type-5{fill:hsl(116, 1.5873015873%, 28.3529411765%);}html.theme-dark #mermaid .task-type-6,html.theme-dark #mermaid .section-type-6{fill:hsl(308, 1.5873015873%, 12.3529411765%);}html.theme-dark #mermaid .task-type-7,html.theme-dark #mermaid .section-type-7{fill:hsl(308, 1.5873015873%, 28.3529411765%);}html.theme-dark #mermaid :root{--mermaid-}
+/** State diagram */
+html.theme-dark #mermaid defs #statediagram-barbEnd{fill:lightgrey;stroke:lightgrey;}html.theme-dark #mermaid g.stateGroup text{fill:#81B1DB;stroke:none;}html.theme-dark #mermaid g.stateGroup text{fill:#ccc;stroke:none;}html.theme-dark #mermaid g.stateGroup .state-title{font-weight:bolder;fill:#e0dfdf;}html.theme-dark #mermaid g.stateGroup rect{fill:#1f2020;stroke:#81B1DB;}html.theme-dark #mermaid g.stateGroup line{stroke:lightgrey;stroke-width:1;}html.theme-dark #mermaid .transition{stroke:lightgrey;stroke-width:1;fill:none;}html.theme-dark #mermaid .stateGroup .composit{fill:#333;border-bottom:1px;}html.theme-dark #mermaid .stateGroup .alt-composit{fill:#e0e0e0;border-bottom:1px;}html.theme-dark #mermaid .state-note{stroke:hsl(180, 0%, 18.3529411765%);fill:hsl(180, 1.5873015873%, 28.3529411765%);}html.theme-dark #mermaid .state-note text{fill:rgb(183.8476190475, 181.5523809523, 181.5523809523);stroke:none;}html.theme-dark #mermaid .stateLabel .box{stroke:none;stroke-width:0;fill:#1f2020;opacity:0.5;}html.theme-dark #mermaid .edgeLabel .label rect{fill:#1f2020;opacity:0.5;}html.theme-dark #mermaid .edgeLabel .label text{fill:#ccc;}html.theme-dark #mermaid .label div .edgeLabel{color:#ccc;}html.theme-dark #mermaid .stateLabel text{fill:#e0dfdf;font-weight:bold;}html.theme-dark #mermaid .node circle.state-start{fill:#f4f4f4;stroke:#f4f4f4;}html.theme-dark #mermaid .node .fork-join{fill:#f4f4f4;stroke:#f4f4f4;}html.theme-dark #mermaid .node circle.state-end{fill:#cccccc;stroke:#333;stroke-width:1.5;}html.theme-dark #mermaid .end-state-inner{fill:#333;stroke-width:1.5;}html.theme-dark #mermaid .node rect{fill:#1f2020;stroke:#81B1DB;stroke-width:1px;}html.theme-dark #mermaid .node polygon{fill:#1f2020;stroke:#81B1DB;stroke-width:1px;}html.theme-dark #mermaid #statediagram-barbEnd{fill:lightgrey;}html.theme-dark #mermaid .statediagram-cluster rect{fill:#1f2020;stroke:#81B1DB;stroke-width:1px;}html.theme-dark #mermaid .cluster-label,html.theme-dark #mermaid .nodeLabel{color:#e0dfdf;}html.theme-dark #mermaid .statediagram-cluster rect.outer{rx:5px;ry:5px;}html.theme-dark #mermaid .statediagram-state .divider{stroke:#81B1DB;}html.theme-dark #mermaid .statediagram-state .title-state{rx:5px;ry:5px;}html.theme-dark #mermaid .statediagram-cluster.statediagram-cluster .inner{fill:#333;}html.theme-dark #mermaid .statediagram-cluster.statediagram-cluster-alt .inner{fill:#555;}html.theme-dark #mermaid .statediagram-cluster .inner{rx:0;ry:0;}html.theme-dark #mermaid .statediagram-state rect.basic{rx:5px;ry:5px;}html.theme-dark #mermaid .statediagram-state rect.divider{stroke-dasharray:10,10;fill:#555;}html.theme-dark #mermaid .note-edge{stroke-dasharray:5;}html.theme-dark #mermaid .statediagram-note rect{fill:hsl(180, 1.5873015873%, 28.3529411765%);stroke:hsl(180, 0%, 18.3529411765%);stroke-width:1px;rx:0;ry:0;}html.theme-dark #mermaid .statediagram-note rect{fill:hsl(180, 1.5873015873%, 28.3529411765%);stroke:hsl(180, 0%, 18.3529411765%);stroke-width:1px;rx:0;ry:0;}html.theme-dark #mermaid .statediagram-note text{fill:rgb(183.8476190475, 181.5523809523, 181.5523809523);}html.theme-dark #mermaid .statediagram-note .nodeLabel{color:rgb(183.8476190475, 181.5523809523, 181.5523809523);}html.theme-dark #mermaid .statediagram .edgeLabel{color:red;}html.theme-dark #mermaid #dependencyStart,html.theme-dark #mermaid #dependencyEnd{fill:lightgrey;stroke:lightgrey;stroke-width:1;}html.theme-dark #mermaid :root{--mermaid-}
+/** Pie chart */
+html.theme-dark #mermaid .pieCircle{filter: brightness(0.7);} html.theme-dark #mermaid[aria-roledescription=pie] .legend rect { filter: brightness(0.7); } html.theme-dark #mermaid .pieTitleText{text-anchor:middle;fill:hsl(28.5714285714, 17.3553719008%, 86.2745098039%);}html.theme-dark #mermaid .slice{fill:#222;}html.theme-dark #mermaid .legend text{fill:hsl(28.5714285714, 17.3553719008%, 86.2745098039%);}html.theme-dark #mermaid :root{--mermaid-}
+/** Requirements */
+html.theme-dark #mermaid marker{fill:lightgrey;stroke:lightgrey;}html.theme-dark #mermaid marker.cross{stroke:lightgrey;}html.theme-dark #mermaid svg{}html.theme-dark #mermaid .reqBox{fill:#1f2020;fill-opacity:100%;stroke:#cccccc;stroke-width:#cccccc;}html.theme-dark #mermaid .reqTitle,html.theme-dark #mermaid .reqLabel{fill:#e0dfdf;}html.theme-dark #mermaid .reqLabelBox{fill:hsl(180, 1.5873015873%, 28.3529411765%);fill-opacity:100%;}html.theme-dark #mermaid .req-title-line{stroke:#cccccc;stroke-width:#cccccc;}html.theme-dark #mermaid .relationshipLine{stroke:lightgrey;stroke-width:1;}html.theme-dark #mermaid .relationshipLabel{fill:lightgrey;}html.theme-dark #mermaid :root{--mermaid-}
+/** C4 system */
+html.theme-dark #mermaid .person{stroke:calculated;fill:calculated;} html.theme-dark #mermaid[aria-roledescription=c4] rect {stroke: #ddd;} html.theme-dark #mermaid[aria-roledescription=c4] text {fill:#eee;}
+/** Mind map */
+html.theme-dark #mermaid .section-root.mindmap-node { fill: #ccc; } html.theme-dark #mermaid .section-root.mindmap-node text { fill: black; }
+html.theme-dark #mermaid .mindmap-edges path, html.theme-dark #mermaid .mindmap-node { filter: hue-rotate(180deg) invert(0.9); }
+/** Timeline */
+html.theme-dark #mermaid .timeline text tspan { fill: #eee; } html.theme-dark #mermaid .timeline-node path { fill: #222; }
+
+        
+
+        .note {
+            background: rgba(77, 187, 95, .2);
+        }
+        
+
+        .prism {
+            page-break-inside: avoid;
+        }
+        
+        /* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apex+apl+applescript+aql+arduino+arff+armasm+arturo+asciidoc+aspnet+asm6502+asmatmel+autohotkey+autoit+avisynth+avro-idl+awk+bash+basic+batch+bbcode+bbj+bicep+birb+bison+bnf+bqn+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cfscript+chaiscript+cil+cilkc+cilkcpp+clojure+cmake+cobol+coffeescript+concurnas+csp+cooklang+coq+crystal+css-extras+csv+cue+cypher+d+dart+dataweave+dax+dhall+diff+django+dns-zone-file+docker+dot+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+false+firestore-security-rules+flow+fortran+ftl+gml+gap+gcode+gdscript+gedcom+gettext+gherkin+git+glsl+gn+linker-script+go+go-module+gradle+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+hoon+http+hpkp+hsts+ichigojam+icon+icu-message-format+idris+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jexl+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keepalived+keyman+kotlin+kumir+kusto+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+log+lolcode+lua+magma+makefile+markdown+markup-templating+mata+matlab+maxscript+mel+mermaid+metafont+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nevod+nginx+nim+nix+nsis+objectivec+ocaml+odin+opencl+openqasm+oz+parigp+parser+pascal+pascaligo+psl+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plant-uml+plsql+powerquery+powershell+processing+prolog+promql+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+qsharp+q+qml+qore+r+racket+cshtml+jsx+tsx+reason+regex+rego+renpy+rescript+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+squirrel+stan+stata+iecst+stylus+supercollider+swift+systemd+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+tremor+turtle+twig+typescript+typoscript+unrealscript+uorazor+uri+v+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+web-idl+wgsl+wiki+wolfram+wren+xeora+xml-doc+xojo+xquery+yaml+yang+zig&plugins=highlight-keywords */
+code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre-wrap;word-spacing:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{text-shadow:none;background:#b3d4fc}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:16px;margin:0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+
+        
+
+        .prompt {
+            flex-direction: row;
+            letter-spacing: .0015em;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        
+
+        .prompt-content {
+            padding: 15px;
+            overflow: hidden;
+            flex: 1 1 auto;
+        }
+        
+
+        .prompt-content-p p {
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+
+        .prompt-icon {
+            flex: 0 0 auto;
+            margin-left: 15px;
+            margin-top: 15px;
+            fill: currentcolor;
+            width: 24px;
+            height: 24px;
+        }
+        
+
+        :root {
+            width: 95%;
+            max-width: 95vw;
+            padding: 0 0 0 30px;
+        }
+        
+        body {
+            font-family: JetBrains Sans,serif;
+        }
+        
+        a {
+            overflow-wrap: anywhere;
+            width: 100vw;
+        }
+        
+        
+        @font-face {
+            font-family: JetBrains Sans;
+            src: url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Light.woff2) format("woff2"), url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Light.woff) format("woff");
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: JetBrains Sans;
+            src: url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Regular.woff2) format("woff2"), url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-Regular.woff) format("woff");
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: JetBrains Sans;
+            src: url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-SemiBold.woff2) format("woff2"), url(https://resources.jetbrains.com/storage/jetbrains-sans/JetBrainsSans-SemiBold.woff) format("woff");
+            font-weight: 600;
+            font-style: normal;
+        }
+        
+        
+        code {
+            display: inline;
+            word-break: break-word;
+            font-size: 15px;
+            line-height: inherit;
+            font-variant-ligatures: none;
+            font-family: JetBrains Sans,monospace;
+            white-space: pre-line;
+            overflow-wrap: break-word;
+        }
+        
+        figcaption {
+            margin-top: 5px;
+        }
+        
+        h2 {
+            padding-top: 16px;
+            padding-bottom: 8px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+        h3 {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+        h4 {
+            padding-top: 4px;
+            padding-bottom: 8px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        
+        p {
+            padding: 0;
+            border: 0;
+            line-height: 25px;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            padding-bottom: 8px;
+        }
+        
+        div {
+            display: block;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            page-break-inside: avoid;
+        }
+        
+        th, td {
+            border: 1px solid #c4c4c4;
+            padding: 10px;
+            text-align: left;
+            word-break: break-all;
+        }
+        
+        .no-bold {
+            font-weight: normal; 
+        }
+        
+        .entry {
+            display: grid;
+            grid-template-columns: auto max-content;
+            grid-template-areas: "chapter page";
+            align-items: end;
+            gap: 0 .25rem;
+            line-height: 25px;
+        }
+        
+        .toc-link-container{
+            grid-area: chapter;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .toc-link{
+            text-decoration: none;
+            color: black;
+        }
+        
+        .toc-link-container::after {
+            position: absolute;
+            padding-left: .25ch;
+            content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+            text-align: right;
+        }
+        
+        .page {
+            grid-area: page;
+            width: 30px;
+            text-align: right;
+        }
+        
+
+        .tab-content {
+            padding: 16px;
+        }
+        
+        .tab-content > *  {
+            border: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+
+        .tab-title  {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+
+        .tip {
+            background-color: rgba(25, 25, 28, .05);
+        }
+        
+
+        .topic {
+            page-break-before: always;
+        }
+        </style><title>pdfSourceLJ</title></head><body><div><section class="topic"><div><article class="article"><h1 class="main-title">Table of Contents</h1><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#-512279951">Learn JavaFX</a></div><div class="page">2</div></div><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#1299792486">Criando Estrutura de Projeto</a></div><div class="page">3</div></div><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#972941093">Criando com Maven + Intelijj</a></div><div class="page">7</div></div><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#644654419">Criando a primeira tela</a></div><div class="page">9</div></div><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#-1149576848">Conectando o arquivo FXML ao c&oacute;digo Java</a></div><div class="page">13</div></div><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#-1240391798">Criar primeiro Controller</a></div><div class="page">18</div></div><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#222612323">Primeiro Model</a></div><div class="page">23</div></div><div class="entry"><div class="toc-link-container"><a class="toc-link" href="#-436435685">Criando Classe para Connection MySQL</a></div><div class="page">29</div></div></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="-512279951">Learn JavaFX</h1><section class="detached"><h2 id="-512279951#introdu-o-ao-javafx" data-toc="introdu-o-ao-javafx#starter-topic.md-introdu-o-ao-javafx">Introdu&ccedil;&atilde;o ao JavaFX</h2><p id="-512279951#-czisc3_5">JavaFX &eacute; uma plataforma de desenvolvimento de aplica&ccedil;&otilde;es desktop e mobile da Oracle, que permite criar interfaces gr&aacute;ficas de usu&aacute;rio (GUIs) ricas e interativas. Ele &eacute; projetado para substituir a biblioteca Swing e fornecer uma alternativa mais moderna e eficiente para o desenvolvimento de aplica&ccedil;&otilde;es desktop.</p><p id="-512279951#-czisc3_6"><span class="control" id="-512279951#-czisc3_10">Mind Map: JavaFX</span></p><div class="detached mermaid" id="-512279951#-czisc3_7"></div><p id="-512279951#-czisc3_8">Este mind map apresenta uma vis&atilde;o geral das principais caracter&iacute;sticas e recursos do JavaFX, incluindo sua capacidade de criar interfaces gr&aacute;ficas de usu&aacute;rio ricas e interativas, suporte a multim&iacute;dia e conectividade, integra&ccedil;&atilde;o com bases de dados e servi&ccedil;os web, e suporte a dispositivos m&oacute;veis e desktop. Al&eacute;m disso, o JavaFX tem uma comunidade ativa e recursos, documenta&ccedil;&atilde;o e suporte a m&uacute;ltiplos sistemas operacionais e linguagens de programa&ccedil;&atilde;o.</p></section></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="1299792486">Criando Estrutura de Projeto</h1><section class="detached"><h2 id="1299792486#estrutura-de-projeto-javafx" data-toc="estrutura-de-projeto-javafx#Create-Strucure-Project.md-estrutura-de-projeto-javafx">Estrutura de Projeto JavaFX</h2><div class="detached code-block" id="1299792486#z3n3jqw_5"><pre><code class="language-none">+-- src
+|  +-- main
+|  |  +-- java
+|  |  |  +-- br
+|  |  |  |  +-- com
+|  |  |  |  |  +-- exemplo
+|  |  |  |  |  |  +-- Main.java
+|  |  |  |  |  |  +-- Controller.java
+|  |  |  |  |  |  +-- Model.java
+|  |  |  |  |  |  +-- View.java
+|  |  |  |  |  |  +-- ...
+|  |  +-- resources
+|  |  |  +-- css
+|  |  |  |  +-- estilo.css
+|  |  |  +-- images
+|  |  |  |  +-- imagem.png
+|  |  |  +-- fxml
+|  |  |  |  +-- tela.fxml
+|  +-- test
+|  |  +-- java
+|  |  |  +-- br
+|  |  |  |  +-- com
+|  |  |  |  |  +-- exemplo
+|  |  |  |  |  |  +-- Teste.java
+|  +-- module-info.java
++-- pom.xml (ou build.gradle)
++-- README.md</code></pre></div><section class="detached"><h3 id="1299792486#explica-o" data-toc="explica-o#Create-Strucure-Project.md-explica-o">Explica&ccedil;&atilde;o:</h3><ul class="list" id="1299792486#z3n3jqw_8" start="1"><li class="list-item" id="1299792486#z3n3jqw_11"><p id="1299792486#z3n3jqw_14"><span class="inline-code" id="1299792486#z3n3jqw_16">src</span>: diret&oacute;rio fonte do projeto</p><ul class="list" id="1299792486#z3n3jqw_15" start="1"><li class="list-item" id="1299792486#z3n3jqw_17"><p id="1299792486#z3n3jqw_20"><span class="inline-code" id="1299792486#z3n3jqw_22">main</span>: diret&oacute;rio principal do projeto</p><ul class="list" id="1299792486#z3n3jqw_21" start="1"><li class="list-item" id="1299792486#z3n3jqw_23"><p id="1299792486#z3n3jqw_25"><span class="inline-code" id="1299792486#z3n3jqw_27">java</span>: diret&oacute;rio de c&oacute;digo Java</p><ul class="list" id="1299792486#z3n3jqw_26" start="1"><li class="list-item" id="1299792486#z3n3jqw_28"><p id="1299792486#z3n3jqw_29"><span class="inline-code" id="1299792486#z3n3jqw_31">br/com/exemplo</span>: pacote do projeto</p><ul class="list" id="1299792486#z3n3jqw_30" start="1"><li class="list-item" id="1299792486#z3n3jqw_32"><p id="1299792486#z3n3jqw_36"><span class="inline-code" id="1299792486#z3n3jqw_37">Main.java</span>: classe principal do projeto</p></li><li class="list-item" id="1299792486#z3n3jqw_33"><p id="1299792486#z3n3jqw_38"><span class="inline-code" id="1299792486#z3n3jqw_39">Controller.java</span>: classe de controle do projeto</p></li><li class="list-item" id="1299792486#z3n3jqw_34"><p id="1299792486#z3n3jqw_40"><span class="inline-code" id="1299792486#z3n3jqw_41">Model.java</span>: classe de modelo do projeto</p></li><li class="list-item" id="1299792486#z3n3jqw_35"><p id="1299792486#z3n3jqw_42"><span class="inline-code" id="1299792486#z3n3jqw_43">View.java</span>: classe de visualiza&ccedil;&atilde;o do projeto</p></li></ul></li></ul></li><li class="list-item" id="1299792486#z3n3jqw_24"><p id="1299792486#z3n3jqw_44"><span class="inline-code" id="1299792486#z3n3jqw_46">resources</span>: diret&oacute;rio de recursos do projeto</p><ul class="list" id="1299792486#z3n3jqw_45" start="1"><li class="list-item" id="1299792486#z3n3jqw_47"><p id="1299792486#z3n3jqw_50"><span class="inline-code" id="1299792486#z3n3jqw_51">css</span>: diret&oacute;rio de folhas de estilo CSS</p></li><li class="list-item" id="1299792486#z3n3jqw_48"><p id="1299792486#z3n3jqw_52"><span class="inline-code" id="1299792486#z3n3jqw_53">images</span>: diret&oacute;rio de imagens</p></li><li class="list-item" id="1299792486#z3n3jqw_49"><p id="1299792486#z3n3jqw_54"><span class="inline-code" id="1299792486#z3n3jqw_55">fxml</span>: diret&oacute;rio de arquivos FXML</p></li></ul></li></ul></li><li class="list-item" id="1299792486#z3n3jqw_18"><p id="1299792486#z3n3jqw_56"><span class="inline-code" id="1299792486#z3n3jqw_58">test</span>: diret&oacute;rio de testes do projeto</p><ul class="list" id="1299792486#z3n3jqw_57" start="1"><li class="list-item" id="1299792486#z3n3jqw_59"><p id="1299792486#z3n3jqw_60"><span class="inline-code" id="1299792486#z3n3jqw_62">java</span>: diret&oacute;rio de c&oacute;digo Java de testes</p><ul class="list" id="1299792486#z3n3jqw_61" start="1"><li class="list-item" id="1299792486#z3n3jqw_63"><p id="1299792486#z3n3jqw_64"><span class="inline-code" id="1299792486#z3n3jqw_66">br/com/exemplo</span>: pacote de testes do projeto</p><ul class="list" id="1299792486#z3n3jqw_65" start="1"><li class="list-item" id="1299792486#z3n3jqw_67"><p id="1299792486#z3n3jqw_68"><span class="inline-code" id="1299792486#z3n3jqw_69">Teste.java</span>: classe de teste do projeto</p></li></ul></li></ul></li></ul></li><li class="list-item" id="1299792486#z3n3jqw_19"><p id="1299792486#z3n3jqw_70"><span class="inline-code" id="1299792486#z3n3jqw_71">module-info.java</span>: arquivo de informa&ccedil;&otilde;es do m&oacute;dulo do projeto</p></li></ul></li><li class="list-item" id="1299792486#z3n3jqw_12"><p id="1299792486#z3n3jqw_72"><span class="inline-code" id="1299792486#z3n3jqw_73">pom.xml</span> (ou <span class="inline-code" id="1299792486#z3n3jqw_74">build.gradle</span>): arquivo de configura&ccedil;&atilde;o do projeto Maven (ou Gradle)</p></li><li class="list-item" id="1299792486#z3n3jqw_13"><p id="1299792486#z3n3jqw_75"><span class="inline-code" id="1299792486#z3n3jqw_76">README.md</span>: arquivo de documenta&ccedil;&atilde;o do projeto</p></li></ul><p id="1299792486#z3n3jqw_9">Essa &eacute; a estrutura b&aacute;sica de um projeto JavaFX. O diret&oacute;rio <span class="inline-code" id="1299792486#z3n3jqw_77">src</span> cont&eacute;m o c&oacute;digo fonte do projeto, o diret&oacute;rio <span class="inline-code" id="1299792486#z3n3jqw_78">main</span> cont&eacute;m o c&oacute;digo principal do projeto, e o diret&oacute;rio <span class="inline-code" id="1299792486#z3n3jqw_79">test</span> cont&eacute;m os testes do projeto. O arquivo <span class="inline-code" id="1299792486#z3n3jqw_80">module-info.java</span> cont&eacute;m as informa&ccedil;&otilde;es do m&oacute;dulo do projeto, e o arquivo <span class="inline-code" id="1299792486#z3n3jqw_81">pom.xml</span> (ou <span class="inline-code" id="1299792486#z3n3jqw_82">build.gradle</span>) cont&eacute;m as configura&ccedil;&otilde;es do projeto Maven (ou Gradle).</p></section></section><section class="detached"><h2 id="1299792486#fxml" data-toc="fxml#Create-Strucure-Project.md-fxml">FXML</h2><p id="1299792486#z3n3jqw_83">FXML &eacute; uma linguagem de marca&ccedil;&atilde;o XML (Extensible Markup Language) utilizada para criar interfaces gr&aacute;ficas de usu&aacute;rio (GUIs) em aplica&ccedil;&otilde;es JavaFX. &Eacute; uma forma de descrever a estrutura e o layout de uma interface gr&aacute;fica de usu&aacute;rio de maneira declarativa, sem a necessidade de escrever c&oacute;digo Java.</p><p id="1299792486#z3n3jqw_84">Um arquivo FXML &eacute; um arquivo XML que cont&eacute;m elementos que representam componentes gr&aacute;ficos, como bot&otilde;es, labels, text fields, etc. Esses elementos s&atilde;o organizados em uma hierarquia, onde cada elemento pode conter outros elementos.</p><p id="1299792486#z3n3jqw_85">Aqui est&aacute; um exemplo simples de um arquivo FXML:</p><div class="detached code-block" id="1299792486#z3n3jqw_86"><pre><code class="language-none">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?import javafx.scene.layout.VBox?&gt;
+&lt;?import javafx.scene.control.Label?&gt;
+&lt;?import javafx.scene.control.Button?&gt;
+
+&lt;VBox xmlns=&quot;http://javafx.com/javafx&quot; xmlns:fx=&quot;http://javafx.com/fxml&quot;&gt;
+    &lt;Label text=&quot;Olá, mundo!&quot; /&gt;
+    &lt;Button text=&quot;Clique aqui&quot; onAction=&quot;#handleButtonClicked&quot; /&gt;
+&lt;/VBox&gt;</code></pre></div><p id="1299792486#z3n3jqw_87">Nesse exemplo, temos:</p><ul class="list" id="1299792486#z3n3jqw_88" start="1"><li class="list-item" id="1299792486#z3n3jqw_92"><p id="1299792486#z3n3jqw_97">Uma declara&ccedil;&atilde;o de namespace (<span class="inline-code" id="1299792486#z3n3jqw_98">xmlns</span>) que especifica a linguagem FXML e o namespace de JavaFX.</p></li><li class="list-item" id="1299792486#z3n3jqw_93"><p id="1299792486#z3n3jqw_99">Uma importa&ccedil;&atilde;o de componentes (<span class="inline-code" id="1299792486#z3n3jqw_100">&lt;?import ...?&gt;</span>) que permite usar componentes espec&iacute;ficos de JavaFX, como <span class="inline-code" id="1299792486#z3n3jqw_101">VBox</span>, <span class="inline-code" id="1299792486#z3n3jqw_102">Label</span> e <span class="inline-code" id="1299792486#z3n3jqw_103">Button</span>.</p></li><li class="list-item" id="1299792486#z3n3jqw_94"><p id="1299792486#z3n3jqw_104">Um elemento <span class="inline-code" id="1299792486#z3n3jqw_105">VBox</span> que &eacute; o cont&ecirc;iner principal da interface gr&aacute;fica.</p></li><li class="list-item" id="1299792486#z3n3jqw_95"><p id="1299792486#z3n3jqw_106">Um elemento <span class="inline-code" id="1299792486#z3n3jqw_107">Label</span> que exibe o texto &quot;Ol&aacute;, mundo!&quot;.</p></li><li class="list-item" id="1299792486#z3n3jqw_96"><p id="1299792486#z3n3jqw_108">Um elemento <span class="inline-code" id="1299792486#z3n3jqw_109">Button</span> que tem o texto &quot;Clique aqui&quot; e um evento <span class="inline-code" id="1299792486#z3n3jqw_110">onAction</span> que &eacute; disparado quando o bot&atilde;o &eacute; clicado.</p></li></ul><p id="1299792486#z3n3jqw_89">Quando o arquivo FXML &eacute; carregado em uma aplica&ccedil;&atilde;o JavaFX, o framework JavaFX cria os componentes gr&aacute;ficos correspondentes e os organiza de acordo com a hierarquia definida no arquivo FXML.</p><p id="1299792486#z3n3jqw_90">O FXML &eacute; uma forma poderosa de criar interfaces gr&aacute;ficas de usu&aacute;rio em JavaFX, pois permite:</p><ul class="list" id="1299792486#z3n3jqw_91" start="1"><li class="list-item" id="1299792486#z3n3jqw_111"><p id="1299792486#z3n3jqw_114">Descrever a estrutura e o layout da interface gr&aacute;fica de maneira declarativa.</p></li><li class="list-item" id="1299792486#z3n3jqw_112"><p id="1299792486#z3n3jqw_115">Separar a l&oacute;gica de apresenta&ccedil;&atilde;o da l&oacute;gica de neg&oacute;cios.</p></li><li class="list-item" id="1299792486#z3n3jqw_113"><p id="1299792486#z3n3jqw_116">Reutilizar componentes gr&aacute;ficos em diferentes partes da aplica&ccedil;&atilde;o.</p></li></ul></section></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="972941093">Criando com Maven + Intelijj</h1><p id="972941093#-mhy1gn_3">Criar um projeto com Maven no IntelliJ IDEA &eacute; um processo relativamente simples. Aqui est&aacute; um passo a passo para criar um projeto Maven no IntelliJ IDEA:</p><p id="972941093#-mhy1gn_4"><span class="control" id="972941093#-mhy1gn_19">Passo 1: Criar um novo projeto</span></p><ul class="list" id="972941093#-mhy1gn_5" start="1"><li class="list-item" id="972941093#-mhy1gn_20"><p id="972941093#-mhy1gn_22">Abra o IntelliJ IDEA e clique em &quot;Create New Project&quot; (ou pressione <span class="inline-code" id="972941093#-mhy1gn_23">Ctrl + Shift + Alt + S</span> no Windows/Linux ou <span class="inline-code" id="972941093#-mhy1gn_24">Cmd + Shift + Alt + S</span> no Mac).</p></li><li class="list-item" id="972941093#-mhy1gn_21"><p id="972941093#-mhy1gn_25">Selecione &quot;Maven&quot; como tipo de projeto e clique em &quot;Next&quot;.</p></li></ul><p id="972941093#-mhy1gn_6"><span class="control" id="972941093#-mhy1gn_26">Passo 2: Selecionar o modelo de projeto</span></p><ul class="list" id="972941093#-mhy1gn_7" start="1"><li class="list-item" id="972941093#-mhy1gn_27"><p id="972941093#-mhy1gn_29">Selecione o modelo de projeto Maven que deseja usar (por exemplo, &quot;maven-archetype-quickstart&quot; para um projeto Java simples).</p></li><li class="list-item" id="972941093#-mhy1gn_28"><p id="972941093#-mhy1gn_30">Clique em &quot;Next&quot;.</p></li></ul><p id="972941093#-mhy1gn_8"><span class="control" id="972941093#-mhy1gn_31">Passo 3: Configurar o projeto</span></p><ul class="list" id="972941093#-mhy1gn_9" start="1"><li class="list-item" id="972941093#-mhy1gn_32"><p id="972941093#-mhy1gn_35">Insira o grupo, artefato e vers&atilde;o do projeto.</p></li><li class="list-item" id="972941093#-mhy1gn_33"><p id="972941093#-mhy1gn_36">Selecione a linguagem de programa&ccedil;&atilde;o (por exemplo, Java).</p></li><li class="list-item" id="972941093#-mhy1gn_34"><p id="972941093#-mhy1gn_37">Clique em &quot;Next&quot;.</p></li></ul><p id="972941093#-mhy1gn_10"><span class="control" id="972941093#-mhy1gn_38">Passo 4: Selecionar o local do projeto</span></p><ul class="list" id="972941093#-mhy1gn_11" start="1"><li class="list-item" id="972941093#-mhy1gn_39"><p id="972941093#-mhy1gn_41">Selecione o local onde deseja salvar o projeto.</p></li><li class="list-item" id="972941093#-mhy1gn_40"><p id="972941093#-mhy1gn_42">Clique em &quot;Finish&quot;.</p></li></ul><p id="972941093#-mhy1gn_12"><span class="control" id="972941093#-mhy1gn_43">Passo 5: Criar o projeto</span></p><ul class="list" id="972941093#-mhy1gn_13" start="1"><li class="list-item" id="972941093#-mhy1gn_44"><p id="972941093#-mhy1gn_46">O IntelliJ IDEA criar&aacute; o projeto Maven com base nas configura&ccedil;&otilde;es que voc&ecirc; forneceu.</p></li><li class="list-item" id="972941093#-mhy1gn_45"><p id="972941093#-mhy1gn_47">Voc&ecirc; ver&aacute; a estrutura de diret&oacute;rios do projeto Maven criada no seu projeto.</p></li></ul><p id="972941093#-mhy1gn_14"><span class="control" id="972941093#-mhy1gn_48">Passo 6: Adicionar depend&ecirc;ncias</span></p><ul class="list" id="972941093#-mhy1gn_15" start="1"><li class="list-item" id="972941093#-mhy1gn_49"><p id="972941093#-mhy1gn_51">Abra o arquivo <span class="inline-code" id="972941093#-mhy1gn_52">pom.xml</span> e adicione as depend&ecirc;ncias necess&aacute;rias para o seu projeto.</p></li><li class="list-item" id="972941093#-mhy1gn_50"><p id="972941093#-mhy1gn_53">Voc&ecirc; pode usar a interface gr&aacute;fica do IntelliJ IDEA para adicionar depend&ecirc;ncias ou editar o arquivo <span class="inline-code" id="972941093#-mhy1gn_54">pom.xml</span> manualmente.</p></li></ul><p id="972941093#-mhy1gn_16"><span class="control" id="972941093#-mhy1gn_55">Passo 7: Compilar e executar o projeto</span></p><ul class="list" id="972941093#-mhy1gn_17" start="1"><li class="list-item" id="972941093#-mhy1gn_56"><p id="972941093#-mhy1gn_58">Clique em &quot;Build&quot; (ou pressione <span class="inline-code" id="972941093#-mhy1gn_59">Ctrl + F9</span> no Windows/Linux ou <span class="inline-code" id="972941093#-mhy1gn_60">Cmd + F9</span> no Mac) para compilar o projeto.</p></li><li class="list-item" id="972941093#-mhy1gn_57"><p id="972941093#-mhy1gn_61">Clique em &quot;Run&quot; (ou pressione <span class="inline-code" id="972941093#-mhy1gn_62">Shift + F10</span> no Windows/Linux ou <span class="inline-code" id="972941093#-mhy1gn_63">Shift + Cmd + R</span> no Mac) para executar o projeto.</p></li></ul><p id="972941093#-mhy1gn_18">Pronto! Voc&ecirc; criou um projeto Maven no IntelliJ IDEA.</p></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="644654419">Criando a primeira tela</h1><p id="644654419#-b0uted_3">Para criar telas, o comum &eacute; usarmos o Scene Builder, que &eacute; um programa para manipular FXML</p><section class="detached"><h2 id="644654419#tutorial-de-download" data-toc="tutorial-de-download#Criando-a-Primeira-tela.md-tutorial-de-download">Tutorial de download:</h2><div id="644654419#-b0uted_6"><div class="detached" id="644654419#windows-install"><div class="tab-title"><div>Windows</div></div><div class="bordered-element tab-content"><ol class="list list-decimal" id="644654419#-b0uted_11" type="1" start="1"><li class="list-item" id="644654419#-b0uted_12"><p>Abra um navegador web e v&aacute; para o site da GluonHQ: https://gluonhq.com/products/scene-builder/ (<a href="https://gluonhq.com/products/scene-builder/">https://gluonhq.com/products/scene-builder/</a>)</p></li><li class="list-item" id="644654419#-b0uted_13"><p>Clique no bot&atilde;o &quot;Download&quot; no topo da p&aacute;gina.</p></li><li class="list-item" id="644654419#-b0uted_14"><p>Selecione a op&ccedil;&atilde;o &quot;Windows&quot; no menu dropdown.</p></li><li class="list-item" id="644654419#-b0uted_15"><p>Selecione a vers&atilde;o do Scene Builder que voc&ecirc; deseja baixar (por exemplo, &quot;Scene Builder 11.0.0&quot;).</p></li><li class="list-item" id="644654419#-b0uted_16"><p>Clique no bot&atilde;o &quot;Download&quot; para baixar o arquivo <span class="inline-code" id="644654419#-b0uted_20">.exe</span>.</p></li><li class="list-item" id="644654419#-b0uted_17"><p>Execute o arquivo baixado e siga as instru&ccedil;&otilde;es para instalar o Scene Builder.</p></li><li class="list-item" id="644654419#-b0uted_18"><p>Uma vez instalado, voc&ecirc; pode encontrar o Scene Builder no menu de aplicativos do seu sistema.</p></li></ol></div></div><div class="detached" id="644654419#linux-install"><div class="tab-title"><div>Linux</div></div><div class="bordered-element tab-content"><ol class="list list-decimal" id="644654419#-b0uted_21" type="1" start="1"><li class="list-item" id="644654419#-b0uted_22"><p>Abra um navegador web e v&aacute; para o site da GluonHQ: https://gluonhq.com/products/scene-builder/ (<a href="https://gluonhq.com/products/scene-builder/">https://gluonhq.com/products/scene-builder/</a>)</p></li><li class="list-item" id="644654419#-b0uted_23"><p>Clique no bot&atilde;o &quot;Download&quot; no topo da p&aacute;gina.</p></li><li class="list-item" id="644654419#-b0uted_24"><p>Selecione a op&ccedil;&atilde;o &quot;Linux&quot; no menu dropdown.</p></li><li class="list-item" id="644654419#-b0uted_25"><p>Selecione a vers&atilde;o do Scene Builder que voc&ecirc; deseja baixar (por exemplo, &quot;Scene Builder 11.0.0&quot;).</p></li><li class="list-item" id="644654419#-b0uted_26"><p>Clique no bot&atilde;o &quot;Download&quot; para baixar o arquivo <span class="inline-code" id="644654419#-b0uted_30">.deb</span> (para sistemas baseados em Debian) ou <span class="inline-code" id="644654419#-b0uted_31">.rpm</span> (para sistemas baseados em RPM).</p></li><li class="list-item" id="644654419#-b0uted_27"><p>Abra o arquivo baixado com um gerenciador de pacotes (como o <span class="inline-code" id="644654419#-b0uted_32">dpkg</span> ou <span class="inline-code" id="644654419#-b0uted_33">rpm</span>) e siga as instru&ccedil;&otilde;es para instalar o Scene Builder.</p></li><li class="list-item" id="644654419#-b0uted_28"><p>Uma vez instalado, voc&ecirc; pode encontrar o Scene Builder no menu de aplicativos do seu sistema.</p></li></ol></div></div></div><blockquote class="prompt flex bordered-element-rounded note detached">
+  <svg xmlns="http://www.w3.org/2000/svg" class="prompt-icon">
+    <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9zM10.5 7.5A1.5 1.5 0 1 0 12 6a1.5 1.5 0 0 0-1.5 1.5zm-.5 3.54v1h1V18h2v-6a.96.96 0 0 0-.96-.96z"></path>
+  </svg>
+  <div class="prompt-content prompt-content-p"><p id="644654419#-b0uted_34"><span class="control" id="644654419#-b0uted_36">Observa&ccedil;&otilde;es</span></p><ul class="list" id="644654419#-b0uted_35" start="1"><li class="list-item" id="644654419#-b0uted_37"><p id="644654419#-b0uted_40">Certifique-se de que voc&ecirc; tenha o Java 8 ou superior instalado no seu sistema para executar o Scene Builder.</p></li><li class="list-item" id="644654419#-b0uted_38"><p id="644654419#-b0uted_41">Se voc&ecirc; estiver usando um sistema de 64 bits, certifique-se de baixar a vers&atilde;o de 64 bits do Scene Builder.</p></li><li class="list-item" id="644654419#-b0uted_39"><p id="644654419#-b0uted_42">Se voc&ecirc; estiver usando um sistema de 32 bits, certifique-se de baixar a vers&atilde;o de 32 bits do Scene Builder.</p></li></ul></div>
+</blockquote>
+<blockquote class="prompt flex bordered-element-rounded tip detached">
+  <svg xmlns="http://www.w3.org/2000/svg" class="prompt-icon">
+    <path d="M12.946 3.552L21.52 18.4c.424.735.33 1.6-.519 1.6H3.855c-.85 0-1.817-.865-1.392-1.6l8.573-14.848a1.103 1.103 0 0 1 1.91 0zm.545 12.948a1.5 1.5 0 1 0-1.5 1.5 1.5 1.5 0 0 0 1.5-1.5zM13 8h-2v5h2z"></path>
+  </svg>
+  <div class="prompt-content prompt-content-p"><p id="644654419#-b0uted_43"><span class="control" id="644654419#-b0uted_54">Instala&ccedil;&atilde;o via linha de comando (Linux)</span></p><p id="644654419#-b0uted_44">Se voc&ecirc; preferir instalar o Scene Builder via linha de comando, voc&ecirc; pode usar os seguintes comandos:</p><ul class="list" id="644654419#-b0uted_45" start="1"><li class="list-item" id="644654419#-b0uted_55"><p id="644654419#-b0uted_56">Para sistemas baseados em Debian:</p></li></ul><div class="detached code-block" id="644654419#-b0uted_46"><pre><code class="language-none">sudo dpkg -i scene-builder-11.0.0.deb</code></pre></div><ul class="list" id="644654419#-b0uted_47" start="1"><li class="list-item" id="644654419#-b0uted_57"><p id="644654419#-b0uted_58">Para sistemas baseados em RPM:</p></li></ul><div class="detached code-block" id="644654419#-b0uted_48"><pre><code class="language-none">sudo rpm -i scene-builder-11.0.0.rpm</code></pre></div><p id="644654419#-b0uted_49">Substitua <span class="inline-code" id="644654419#-b0uted_59">scene-builder-11.0.0.deb</span> ou <span class="inline-code" id="644654419#-b0uted_60">scene-builder-11.0.0.rpm</span> pelo nome do arquivo que voc&ecirc; baixou.</p><p id="644654419#-b0uted_50"><span class="control" id="644654419#-b0uted_61">Instala&ccedil;&atilde;o via linha de comando (Windows)</span></p><p id="644654419#-b0uted_51">Se voc&ecirc; preferir instalar o Scene Builder via linha de comando, voc&ecirc; pode usar o seguinte comando:</p><div class="detached code-block" id="644654419#-b0uted_52"><pre><code class="language-none">msiexec /i scene-builder-11.0.0.msi</code></pre></div><p id="644654419#-b0uted_53">Substitua <span class="inline-code" id="644654419#-b0uted_62">scene-builder-11.0.0.msi</span> pelo nome do arquivo que voc&ecirc; baixou.</p></div>
+</blockquote>
+</section><section class="detached"><h2 id="644654419#criando-o-fxml" data-toc="criando-o-fxml#Criando-a-Primeira-tela.md-criando-o-fxml">Criando o FXML</h2><p id="644654419#-b0uted_63">Vamos usar o arquivo <span class="inline-code" id="644654419#-b0uted_72">student.fxml</span> como exemplo para entender como funciona o JavaFX.</p><p id="644654419#-b0uted_64"><span class="control" id="644654419#-b0uted_73">Analisando o arquivo <span class="inline-code" id="644654419#-b0uted_74">student.fxml</span></span></p><p id="644654419#-b0uted_65">O arquivo <span class="inline-code" id="644654419#-b0uted_75">student.fxml</span> &eacute; um arquivo XML que define a interface gr&aacute;fica da nossa aplica&ccedil;&atilde;o. Aqui est&aacute; o conte&uacute;do do arquivo:</p><div class="detached code-block" id="644654419#-b0uted_66"><pre><code class="language-none">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?import javafx.geometry.Insets?&gt;
+&lt;?import javafx.scene.control.Button?&gt;
+&lt;?import javafx.scene.control.Label?&gt;
+&lt;?import javafx.scene.control.RadioButton?&gt;
+&lt;?import javafx.scene.control.Separator?&gt;
+&lt;?import javafx.scene.control.TableColumn?&gt;
+&lt;?import javafx.scene.control.TableView?&gt;
+&lt;?import javafx.scene.control.TextField?&gt;
+&lt;?import javafx.scene.layout.AnchorPane?&gt;
+&lt;?import javafx.scene.layout.ColumnConstraints?&gt;
+&lt;?import javafx.scene.layout.GridPane?&gt;
+&lt;?import javafx.scene.layout.RowConstraints?&gt;
+&lt;?import javafx.scene.text.Font?&gt;
+
+&lt;AnchorPane maxHeight=&quot;-Infinity&quot; maxWidth=&quot;-Infinity&quot; minHeight=&quot;-Infinity&quot; minWidth=&quot;-Infinity&quot; prefHeight=&quot;727.0&quot; prefWidth=&quot;1176.0&quot; xmlns=&quot;http://javafx.com/javafx/22&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot;&gt;
+    &lt;!-- Conteúdo do arquivo --&gt;
+&lt;/AnchorPane&gt;</code></pre></div><p id="644654419#-b0uted_67">Vamos analisar os elementos do arquivo:</p><ul class="list" id="644654419#-b0uted_68" start="1"><li class="list-item" id="644654419#-b0uted_76"><p id="644654419#-b0uted_78"><span class="inline-code" id="644654419#-b0uted_79">AnchorPane</span>: &eacute; o cont&ecirc;iner principal da interface gr&aacute;fica. Ele &eacute; um cont&ecirc;iner que pode conter outros elementos e &eacute; usado para definir a estrutura da interface.</p></li><li class="list-item" id="644654419#-b0uted_77"><p id="644654419#-b0uted_80"><span class="inline-code" id="644654419#-b0uted_81">Label</span>, <span class="inline-code" id="644654419#-b0uted_82">Button</span>, <span class="inline-code" id="644654419#-b0uted_83">RadioButton</span>, <span class="inline-code" id="644654419#-b0uted_84">Separator</span>, <span class="inline-code" id="644654419#-b0uted_85">TableColumn</span>, <span class="inline-code" id="644654419#-b0uted_86">TableView</span>, <span class="inline-code" id="644654419#-b0uted_87">TextField</span>, <span class="inline-code" id="644654419#-b0uted_88">GridPane</span>, <span class="inline-code" id="644654419#-b0uted_89">ColumnConstraints</span>, <span class="inline-code" id="644654419#-b0uted_90">RowConstraints</span>, <span class="inline-code" id="644654419#-b0uted_91">Font</span>: s&atilde;o elementos que s&atilde;o usados para criar a interface gr&aacute;fica da nossa aplica&ccedil;&atilde;o.</p></li></ul><p id="644654419#-b0uted_69"><span class="control" id="644654419#-b0uted_92">Entendendo os atributos</span></p><p id="644654419#-b0uted_70">Agora que analisamos os elementos, vamos entender os atributos que s&atilde;o usados no arquivo:</p><ul class="list" id="644654419#-b0uted_71" start="1"><li class="list-item" id="644654419#-b0uted_93"><p id="644654419#-b0uted_95"><span class="inline-code" id="644654419#-b0uted_96">maxHeight</span>, <span class="inline-code" id="644654419#-b0uted_97">maxWidth</span>, <span class="inline-code" id="644654419#-b0uted_98">minHeight</span>, <span class="inline-code" id="644654419#-b0uted_99">minWidth</span>, <span class="inline-code" id="644654419#-b0uted_100">prefHeight</span>, <span class="inline-code" id="644654419#-b0uted_101">prefWidth</span>: s&atilde;o atributos que s&atilde;o usados para definir o tamanho do cont&ecirc;iner <span class="inline-code" id="644654419#-b0uted_102">AnchorPane</span>.</p></li><li class="list-item" id="644654419#-b0uted_94"><p id="644654419#-b0uted_103"><span class="inline-code" id="644654419#-b0uted_104">xmlns</span> e <span class="inline-code" id="644654419#-b0uted_105">xmlns:fx</span>: s&atilde;o atributos que s&atilde;o usados para definir o namespace do arquivo FXML.</p></li></ul></section></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="-1149576848">Conectando o arquivo FXML ao c&oacute;digo Java</h1><p id="-1149576848#z1qerdo_3">O arquivo <span class="inline-code" id="-1149576848#z1qerdo_17">Main.java</span> &eacute; o ponto de entrada da nossa aplica&ccedil;&atilde;o JavaFX. Ele &eacute; respons&aacute;vel por carregar a interface gr&aacute;fica e conectar o arquivo FXML ao c&oacute;digo Java.</p><p id="-1149576848#z1qerdo_4"><span class="control" id="-1149576848#z1qerdo_18">Importando as bibliotecas necess&aacute;rias</span></p><p id="-1149576848#z1qerdo_5">O c&oacute;digo come&ccedil;a importando as bibliotecas necess&aacute;rias para trabalhar com JavaFX:</p><div class="detached code-block" id="-1149576848#z1qerdo_6"><pre><code class="language-java">import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;</code></pre></div><p id="-1149576848#z1qerdo_7">Essas bibliotecas s&atilde;o respons&aacute;veis por:</p><ul class="list" id="-1149576848#z1qerdo_8" start="1"><li class="list-item" id="-1149576848#z1qerdo_19"><p id="-1149576848#z1qerdo_24"><span class="inline-code" id="-1149576848#z1qerdo_25">Application</span>: &eacute; a classe base para todas as aplica&ccedil;&otilde;es JavaFX.</p></li><li class="list-item" id="-1149576848#z1qerdo_20"><p id="-1149576848#z1qerdo_26"><span class="inline-code" id="-1149576848#z1qerdo_27">FXMLLoader</span>: &eacute; a classe respons&aacute;vel por carregar os arquivos FXML.</p></li><li class="list-item" id="-1149576848#z1qerdo_21"><p id="-1149576848#z1qerdo_28"><span class="inline-code" id="-1149576848#z1qerdo_29">Parent</span>: &eacute; a classe base para todos os elementos da interface gr&aacute;fica.</p></li><li class="list-item" id="-1149576848#z1qerdo_22"><p id="-1149576848#z1qerdo_30"><span class="inline-code" id="-1149576848#z1qerdo_31">Scene</span>: &eacute; a classe respons&aacute;vel por definir a cena da interface gr&aacute;fica.</p></li><li class="list-item" id="-1149576848#z1qerdo_23"><p id="-1149576848#z1qerdo_32"><span class="inline-code" id="-1149576848#z1qerdo_33">Stage</span>: &eacute; a classe respons&aacute;vel por definir a janela da interface gr&aacute;fica.</p></li></ul><section class="detached"><h2 id="-1149576848#definindo-a-classe-main" data-toc="definindo-a-classe-main#Connect-FXML-with-Java.md-definindo-a-classe-main">Definindo a classe Main</h2><p id="-1149576848#z1qerdo_35">A classe <span class="inline-code" id="-1149576848#z1qerdo_39">Main</span> &eacute; definida como uma subclasse de <span class="inline-code" id="-1149576848#z1qerdo_40">Application</span>:</p><div class="detached code-block" id="-1149576848#z1qerdo_36"><pre><code class="language-java">public class Main extends Application {</code></pre></div><p id="-1149576848#z1qerdo_37">Isso significa que a classe <span class="inline-code" id="-1149576848#z1qerdo_41">Main</span> herda todos os m&eacute;todos e propriedades da classe <span class="inline-code" id="-1149576848#z1qerdo_42">Application</span>.</p></section><section class="detached"><h2 id="-1149576848#definindo-o-m-todo-start" data-toc="definindo-o-m-todo-start#Connect-FXML-with-Java.md-definindo-o-m-todo-start">Definindo o m&eacute;todo start</h2><p id="-1149576848#z1qerdo_44">O m&eacute;todo <span class="inline-code" id="-1149576848#z1qerdo_48">start</span> &eacute; chamado quando a aplica&ccedil;&atilde;o &eacute; iniciada:</p><div class="detached code-block" id="-1149576848#z1qerdo_45"><pre><code class="language-java">@Override
+public void start(Stage stage) throws Exception {</code></pre></div><p id="-1149576848#z1qerdo_46">Esse m&eacute;todo &eacute; respons&aacute;vel por carregar a interface gr&aacute;fica e conectar o arquivo FXML ao c&oacute;digo Java.</p></section><section class="detached"><h2 id="-1149576848#carregando-o-arquivo-fxml" data-toc="carregando-o-arquivo-fxml#Connect-FXML-with-Java.md-carregando-o-arquivo-fxml">Carregando o arquivo FXML</h2><p id="-1149576848#z1qerdo_50">O arquivo FXML &eacute; carregado usando o <span class="inline-code" id="-1149576848#z1qerdo_54">FXMLLoader</span>:</p><div class="detached code-block" id="-1149576848#z1qerdo_51"><pre><code class="language-java">Parent screen = FXMLLoader.load(getClass().getResource(&quot;screens/student.fxml&quot;));</code></pre></div><p id="-1149576848#z1qerdo_52">O <span class="inline-code" id="-1149576848#z1qerdo_55">FXMLLoader</span> carrega o arquivo FXML e retorna um objeto <span class="inline-code" id="-1149576848#z1qerdo_56">Parent</span> que representa a interface gr&aacute;fica.</p></section><section class="detached"><h2 id="-1149576848#definindo-a-cena" data-toc="definindo-a-cena#Connect-FXML-with-Java.md-definindo-a-cena">Definindo a cena</h2><p id="-1149576848#z1qerdo_58">A cena &eacute; definida usando o objeto <span class="inline-code" id="-1149576848#z1qerdo_62">Parent</span> carregado anteriormente:</p><div class="detached code-block" id="-1149576848#z1qerdo_59"><pre><code class="language-java">Scene scene = new Scene(screen);</code></pre></div><p id="-1149576848#z1qerdo_60">A cena &eacute; respons&aacute;vel por definir a estrutura da interface gr&aacute;fica.</p></section><section class="detached"><h2 id="-1149576848#definindo-a-janela" data-toc="definindo-a-janela#Connect-FXML-with-Java.md-definindo-a-janela">Definindo a janela</h2><p id="-1149576848#z1qerdo_64">A janela &eacute; definida usando o objeto <span class="inline-code" id="-1149576848#z1qerdo_68">Stage</span> passado como par&acirc;metro para o m&eacute;todo <span class="inline-code" id="-1149576848#z1qerdo_69">start</span>:</p><div class="detached code-block" id="-1149576848#z1qerdo_65"><pre><code class="language-java">window.setScene(scene);
+window.
+
+show();
+window.
+
+setTitle(&quot;Prime Bank&quot;);</code></pre></div><p id="-1149576848#z1qerdo_66">A janela &eacute; respons&aacute;vel por exibir a interface gr&aacute;fica.</p></section><section class="detached"><h2 id="-1149576848#conectando-o-arquivo-fxml-ao-c-digo-java" data-toc="conectando-o-arquivo-fxml-ao-c-digo-java#Connect-FXML-with-Java.md-conectando-o-arquivo-fxml-ao-c-digo-java">Conectando o arquivo FXML ao c&oacute;digo Java</h2><p id="-1149576848#z1qerdo_71">O arquivo FXML &eacute; conectado ao c&oacute;digo Java usando o <span class="inline-code" id="-1149576848#z1qerdo_73">FXMLLoader</span>. O <span class="inline-code" id="-1149576848#z1qerdo_74">FXMLLoader</span> carrega o arquivo FXML e retorna um objeto <span class="inline-code" id="-1149576848#z1qerdo_75">Parent</span> que representa a interface gr&aacute;fica. Esse objeto &eacute; ent&atilde;o usado para definir a cena e a janela da interface gr&aacute;fica.</p></section><section class="detached"><h2 id="-1149576848#m-todo-initialize" data-toc="m-todo-initialize#Connect-FXML-with-Java.md-m-todo-initialize">M&eacute;todo initialize</h2><p id="-1149576848#z1qerdo_77">O m&eacute;todo <span class="inline-code" id="-1149576848#z1qerdo_82">initialize</span> &eacute; chamado quando a interface gr&aacute;fica &eacute; carregada. Ele &eacute; usado para inicializar os elementos da interface e definir os eventos que s&atilde;o disparados quando os elementos s&atilde;o clicados.</p><p id="-1149576848#z1qerdo_78">No nosso caso, o m&eacute;todo <span class="inline-code" id="-1149576848#z1qerdo_83">initialize</span> &eacute; definido no arquivo <span class="inline-code" id="-1149576848#z1qerdo_84">StudentController.java</span>:</p><div class="detached code-block" id="-1149576848#z1qerdo_79"><pre><code class="language-java">public class StudentController {
+    // ...
+    @FXML
+    public void initialize() {
+        // Inicializar os elementos da interface
+        // Definir os eventos que são disparados quando os elementos são clicados
+    }
+}</code></pre></div><p id="-1149576848#z1qerdo_80">O m&eacute;todo <span class="inline-code" id="-1149576848#z1qerdo_85">initialize</span> &eacute; chamado quando a interface gr&aacute;fica &eacute; carregada e &eacute; respons&aacute;vel por inicializar os elementos da interface e definir os eventos que s&atilde;o disparados quando os elementos s&atilde;o clicados.</p></section><section class="detached"><h2 id="-1149576848#nomeando-os-elementos-da-interface-gr-fica" data-toc="nomeando-os-elementos-da-interface-gr-fica#Connect-FXML-with-Java.md-nomeando-os-elementos-da-interface-gr-fica">Nomeando os elementos da interface gr&aacute;fica</h2><p id="-1149576848#z1qerdo_86">Para acessarmos os elementos precisamos nomear eles e para isso usamos <span class="inline-code" id="-1149576848#z1qerdo_88">ID</span>:</p><div id="-1149576848#z1qerdo_87"><div class="detached" id="-1149576848#code"><div class="tab-title"><div>C&oacute;digo</div></div><div class="bordered-element tab-content"><p id="-1149576848#z1qerdo_91">Nesta tab, voc&ecirc; pode ver o c&oacute;digo XML que define a tabela de estudantes. O c&oacute;digo &eacute; o seguinte:</p><div class="detached code-block" id="-1149576848#z1qerdo_92"><pre><code class="language-markup">&lt;TableView fx:id=&quot;tv_estudante&quot; layoutX=&quot;431.0&quot; layoutY=&quot;353.0&quot; prefHeight=&quot;359.0&quot; prefWidth=&quot;1146.0&quot; AnchorPane.bottomAnchor=&quot;15.0&quot; AnchorPane.leftAnchor=&quot;15.0&quot; AnchorPane.rightAnchor=&quot;15.0&quot; AnchorPane.topAnchor=&quot;353.0&quot;&gt;
+        &lt;columns&gt;
+          &lt;TableColumn fx:id=&quot;tc_id&quot; prefWidth=&quot;75.0&quot; text=&quot;ID&quot;/&gt;
+            &lt;TableColumn fx:id=&quot;tc_nome&quot; prefWidth=&quot;75.0&quot; text=&quot;Nome&quot;/&gt;
+            &lt;TableColumn fx:id=&quot;tc_sexo&quot; prefWidth=&quot;75.0&quot; text=&quot;Sexo&quot;/&gt;
+            &lt;TableColumn fx:id=&quot;tc_idade&quot; prefWidth=&quot;75.0&quot; text=&quot;Idade&quot;/&gt;
+        &lt;/columns&gt;
+    &lt;columnResizePolicy&gt;
+        &lt;TableView fx:constant=&quot;CONSTRAINED_RESIZE_POLICY&quot;/&gt;
+    &lt;/columnResizePolicy&gt;
+&lt;/TableView&gt;</code></pre></div></div></div><div class="detached" id="-1149576848#scene"><div class="tab-title"><div>No Scene</div></div><div class="bordered-element tab-content"><p id="-1149576848#z1qerdo_93">Nesta tab, voc&ecirc; pode ver as etapas para definir o ID de um elemento no Scene Builder. As etapas s&atilde;o as seguintes:</p><ol class="list list-decimal" id="-1149576848#z1qerdo_94" type="1" start="1"><li class="list-item" id="-1149576848#z1qerdo_96"><p><b id="-1149576848#z1qerdo_100">Clique no elemento</b>: clique no elemento que voc&ecirc; deseja definir o ID.</p></li><li class="list-item" id="-1149576848#z1qerdo_97"><p><b id="-1149576848#z1qerdo_101">Selecione o item &quot;Code&quot;</b>: selecione o item &quot;Code&quot; no menu de contexto do elemento.</p></li><li class="list-item" id="-1149576848#z1qerdo_98"><p><b id="-1149576848#z1qerdo_102">Selecione o item &quot;FX:ID&quot;</b>: selecione o item &quot;FX:ID&quot; no menu de contexto do elemento.</p></li><li class="list-item" id="-1149576848#z1qerdo_99"><p><b id="-1149576848#z1qerdo_103">Defina o ID</b>: defina o ID do elemento no campo de texto.</p></li></ol><div class="container"><figure class="image-container"><img class="center image image-size" id="-1149576848#z1qerdo_95" alt="Definindo ID no Scene" title="Definindo ID no Scene" src="/home/mrpunkdasilva/IdeaProjects/learn-javafx/primebank/Writerside/images/Definindo%20ID%20no%20Scene"><figcaption class="center-text">Definindo ID no Scene</figcaption></figure></div></div></div></div></section></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="-1240391798">Criar primeiro Controller</h1><p id="-1240391798#-mu82r0_3">Controllers s&atilde;o componentes fundamentais em aplica&ccedil;&otilde;es JavaFX, respons&aacute;veis por gerenciar a l&oacute;gica de intera&ccedil;&atilde;o entre a interface do usu&aacute;rio (FXML) e o modelo de dados.</p><section class="detached"><h2 id="-1240391798#estrutura-b-sica-de-um-controller" data-toc="estrutura-b-sica-de-um-controller#Create-first-Controller.md-estrutura-b-sica-de-um-controller">Estrutura B&aacute;sica de um Controller</h2><p id="-1240391798#-mu82r0_10">Um controller JavaFX t&iacute;pico segue esta estrutura:</p><div class="detached code-block" id="-1240391798#-mu82r0_11"><pre><code class="language-java">public class StudentController implements Initializable {
+    // Injeção de componentes FXML
+    @FXML
+    private Button btnSalvar;
+    
+    @FXML
+    private TextField tfNome;
+    
+    // Método de inicialização
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Código de inicialização
+    }
+    
+    // Handlers de eventos
+    @FXML
+    public void handleSalvar(ActionEvent event) {
+        // Lógica do botão salvar
+    }
+}</code></pre></div></section><section class="detached"><h2 id="-1240391798#componentes-principais" data-toc="componentes-principais#Create-first-Controller.md-componentes-principais">Componentes Principais</h2><section class="detached"><h3 id="-1240391798#1-anota-es-fxml" data-toc="1-anota-es-fxml#Create-first-Controller.md-1-anota-es-fxml">1. Anota&ccedil;&otilde;es FXML</h3><ul class="list" id="-1240391798#-mu82r0_15" start="1"><li class="list-item" id="-1240391798#-mu82r0_16"><p id="-1240391798#-mu82r0_18"><span class="inline-code" id="-1240391798#-mu82r0_19">@FXML</span>: Usada para injetar elementos definidos no FXML no controller</p></li><li class="list-item" id="-1240391798#-mu82r0_17"><p id="-1240391798#-mu82r0_20">Deve ser aplicada em:</p><ul class="list" id="-1240391798#-mu82r0_21" start="1"><li class="list-item" id="-1240391798#-mu82r0_22"><p id="-1240391798#-mu82r0_25">Campos que representam elementos da UI</p></li><li class="list-item" id="-1240391798#-mu82r0_23"><p id="-1240391798#-mu82r0_26">M&eacute;todos que tratam eventos</p></li><li class="list-item" id="-1240391798#-mu82r0_24"><p id="-1240391798#-mu82r0_27">M&eacute;todo initialize (opcional)</p></li></ul></li></ul></section><section class="detached"><h3 id="-1240391798#2-implementa-o-do-initializable" data-toc="2-implementa-o-do-initializable#Create-first-Controller.md-2-implementa-o-do-initializable">2. Implementa&ccedil;&atilde;o do Initializable</h3><div class="detached code-block" id="-1240391798#-mu82r0_28"><pre><code class="language-java">public class SeuController implements Initializable {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Código executado quando a tela é carregada
+    }
+}</code></pre></div></section><section class="detached"><h3 id="-1240391798#3-exemplo-pr-tico-studentcontroller" data-toc="3-exemplo-pr-tico-studentcontroller#Create-first-Controller.md-3-exemplo-pr-tico-studentcontroller">3. Exemplo Pr&aacute;tico: StudentController</h3><p id="-1240391798#-mu82r0_29">Nosso <span class="inline-code" id="-1240391798#-mu82r0_31">StudentController</span> atual demonstra v&aacute;rios conceitos importantes:</p><div class="detached code-block" id="-1240391798#-mu82r0_30"><pre><code class="language-java">public class StudentController implements Initializable {
+    // Campos de UI
+    @FXML
+    private Button btn_deletar;
+    @FXML
+    private Button btn_editar;
+    @FXML
+    private Button btn_salvar;
+    @FXML
+    private RadioButton rb_f;
+    @FXML
+    private RadioButton rb_m;
+    @FXML
+    private TextField tf_nome;
+    @FXML
+    private TextField tf_idade;
+    @FXML
+    private TableView tv_estudante;
+
+    // Método de inicialização
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Inicialização dos componentes
+    }
+
+    // Exemplo de handler de evento
+    @FXML
+    public void showName(ActionEvent actionEvent) {
+        String name = tf_nome.getText();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(&quot;Hello World&quot;);
+        alert.setHeaderText(&quot;Hello World&quot;);
+        alert.setContentText(name);
+        alert.showAndWait();
+    }
+}</code></pre></div></section></section><section class="detached"><h2 id="-1240391798#conectando-controller-ao-fxml" data-toc="conectando-controller-ao-fxml#Create-first-Controller.md-conectando-controller-ao-fxml">Conectando Controller ao FXML</h2><p id="-1240391798#-mu82r0_32">Para conectar um controller ao arquivo FXML, voc&ecirc; precisa:</p><ol class="list list-decimal" id="-1240391798#-mu82r0_33" type="1" start="1"><li class="list-item" id="-1240391798#-mu82r0_37"><p id="-1240391798#-mu82r0_38">Definir o controller no FXML:</p></li></ol><div class="detached code-block" id="-1240391798#-mu82r0_34"><pre><code class="language-markup">&lt;AnchorPane xmlns=&quot;http://javafx.com/javafx&quot;
+            xmlns:fx=&quot;http://javafx.com/fxml&quot;
+            fx:controller=&quot;prime.punkdomus.primebank.controller.StudentController&quot;&gt;</code></pre></div><ol class="list list-decimal" id="-1240391798#-mu82r0_35" type="1" start="2"><li class="list-item" id="-1240391798#-mu82r0_39"><p id="-1240391798#-mu82r0_41">Referenciar os elementos no controller usando <span class="inline-code" id="-1240391798#-mu82r0_42">@FXML</span></p></li><li class="list-item" id="-1240391798#-mu82r0_40"><p id="-1240391798#-mu82r0_43">Definir os handlers de eventos no FXML:</p></li></ol><div class="detached code-block" id="-1240391798#-mu82r0_36"><pre><code class="language-markup">&lt;Button onAction=&quot;#showName&quot; text=&quot;Mostrar Nome&quot;/&gt;</code></pre></div></section><section class="detached"><h2 id="-1240391798#boas-pr-ticas" data-toc="boas-pr-ticas#Create-first-Controller.md-boas-pr-ticas">Boas Pr&aacute;ticas</h2><ol class="list list-decimal" id="-1240391798#-mu82r0_44" type="1" start="1"><li class="list-item" id="-1240391798#-mu82r0_45"><p id="-1240391798#-mu82r0_49"><span class="control" id="-1240391798#-mu82r0_51">Nomenclatura</span></p><ul class="list" id="-1240391798#-mu82r0_50" start="1"><li class="list-item" id="-1240391798#-mu82r0_52"><p id="-1240391798#-mu82r0_54">Use nomes descritivos para m&eacute;todos handlers</p></li><li class="list-item" id="-1240391798#-mu82r0_53"><p id="-1240391798#-mu82r0_55">Prefixe campos de UI com identificadores (ex: btn_, tf_, lbl_)</p></li></ul></li><li class="list-item" id="-1240391798#-mu82r0_46"><p id="-1240391798#-mu82r0_56"><span class="control" id="-1240391798#-mu82r0_58">Organiza&ccedil;&atilde;o</span></p><ul class="list" id="-1240391798#-mu82r0_57" start="1"><li class="list-item" id="-1240391798#-mu82r0_59"><p id="-1240391798#-mu82r0_62">Agrupe campos relacionados</p></li><li class="list-item" id="-1240391798#-mu82r0_60"><p id="-1240391798#-mu82r0_63">Mantenha handlers pr&oacute;ximos aos campos que eles manipulam</p></li><li class="list-item" id="-1240391798#-mu82r0_61"><p id="-1240391798#-mu82r0_64">Separe l&oacute;gica de neg&oacute;cios da l&oacute;gica de UI</p></li></ul></li><li class="list-item" id="-1240391798#-mu82r0_47"><p id="-1240391798#-mu82r0_65"><span class="control" id="-1240391798#-mu82r0_67">Inicializa&ccedil;&atilde;o</span></p><ul class="list" id="-1240391798#-mu82r0_66" start="1"><li class="list-item" id="-1240391798#-mu82r0_68"><p id="-1240391798#-mu82r0_71">Use o m&eacute;todo <span class="inline-code" id="-1240391798#-mu82r0_72">initialize()</span> para configura&ccedil;&atilde;o inicial</p></li><li class="list-item" id="-1240391798#-mu82r0_69"><p id="-1240391798#-mu82r0_73">Configure listeners e bindings neste m&eacute;todo</p></li><li class="list-item" id="-1240391798#-mu82r0_70"><p id="-1240391798#-mu82r0_74">Inicialize cole&ccedil;&otilde;es e outros dados necess&aacute;rios</p></li></ul></li><li class="list-item" id="-1240391798#-mu82r0_48"><p id="-1240391798#-mu82r0_75"><span class="control" id="-1240391798#-mu82r0_77">Tratamento de Eventos</span></p><ul class="list" id="-1240391798#-mu82r0_76" start="1"><li class="list-item" id="-1240391798#-mu82r0_78"><p id="-1240391798#-mu82r0_81">Mantenha handlers concisos</p></li><li class="list-item" id="-1240391798#-mu82r0_79"><p id="-1240391798#-mu82r0_82">Delegue l&oacute;gica complexa para classes de servi&ccedil;o</p></li><li class="list-item" id="-1240391798#-mu82r0_80"><p id="-1240391798#-mu82r0_83">Trate exce&ccedil;&otilde;es adequadamente</p></li></ul></li></ol></section><section class="detached"><h2 id="-1240391798#dicas-de-desenvolvimento" data-toc="dicas-de-desenvolvimento#Create-first-Controller.md-dicas-de-desenvolvimento">Dicas de Desenvolvimento</h2><ol class="list list-decimal" id="-1240391798#-mu82r0_84" type="1" start="1"><li class="list-item" id="-1240391798#-mu82r0_85"><p id="-1240391798#-mu82r0_88"><span class="control" id="-1240391798#-mu82r0_90">Debug</span></p><ul class="list" id="-1240391798#-mu82r0_89" start="1"><li class="list-item" id="-1240391798#-mu82r0_91"><p id="-1240391798#-mu82r0_94">Use <span class="inline-code" id="-1240391798#-mu82r0_95">System.out.println()</span> ou logging para debug</p></li><li class="list-item" id="-1240391798#-mu82r0_92"><p id="-1240391798#-mu82r0_96">Verifique se os elementos FXML est&atilde;o sendo injetados corretamente</p></li><li class="list-item" id="-1240391798#-mu82r0_93"><p id="-1240391798#-mu82r0_97">Confirme se os handlers est&atilde;o sendo chamados</p></li></ul></li><li class="list-item" id="-1240391798#-mu82r0_86"><p id="-1240391798#-mu82r0_98"><span class="control" id="-1240391798#-mu82r0_100">Testes</span></p><ul class="list" id="-1240391798#-mu82r0_99" start="1"><li class="list-item" id="-1240391798#-mu82r0_101"><p id="-1240391798#-mu82r0_104">Teste diferentes cen&aacute;rios de intera&ccedil;&atilde;o</p></li><li class="list-item" id="-1240391798#-mu82r0_102"><p id="-1240391798#-mu82r0_105">Verifique estados inv&aacute;lidos</p></li><li class="list-item" id="-1240391798#-mu82r0_103"><p id="-1240391798#-mu82r0_106">Teste navega&ccedil;&atilde;o entre telas</p></li></ul></li><li class="list-item" id="-1240391798#-mu82r0_87"><p id="-1240391798#-mu82r0_107"><span class="control" id="-1240391798#-mu82r0_109">Manuten&ccedil;&atilde;o</span></p><ul class="list" id="-1240391798#-mu82r0_108" start="1"><li class="list-item" id="-1240391798#-mu82r0_110"><p id="-1240391798#-mu82r0_113">Mantenha o controller focado em uma responsabilidade</p></li><li class="list-item" id="-1240391798#-mu82r0_111"><p id="-1240391798#-mu82r0_114">Documente comportamentos complexos</p></li><li class="list-item" id="-1240391798#-mu82r0_112"><p id="-1240391798#-mu82r0_115">Refatore quando necess&aacute;rio</p></li></ul></li></ol></section><section class="detached"><h2 id="-1240391798#pr-ximos-passos" data-toc="pr-ximos-passos#Create-first-Controller.md-pr-ximos-passos">Pr&oacute;ximos Passos</h2><ul class="list" id="-1240391798#-mu82r0_116" start="1"><li class="list-item" id="-1240391798#-mu82r0_117"><p id="-1240391798#-mu82r0_121">Implementar valida&ccedil;&atilde;o de campos</p></li><li class="list-item" id="-1240391798#-mu82r0_118"><p id="-1240391798#-mu82r0_122">Adicionar persist&ecirc;ncia de dados</p></li><li class="list-item" id="-1240391798#-mu82r0_119"><p id="-1240391798#-mu82r0_123">Criar telas adicionais</p></li><li class="list-item" id="-1240391798#-mu82r0_120"><p id="-1240391798#-mu82r0_124">Implementar navega&ccedil;&atilde;o entre telas</p></li></ul></section></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="222612323">Primeiro Model</h1><p id="222612323#-6mc8fr_3">Models s&atilde;o classes que representam os dados e a l&oacute;gica de neg&oacute;cios da sua aplica&ccedil;&atilde;o JavaFX. Eles s&atilde;o a camada de dados no padr&atilde;o MVC (Model-View-Controller).</p><section class="detached"><h2 id="222612323#estrutura-b-sica-de-um-model" data-toc="estrutura-b-sica-de-um-model#Primeiro-Model.md-estrutura-b-sica-de-um-model">Estrutura B&aacute;sica de um Model</h2><p id="222612323#-6mc8fr_11">Vamos analisar nosso primeiro model, a classe <span class="inline-code" id="222612323#-6mc8fr_14">Student</span>:</p><div class="detached code-block" id="222612323#-6mc8fr_12"><pre><code class="language-java">public class Student {
+    private long id;
+    private String name;
+    private int age;
+    private char sex;
+
+    // Getters e Setters
+}</code></pre></div><section class="detached"><h3 id="222612323#anatomia-do-model" data-toc="anatomia-do-model#Primeiro-Model.md-anatomia-do-model">Anatomia do Model</h3><ol class="list list-decimal" id="222612323#-6mc8fr_15" type="1" start="1"><li class="list-item" id="222612323#-6mc8fr_16"><p id="222612323#-6mc8fr_18"><span class="control" id="222612323#-6mc8fr_20">Atributos Privados</span></p><ul class="list" id="222612323#-6mc8fr_19" start="1"><li class="list-item" id="222612323#-6mc8fr_21"><p id="222612323#-6mc8fr_24">Use <span class="inline-code" id="222612323#-6mc8fr_25">private</span> para encapsulamento</p></li><li class="list-item" id="222612323#-6mc8fr_22"><p id="222612323#-6mc8fr_26">Escolha tipos de dados apropriados</p></li><li class="list-item" id="222612323#-6mc8fr_23"><p id="222612323#-6mc8fr_27">Nomeie de forma clara e descritiva</p></li></ul></li><li class="list-item" id="222612323#-6mc8fr_17"><p id="222612323#-6mc8fr_28"><span class="control" id="222612323#-6mc8fr_30">Getters e Setters</span></p><ul class="list" id="222612323#-6mc8fr_29" start="1"><li class="list-item" id="222612323#-6mc8fr_31"><p id="222612323#-6mc8fr_34">Fornecem acesso controlado aos atributos</p></li><li class="list-item" id="222612323#-6mc8fr_32"><p id="222612323#-6mc8fr_35">Permitem valida&ccedil;&atilde;o de dados</p></li><li class="list-item" id="222612323#-6mc8fr_33"><p id="222612323#-6mc8fr_36">Mant&ecirc;m o encapsulamento</p></li></ul></li></ol></section></section><section class="detached"><h2 id="222612323#boas-pr-ticas" data-toc="boas-pr-ticas#Primeiro-Model.md-boas-pr-ticas">Boas Pr&aacute;ticas</h2><section class="detached"><h3 id="222612323#1-valida-o-de-dados" data-toc="1-valida-o-de-dados#Primeiro-Model.md-1-valida-o-de-dados">1. Valida&ccedil;&atilde;o de Dados</h3><div class="detached code-block" id="222612323#-6mc8fr_40"><pre><code class="language-java">public void setAge(int age) {
+    if (age &lt; 0) {
+        throw new IllegalArgumentException(&quot;Idade não pode ser negativa&quot;);
+    }
+    this.age = age;
+}
+
+public void setSex(char sex) {
+    if (sex != 'M' &amp;&amp; sex != 'F') {
+        throw new IllegalArgumentException(&quot;Sexo deve ser 'M' ou 'F'&quot;);
+    }
+    this.sex = sex;
+}</code></pre></div></section><section class="detached"><h3 id="222612323#2-construtores" data-toc="2-construtores#Primeiro-Model.md-2-construtores">2. Construtores</h3><div class="detached code-block" id="222612323#-6mc8fr_41"><pre><code class="language-java">public class Student {
+    // Construtor padrão
+    public Student() {
+    }
+
+    // Construtor com parâmetros
+    public Student(String name, int age, char sex) {
+        this.name = name;
+        setAge(age);
+        setSex(sex);
+    }
+}</code></pre></div></section><section class="detached"><h3 id="222612323#3-m-todos-de-utilidade" data-toc="3-m-todos-de-utilidade#Primeiro-Model.md-3-m-todos-de-utilidade">3. M&eacute;todos de Utilidade</h3><div class="detached code-block" id="222612323#-6mc8fr_42"><pre><code class="language-java">public boolean isAdult() {
+    return age &gt;= 18;
+}
+
+@Override
+public String toString() {
+    return &quot;Student{&quot; +
+           &quot;id=&quot; + id +
+           &quot;, name='&quot; + name + '\'' +
+           &quot;, age=&quot; + age +
+           &quot;, sex=&quot; + sex +
+           '}';
+}</code></pre></div></section></section><section class="detached"><h2 id="222612323#integra-o-com-javafx" data-toc="integra-o-com-javafx#Primeiro-Model.md-integra-o-com-javafx">Integra&ccedil;&atilde;o com JavaFX</h2><section class="detached"><h3 id="222612323#1-observable-properties" data-toc="1-observable-properties#Primeiro-Model.md-1-observable-properties">1. Observable Properties</h3><p id="222612323#-6mc8fr_45">Para melhor integra&ccedil;&atilde;o com JavaFX, podemos usar Properties:</p><div class="detached code-block" id="222612323#-6mc8fr_46"><pre><code class="language-java">public class Student {
+    private final StringProperty name = new SimpleStringProperty();
+    private final IntegerProperty age = new SimpleIntegerProperty();
+    
+    // Getters e Setters para Properties
+    public StringProperty nameProperty() {
+        return name;
+    }
+    
+    public String getName() {
+        return name.get();
+    }
+    
+    public void setName(String value) {
+        name.set(value);
+    }
+}</code></pre></div></section><section class="detached"><h3 id="222612323#2-binding-com-a-interface" data-toc="2-binding-com-a-interface#Primeiro-Model.md-2-binding-com-a-interface">2. Binding com a Interface</h3><p id="222612323#-6mc8fr_47">No controller:</p><div class="detached code-block" id="222612323#-6mc8fr_48"><pre><code class="language-java">@FXML
+private TextField tfNome;
+
+public void initialize() {
+    Student student = new Student();
+    tfNome.textProperty().bindBidirectional(student.nameProperty());
+}</code></pre></div></section></section><section class="detached"><h2 id="222612323#persist-ncia-de-dados" data-toc="persist-ncia-de-dados#Primeiro-Model.md-persist-ncia-de-dados">Persist&ecirc;ncia de Dados</h2><section class="detached"><h3 id="222612323#1-exemplo-de-lista-em-mem-ria" data-toc="1-exemplo-de-lista-em-mem-ria#Primeiro-Model.md-1-exemplo-de-lista-em-mem-ria">1. Exemplo de Lista em Mem&oacute;ria</h3><div class="detached code-block" id="222612323#-6mc8fr_51"><pre><code class="language-java">public class StudentRepository {
+    private static final List&lt;Student&gt; students = new ArrayList&lt;&gt;();
+    
+    public static void add(Student student) {
+        students.add(student);
+    }
+    
+    public static List&lt;Student&gt; getAll() {
+        return new ArrayList&lt;&gt;(students);
+    }
+}</code></pre></div></section><section class="detached"><h3 id="222612323#2-observable-collections" data-toc="2-observable-collections#Primeiro-Model.md-2-observable-collections">2. Observable Collections</h3><div class="detached code-block" id="222612323#-6mc8fr_52"><pre><code class="language-java">public class StudentRepository {
+    private static final ObservableList&lt;Student&gt; students = 
+        FXCollections.observableArrayList();
+    
+    public static ObservableList&lt;Student&gt; getStudents() {
+        return students;
+    }
+}</code></pre></div></section></section><section class="detached"><h2 id="222612323#boas-pr-ticas-de-modelagem" data-toc="boas-pr-ticas-de-modelagem#Primeiro-Model.md-boas-pr-ticas-de-modelagem">Boas Pr&aacute;ticas de Modelagem</h2><ol class="list list-decimal" id="222612323#-6mc8fr_53" type="1" start="1"><li class="list-item" id="222612323#-6mc8fr_54"><p id="222612323#-6mc8fr_58"><span class="control" id="222612323#-6mc8fr_60">Imutabilidade Quando Poss&iacute;vel</span></p><ul class="list" id="222612323#-6mc8fr_59" start="1"><li class="list-item" id="222612323#-6mc8fr_61"><p id="222612323#-6mc8fr_63">Use <span class="inline-code" id="222612323#-6mc8fr_64">final</span> para atributos que n&atilde;o devem mudar</p></li><li class="list-item" id="222612323#-6mc8fr_62"><p id="222612323#-6mc8fr_65">Considere criar vers&otilde;es imut&aacute;veis dos objetos</p></li></ul></li><li class="list-item" id="222612323#-6mc8fr_55"><p id="222612323#-6mc8fr_66"><span class="control" id="222612323#-6mc8fr_68">Valida&ccedil;&atilde;o Robusta</span></p><ul class="list" id="222612323#-6mc8fr_67" start="1"><li class="list-item" id="222612323#-6mc8fr_69"><p id="222612323#-6mc8fr_72">Valide dados em setters</p></li><li class="list-item" id="222612323#-6mc8fr_70"><p id="222612323#-6mc8fr_73">Lance exce&ccedil;&otilde;es apropriadas</p></li><li class="list-item" id="222612323#-6mc8fr_71"><p id="222612323#-6mc8fr_74">Documente restri&ccedil;&otilde;es</p></li></ul></li><li class="list-item" id="222612323#-6mc8fr_56"><p id="222612323#-6mc8fr_75"><span class="control" id="222612323#-6mc8fr_77">Documenta&ccedil;&atilde;o</span></p><ul class="list" id="222612323#-6mc8fr_76" start="1"><li class="list-item" id="222612323#-6mc8fr_78"><p id="222612323#-6mc8fr_81">Use JavaDoc para documentar a classe e m&eacute;todos importantes</p></li><li class="list-item" id="222612323#-6mc8fr_79"><p id="222612323#-6mc8fr_82">Explique regras de neg&oacute;cio complexas</p></li><li class="list-item" id="222612323#-6mc8fr_80"><p id="222612323#-6mc8fr_83">Documente exce&ccedil;&otilde;es</p></li></ul></li><li class="list-item" id="222612323#-6mc8fr_57"><p id="222612323#-6mc8fr_84"><span class="control" id="222612323#-6mc8fr_86">Testes</span></p><ul class="list" id="222612323#-6mc8fr_85" start="1"><li class="list-item" id="222612323#-6mc8fr_87"><p id="222612323#-6mc8fr_90">Crie testes unit&aacute;rios</p></li><li class="list-item" id="222612323#-6mc8fr_88"><p id="222612323#-6mc8fr_91">Teste casos de borda</p></li><li class="list-item" id="222612323#-6mc8fr_89"><p id="222612323#-6mc8fr_92">Verifique valida&ccedil;&otilde;es</p></li></ul></li></ol></section><section class="detached"><h2 id="222612323#pr-ximos-passos" data-toc="pr-ximos-passos#Primeiro-Model.md-pr-ximos-passos">Pr&oacute;ximos Passos</h2><ol class="list list-decimal" id="222612323#-6mc8fr_93" type="1" start="1"><li class="list-item" id="222612323#-6mc8fr_94"><p id="222612323#-6mc8fr_98">Implementar mais valida&ccedil;&otilde;es no model <span class="inline-code" id="222612323#-6mc8fr_99">Student</span></p></li><li class="list-item" id="222612323#-6mc8fr_95"><p id="222612323#-6mc8fr_100">Adicionar suporte a persist&ecirc;ncia em banco de dados</p></li><li class="list-item" id="222612323#-6mc8fr_96"><p id="222612323#-6mc8fr_101">Criar models relacionados (ex: <span class="inline-code" id="222612323#-6mc8fr_102">Course</span>, <span class="inline-code" id="222612323#-6mc8fr_103">Grade</span>)</p></li><li class="list-item" id="222612323#-6mc8fr_97"><p id="222612323#-6mc8fr_104">Implementar padr&otilde;es de projeto relevantes</p></li></ol></section><section class="detached"><h2 id="222612323#exerc-cios-pr-ticos" data-toc="exerc-cios-pr-ticos#Primeiro-Model.md-exerc-cios-pr-ticos">Exerc&iacute;cios Pr&aacute;ticos</h2><ol class="list list-decimal" id="222612323#-6mc8fr_105" type="1" start="1"><li class="list-item" id="222612323#-6mc8fr_106"><p id="222612323#-6mc8fr_110">Adicione mais campos ao model <span class="inline-code" id="222612323#-6mc8fr_111">Student</span> (ex: email, matr&iacute;cula)</p></li><li class="list-item" id="222612323#-6mc8fr_107"><p id="222612323#-6mc8fr_112">Implemente valida&ccedil;&otilde;es para os novos campos</p></li><li class="list-item" id="222612323#-6mc8fr_108"><p id="222612323#-6mc8fr_113">Crie um m&eacute;todo para calcular a idade baseado na data de nascimento</p></li><li class="list-item" id="222612323#-6mc8fr_109"><p id="222612323#-6mc8fr_114">Implemente <span class="inline-code" id="222612323#-6mc8fr_115">equals()</span> e <span class="inline-code" id="222612323#-6mc8fr_116">hashCode()</span></p></li></ol></section></article></div></section><section class="topic"><div><article class="article"><h1 class="main-title" id="-436435685">Criando Classe para Connection MySQL</h1><p id="-436435685#jkkl75_3">A conex&atilde;o com banco de dados &eacute; uma parte fundamental de aplica&ccedil;&otilde;es que necessitam persistir dados. Vamos criar uma classe respons&aacute;vel por gerenciar conex&otilde;es com MySQL.</p><section class="detached"><h2 id="-436435685#estrutura-b-sica" data-toc="estrutura-b-sica#Criando-Classe-para-Connection-MySQL.md-estrutura-b-sica">Estrutura B&aacute;sica</h2><p id="-436435685#jkkl75_14">Nossa classe <span class="inline-code" id="-436435685#jkkl75_16">ConnectionDB</span> utiliza o padr&atilde;o Singleton para gerenciar conex&otilde;es com o banco de dados:</p><div class="detached code-block" id="-436435685#jkkl75_15"><pre><code class="language-java">public class ConnectionDB {
+    private static final String url = &quot;jdbc:mysql://172.18.0.2:3306/crud_student_javafx&quot;;
+    private static final String user = &quot;root&quot;;
+    private static final String password = &quot;rootpassword&quot;;
+
+    public static Connection getInstance() {
+        try {
+            Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+            return DriverManager.getConnection(url, user, password);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}</code></pre></div></section><section class="detached"><h2 id="-436435685#depend-ncias-necess-rias" data-toc="depend-ncias-necess-rias#Criando-Classe-para-Connection-MySQL.md-depend-ncias-necess-rias">Depend&ecirc;ncias Necess&aacute;rias</h2><p id="-436435685#jkkl75_17">Para usar o MySQL com Java, adicione a depend&ecirc;ncia no <span class="inline-code" id="-436435685#jkkl75_19">pom.xml</span>:</p><div class="detached code-block" id="-436435685#jkkl75_18"><pre><code class="language-markup">&lt;dependency&gt;
+    &lt;groupId&gt;mysql&lt;/groupId&gt;
+    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+    &lt;version&gt;8.0.28&lt;/version&gt;
+&lt;/dependency&gt;</code></pre></div></section><section class="detached"><h2 id="-436435685#configura-o-da-conex-o" data-toc="configura-o-da-conex-o#Criando-Classe-para-Connection-MySQL.md-configura-o-da-conex-o">Configura&ccedil;&atilde;o da Conex&atilde;o</h2><section class="detached"><h3 id="-436435685#1-string-de-conex-o" data-toc="1-string-de-conex-o#Criando-Classe-para-Connection-MySQL.md-1-string-de-conex-o">1. String de Conex&atilde;o</h3><p id="-436435685#jkkl75_22">A string de conex&atilde;o cont&eacute;m informa&ccedil;&otilde;es importantes:</p><ul class="list" id="-436435685#jkkl75_23" start="1"><li class="list-item" id="-436435685#jkkl75_25"><p id="-436435685#jkkl75_29"><span class="inline-code" id="-436435685#jkkl75_30">jdbc:mysql://</span> - Protocolo e tipo de banco</p></li><li class="list-item" id="-436435685#jkkl75_26"><p id="-436435685#jkkl75_31"><span class="inline-code" id="-436435685#jkkl75_32">172.18.0.2</span> - Endere&ccedil;o do servidor</p></li><li class="list-item" id="-436435685#jkkl75_27"><p id="-436435685#jkkl75_33"><span class="inline-code" id="-436435685#jkkl75_34">3306</span> - Porta (padr&atilde;o MySQL)</p></li><li class="list-item" id="-436435685#jkkl75_28"><p id="-436435685#jkkl75_35"><span class="inline-code" id="-436435685#jkkl75_36">crud_student_javafx</span> - Nome do banco de dados</p></li></ul><div class="detached code-block" id="-436435685#jkkl75_24"><pre><code class="language-java">private static final String url = &quot;jdbc:mysql://172.18.0.2:3306/crud_student_javafx&quot;;</code></pre></div></section><section class="detached"><h3 id="-436435685#2-credenciais" data-toc="2-credenciais#Criando-Classe-para-Connection-MySQL.md-2-credenciais">2. Credenciais</h3><p id="-436435685#jkkl75_37">Armazene as credenciais de forma segura:</p><div class="detached code-block" id="-436435685#jkkl75_38"><pre><code class="language-java">private static final String user = &quot;root&quot;;
+private static final String password = &quot;rootpassword&quot;;</code></pre></div><blockquote class="prompt flex bordered-element-rounded tip detached">
+  <svg xmlns="http://www.w3.org/2000/svg" class="prompt-icon">
+    <path d="M12.946 3.552L21.52 18.4c.424.735.33 1.6-.519 1.6H3.855c-.85 0-1.817-.865-1.392-1.6l8.573-14.848a1.103 1.103 0 0 1 1.91 0zm.545 12.948a1.5 1.5 0 1 0-1.5 1.5 1.5 1.5 0 0 0 1.5-1.5zM13 8h-2v5h2z"></path>
+  </svg>
+  <div class="prompt-content prompt-content-p"><p id="-436435685#jkkl75_40"><span class="control" id="-436435685#jkkl75_41">Nota de Seguran&ccedil;a</span>: Em ambiente de produ&ccedil;&atilde;o, considere usar vari&aacute;veis de ambiente ou arquivos de configura&ccedil;&atilde;o externos para armazenar credenciais.</p></div>
+</blockquote>
+</section></section><section class="detached"><h2 id="-436435685#m-todos-principais" data-toc="m-todos-principais#Criando-Classe-para-Connection-MySQL.md-m-todos-principais">M&eacute;todos Principais</h2><section class="detached"><h3 id="-436435685#1-obter-conex-o" data-toc="1-obter-conex-o#Criando-Classe-para-Connection-MySQL.md-1-obter-conex-o">1. Obter Conex&atilde;o</h3><div class="detached code-block" id="-436435685#jkkl75_44"><pre><code class="language-java">public static Connection getInstance() {
+    try {
+        Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+        return DriverManager.getConnection(url, user, password);
+    } catch (SQLException e) {
+        throw new RuntimeException(e.getMessage());
+    } catch (ClassNotFoundException e) {
+        throw new RuntimeException(e);
+    }
+}</code></pre></div></section><section class="detached"><h3 id="-436435685#2-fechar-conex-o" data-toc="2-fechar-conex-o#Criando-Classe-para-Connection-MySQL.md-2-fechar-conex-o">2. Fechar Conex&atilde;o</h3><div class="detached code-block" id="-436435685#jkkl75_45"><pre><code class="language-java">public static void close(Connection connection) {
+    try {
+        if (connection != null) {
+            connection.close();
+        }
+    } catch (SQLException e) {
+        throw new RuntimeException(e.getMessage());
+    }
+}</code></pre></div></section></section><section class="detached"><h2 id="-436435685#boas-pr-ticas" data-toc="boas-pr-ticas#Criando-Classe-para-Connection-MySQL.md-boas-pr-ticas">Boas Pr&aacute;ticas</h2><ol class="list list-decimal" id="-436435685#jkkl75_46" type="1" start="1"><li class="list-item" id="-436435685#jkkl75_47"><p id="-436435685#jkkl75_50"><span class="control" id="-436435685#jkkl75_52">Tratamento de Exce&ccedil;&otilde;es</span></p><ul class="list" id="-436435685#jkkl75_51" start="1"><li class="list-item" id="-436435685#jkkl75_53"><p id="-436435685#jkkl75_56">Sempre feche conex&otilde;es em blocos <span class="inline-code" id="-436435685#jkkl75_57">finally</span></p></li><li class="list-item" id="-436435685#jkkl75_54"><p id="-436435685#jkkl75_58">Use try-with-resources quando poss&iacute;vel</p></li><li class="list-item" id="-436435685#jkkl75_55"><p id="-436435685#jkkl75_59">Trate exce&ccedil;&otilde;es espec&iacute;ficas do SQL</p></li></ul></li><li class="list-item" id="-436435685#jkkl75_48"><p id="-436435685#jkkl75_60"><span class="control" id="-436435685#jkkl75_62">Gerenciamento de Recursos</span></p><ul class="list" id="-436435685#jkkl75_61" start="1"><li class="list-item" id="-436435685#jkkl75_63"><p id="-436435685#jkkl75_66">Feche conex&otilde;es ap&oacute;s o uso</p></li><li class="list-item" id="-436435685#jkkl75_64"><p id="-436435685#jkkl75_67">Utilize pool de conex&otilde;es em aplica&ccedil;&otilde;es maiores</p></li><li class="list-item" id="-436435685#jkkl75_65"><p id="-436435685#jkkl75_68">Monitore o n&uacute;mero de conex&otilde;es ativas</p></li></ul></li><li class="list-item" id="-436435685#jkkl75_49"><p id="-436435685#jkkl75_69"><span class="control" id="-436435685#jkkl75_71">Seguran&ccedil;a</span></p><ul class="list" id="-436435685#jkkl75_70" start="1"><li class="list-item" id="-436435685#jkkl75_72"><p id="-436435685#jkkl75_75">N&atilde;o exponha credenciais no c&oacute;digo</p></li><li class="list-item" id="-436435685#jkkl75_73"><p id="-436435685#jkkl75_76">Use prepared statements para evitar SQL injection</p></li><li class="list-item" id="-436435685#jkkl75_74"><p id="-436435685#jkkl75_77">Implemente timeout de conex&atilde;o</p></li></ul></li></ol></section><section class="detached"><h2 id="-436435685#exemplo-de-uso" data-toc="exemplo-de-uso#Criando-Classe-para-Connection-MySQL.md-exemplo-de-uso">Exemplo de Uso</h2><div class="detached code-block" id="-436435685#jkkl75_78"><pre><code class="language-java">public class ExemploUso {
+    public void executarOperacao() {
+        try (Connection conn = ConnectionDB.getInstance()) {
+            // Usar a conexão para operações no banco
+            PreparedStatement stmt = conn.prepareStatement(&quot;SELECT * FROM students&quot;);
+            ResultSet rs = stmt.executeQuery();
+            // Processar resultados
+        } catch (SQLException e) {
+            // Tratar exceção
+        }
+    }
+}</code></pre></div></section><section class="detached"><h2 id="-436435685#configura-o-do-banco-de-dados" data-toc="configura-o-do-banco-de-dados#Criando-Classe-para-Connection-MySQL.md-configura-o-do-banco-de-dados">Configura&ccedil;&atilde;o do Banco de Dados</h2><section class="detached"><h3 id="-436435685#1-script-sql-para-criar-o-banco" data-toc="1-script-sql-para-criar-o-banco#Criando-Classe-para-Connection-MySQL.md-1-script-sql-para-criar-o-banco">1. Script SQL para Criar o Banco</h3><div class="detached code-block" id="-436435685#jkkl75_81"><pre><code class="language-sql">CREATE DATABASE crud_student_javafx;
+
+USE crud_student_javafx;
+
+CREATE TABLE students (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    sex CHAR(1) NOT NULL
+);</code></pre></div></section><section class="detached"><h3 id="-436435685#2-permiss-es-necess-rias" data-toc="2-permiss-es-necess-rias#Criando-Classe-para-Connection-MySQL.md-2-permiss-es-necess-rias">2. Permiss&otilde;es Necess&aacute;rias</h3><div class="detached code-block" id="-436435685#jkkl75_82"><pre><code class="language-sql">GRANT ALL PRIVILEGES ON crud_student_javafx.* TO 'root'@'%';
+FLUSH PRIVILEGES;</code></pre></div></section></section><section class="detached"><h2 id="-436435685#troubleshooting" data-toc="troubleshooting#Criando-Classe-para-Connection-MySQL.md-troubleshooting">Troubleshooting</h2><ol class="list list-decimal" id="-436435685#jkkl75_83" type="1" start="1"><li class="list-item" id="-436435685#jkkl75_84"><p id="-436435685#jkkl75_87"><span class="control" id="-436435685#jkkl75_89">Conex&atilde;o Recusada</span></p><ul class="list" id="-436435685#jkkl75_88" start="1"><li class="list-item" id="-436435685#jkkl75_90"><p id="-436435685#jkkl75_93">Verifique se o servidor MySQL est&aacute; rodando</p></li><li class="list-item" id="-436435685#jkkl75_91"><p id="-436435685#jkkl75_94">Confirme a porta e endere&ccedil;o IP</p></li><li class="list-item" id="-436435685#jkkl75_92"><p id="-436435685#jkkl75_95">Verifique as permiss&otilde;es do usu&aacute;rio</p></li></ul></li><li class="list-item" id="-436435685#jkkl75_85"><p id="-436435685#jkkl75_96"><span class="control" id="-436435685#jkkl75_98">Driver n&atilde;o Encontrado</span></p><ul class="list" id="-436435685#jkkl75_97" start="1"><li class="list-item" id="-436435685#jkkl75_99"><p id="-436435685#jkkl75_102">Confirme se a depend&ecirc;ncia est&aacute; no <span class="inline-code" id="-436435685#jkkl75_103">pom.xml</span></p></li><li class="list-item" id="-436435685#jkkl75_100"><p id="-436435685#jkkl75_104">Verifique se o driver est&aacute; no classpath</p></li><li class="list-item" id="-436435685#jkkl75_101"><p id="-436435685#jkkl75_105">Confirme a vers&atilde;o correta do driver</p></li></ul></li><li class="list-item" id="-436435685#jkkl75_86"><p id="-436435685#jkkl75_106"><span class="control" id="-436435685#jkkl75_108">Problemas de Autentica&ccedil;&atilde;o</span></p><ul class="list" id="-436435685#jkkl75_107" start="1"><li class="list-item" id="-436435685#jkkl75_109"><p id="-436435685#jkkl75_112">Verifique as credenciais</p></li><li class="list-item" id="-436435685#jkkl75_110"><p id="-436435685#jkkl75_113">Confirme as permiss&otilde;es do usu&aacute;rio</p></li><li class="list-item" id="-436435685#jkkl75_111"><p id="-436435685#jkkl75_114">Verifique o m&eacute;todo de autentica&ccedil;&atilde;o do MySQL</p></li></ul></li></ol></section><section class="detached"><h2 id="-436435685#pr-ximos-passos" data-toc="pr-ximos-passos#Criando-Classe-para-Connection-MySQL.md-pr-ximos-passos">Pr&oacute;ximos Passos</h2><ol class="list list-decimal" id="-436435685#jkkl75_115" type="1" start="1"><li class="list-item" id="-436435685#jkkl75_116"><p id="-436435685#jkkl75_121">Implementar pool de conex&otilde;es</p></li><li class="list-item" id="-436435685#jkkl75_117"><p id="-436435685#jkkl75_122">Adicionar logging de opera&ccedil;&otilde;es</p></li><li class="list-item" id="-436435685#jkkl75_118"><p id="-436435685#jkkl75_123">Criar classes DAO para cada entidade</p></li><li class="list-item" id="-436435685#jkkl75_119"><p id="-436435685#jkkl75_124">Implementar transa&ccedil;&otilde;es</p></li><li class="list-item" id="-436435685#jkkl75_120"><p id="-436435685#jkkl75_125">Adicionar testes de integra&ccedil;&atilde;o</p></li></ol></section><section class="detached"><h2 id="-436435685#exerc-cios-pr-ticos" data-toc="exerc-cios-pr-ticos#Criando-Classe-para-Connection-MySQL.md-exerc-cios-pr-ticos">Exerc&iacute;cios Pr&aacute;ticos</h2><ol class="list list-decimal" id="-436435685#jkkl75_126" type="1" start="1"><li class="list-item" id="-436435685#jkkl75_127"><p id="-436435685#jkkl75_131">Implemente um m&eacute;todo para testar a conex&atilde;o</p></li><li class="list-item" id="-436435685#jkkl75_128"><p id="-436435685#jkkl75_132">Crie um arquivo de configura&ccedil;&atilde;o para as credenciais</p></li><li class="list-item" id="-436435685#jkkl75_129"><p id="-436435685#jkkl75_133">Adicione suporte a m&uacute;ltiplos bancos de dados</p></li><li class="list-item" id="-436435685#jkkl75_130"><p id="-436435685#jkkl75_134">Implemente m&eacute;tricas de conex&atilde;o</p></li></ol></section></article></div></section></div></body></html>
