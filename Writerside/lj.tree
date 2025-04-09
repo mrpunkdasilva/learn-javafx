@@ -15,4 +15,5 @@
     </toc-element>
     <toc-element topic="Create-first-Controller.md"/>
     <toc-element topic="Primeiro-Model.md"/>
+    <toc-element topic="Criando-Classe-para-Connection-MySQL.md"/>
 </instance-profile>
