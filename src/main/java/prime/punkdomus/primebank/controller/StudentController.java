@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import prime.punkdomus.primebank.dao.StudentDAO;
+import prime.punkdomus.primebank.model.Student;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -50,22 +52,76 @@ public class StudentController implements Initializable {
     private TableView tv_estudante;
 
 
+    Student student = new Student();
+    StudentDAO studentDAO = new StudentDAO();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
-
     @FXML
-    public void showName(ActionEvent actionEvent) {
-        String name = tf_nome.getText().toString();
+    public void save(ActionEvent actionEvent) {
+        if (validator()) {
+            student.setName(tf_nome.getText().toString());
+            student.setAge(Integer.parseInt(tf_idade.getText()));
+            student.setSex(rb_m.isSelected() ? 'M' : 'F');
 
+            studentDAO.add(student);
+            
+            // Opcional: Limpar campos após salvar
+            clearFields();
+            
+            // Opcional: Mostrar mensagem de sucesso
+            showSuccessMessage();
+        }
+    }
+
+    public boolean validator() {
+        StringBuffer message = new StringBuffer();
+
+        if (tf_nome.getText().isEmpty()) {
+            message.append("Nome não pode ser vazio\n");
+        }
+
+        if (tf_idade.getText().isEmpty()) {
+            message.append("Idade não pode ser vazia\n");
+        } else {
+            try {
+                int age = Integer.parseInt(tf_idade.getText());
+                if (age <= 0) {
+                    message.append("Idade deve ser maior que zero\n");
+                }
+            } catch (NumberFormatException e) {
+                message.append("Idade deve ser um número válido\n");
+            }
+        }
+
+        if (!message.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro de Validação");
+            alert.setHeaderText(null);
+            alert.setContentText(message.toString());
+            alert.showAndWait();
+            return false;
+        }
+        
+        return true;
+    }
+
+    private void clearFields() {
+        tf_nome.clear();
+        tf_idade.clear();
+        rb_m.setSelected(true);
+    }
+
+    private void showSuccessMessage() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
-        alert.setTitle("Hello World");
-        alert.setHeaderText("Hello World");
-        alert.setContentText(name);
+        alert.setTitle("Sucesso");
+        alert.setHeaderText(null);
+        alert.setContentText("Estudante salvo com sucesso!");
         alert.showAndWait();
     }
+
 }

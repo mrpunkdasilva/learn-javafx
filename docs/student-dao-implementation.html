@@ -1,0 +1,146 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-04-22T20:07:15.058235004"><title>Implementa&ccedil;&atilde;o do StudentDAO | Learn JavaFX</title><script type="application/json" id="virtual-toc-data">[{"id":"estrutura-da-classe","level":0,"title":"Estrutura da Classe","anchor":"#estrutura-da-classe"},{"id":"opera-es-implementadas","level":0,"title":"Operações Implementadas","anchor":"#opera-es-implementadas"},{"id":"conex-o-com-banco-de-dados","level":0,"title":"Conexão com Banco de Dados","anchor":"#conex-o-com-banco-de-dados"},{"id":"boas-pr-ticas-implementadas","level":0,"title":"Boas Práticas Implementadas","anchor":"#boas-pr-ticas-implementadas"},{"id":"melhorias-sugeridas","level":0,"title":"Melhorias Sugeridas","anchor":"#melhorias-sugeridas"},{"id":"exemplo-de-uso","level":0,"title":"Exemplo de Uso","anchor":"#exemplo-de-uso"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Implementa&ccedil;&atilde;o do StudentDAO | Learn JavaFX"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Learn JavaFX Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/student-dao-implementation.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Implementa&ccedil;&atilde;o do StudentDAO | Learn JavaFX"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/student-dao-implementation.html#webpage",
+    "url": "writerside-documentation/student-dao-implementation.html",
+    "name": "Implementa&ccedil;&atilde;o do StudentDAO | Learn JavaFX",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Learn JavaFX Help"
+}</script><!-- End Schema.org --></head><body data-id="student-dao-implementation" data-main-title="Implementação do StudentDAO" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Domus 1"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Learn JavaFX  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="student-dao-implementation" id="student-dao-implementation.md">Implementação do StudentDAO</h1><p id="-i6aekt_3">O <code class="code" id="-i6aekt_10">StudentDAO</code> &eacute; a implementa&ccedil;&atilde;o concreta da interface <code class="code" id="-i6aekt_11">StudentRepository</code>, respons&aacute;vel por realizar opera&ccedil;&otilde;es CRUD (Create, Read, Update, Delete) no banco de dados MySQL para a entidade Student.</p><section class="chapter"><h2 id="estrutura-da-classe" data-toc="estrutura-da-classe">Estrutura da Classe</h2><div class="code-block" data-lang="java">
+public class StudentDAO implements StudentRepository {
+    // Implementação dos métodos da interface StudentRepository
+}
+</div></section><section class="chapter"><h2 id="opera-es-implementadas" data-toc="opera-es-implementadas">Opera&ccedil;&otilde;es Implementadas</h2><section class="chapter"><h3 id="1-buscar-por-id-byid" data-toc="1-buscar-por-id-byid">1. Buscar por ID (byID)</h3><div class="code-block" data-lang="java">
+@Override
+public Student byID(long id) {
+    Student student = null;
+    try {
+        String sql = &quot;SELECT * FROM student WHERE id = ?&quot;;
+        PreparedStatement ps = ConnectionDB.getInstance().prepareStatement(sql);
+        ps.setLong(1, id);
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            student = new Student();
+            student.setId(rs.getLong(&quot;id&quot;));
+            student.setName(rs.getString(&quot;name&quot;));
+            student.setSex(rs.getString(&quot;sex&quot;).charAt(0));
+            student.setAge(rs.getInt(&quot;age&quot;));
+        }
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+    }
+    return student;
+}
+</div><p id="-i6aekt_19"><span class="control" id="-i6aekt_21">Caracter&iacute;sticas:</span></p><ul class="list _bullet" id="-i6aekt_20"><li class="list__item" id="-i6aekt_22"><p id="-i6aekt_26">Utiliza PreparedStatement para prevenir SQL Injection</p></li><li class="list__item" id="-i6aekt_23"><p id="-i6aekt_27">Retorna null se n&atilde;o encontrar o estudante</p></li><li class="list__item" id="-i6aekt_24"><p id="-i6aekt_28">Mapeia resultado para objeto Student</p></li><li class="list__item" id="-i6aekt_25"><p id="-i6aekt_29">Trata exce&ccedil;&otilde;es SQL apropriadamente</p></li></ul></section><section class="chapter"><h3 id="2-listar-todos-getall" data-toc="2-listar-todos-getall">2. Listar Todos (getAll)</h3><div class="code-block" data-lang="java">
+@Override
+public List&lt;Student&gt; getAll() {
+    List&lt;Student&gt; students = new ArrayList&lt;&gt;();
+    try {
+        String sql = &quot;SELECT * FROM student&quot;;
+        PreparedStatement ps = ConnectionDB.getInstance().prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            Student student = new Student();
+            student.setId(rs.getLong(&quot;id&quot;));
+            student.setName(rs.getString(&quot;name&quot;));
+            student.setSex(rs.getString(&quot;sex&quot;).charAt(0));
+            student.setAge(rs.getInt(&quot;age&quot;));
+            students.add(student);
+        }
+    } catch (Exception e) {
+        System.out.println(&quot;ERROR GETTING ALL STUDENTS&quot; + e.getMessage());
+        e.printStackTrace();
+    }
+    return students;
+}
+</div><p id="-i6aekt_31"><span class="control" id="-i6aekt_33">Caracter&iacute;sticas:</span></p><ul class="list _bullet" id="-i6aekt_32"><li class="list__item" id="-i6aekt_34"><p id="-i6aekt_38">Retorna lista vazia se n&atilde;o houver registros</p></li><li class="list__item" id="-i6aekt_35"><p id="-i6aekt_39">Processa m&uacute;ltiplos resultados</p></li><li class="list__item" id="-i6aekt_36"><p id="-i6aekt_40">Utiliza ArrayList para armazenamento</p></li><li class="list__item" id="-i6aekt_37"><p id="-i6aekt_41">Inclui log de erros</p></li></ul></section><section class="chapter"><h3 id="3-adicionar-add" data-toc="3-adicionar-add">3. Adicionar (add)</h3><div class="code-block" data-lang="java">
+@Override
+public void add(Student student) {
+    try {
+        String sql = &quot;INSERT INTO student (name, sex, age) VALUES (?, ?, ?)&quot;;
+        PreparedStatement ps = ConnectionDB.getInstance().prepareStatement(sql);
+        ps.setString(1, student.getName());
+        ps.setString(2, String.valueOf(student.getSex()));
+        ps.setInt(3, student.getAge());
+        ps.execute();
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println(&quot;ERROR ADDING STUDENT&quot; + e.getMessage());
+    }
+}
+</div><p id="-i6aekt_43"><span class="control" id="-i6aekt_45">Caracter&iacute;sticas:</span></p><ul class="list _bullet" id="-i6aekt_44"><li class="list__item" id="-i6aekt_46"><p id="-i6aekt_50">Insere novo registro no banco</p></li><li class="list__item" id="-i6aekt_47"><p id="-i6aekt_51">N&atilde;o retorna o ID gerado</p></li><li class="list__item" id="-i6aekt_48"><p id="-i6aekt_52">Utiliza prepared statement</p></li><li class="list__item" id="-i6aekt_49"><p id="-i6aekt_53">Trata exce&ccedil;&otilde;es com log</p></li></ul></section><section class="chapter"><h3 id="4-atualizar-update" data-toc="4-atualizar-update">4. Atualizar (update)</h3><div class="code-block" data-lang="java">
+@Override
+public void update(Student student, long id) {
+    try {
+        String sql = &quot;UPDATE student SET name = ?, sex = ?, age = ? WHERE id = ?&quot;;
+        PreparedStatement ps = ConnectionDB.getInstance().prepareStatement(sql);
+        ps.setString(1, student.getName());
+        ps.setString(2, String.valueOf(student.getSex()));
+        ps.setInt(3, student.getAge());
+        ps.setLong(4, id);
+        ps.execute();
+    } catch (SQLException e) {
+        System.out.println(&quot;ERRO &quot; + e.getMessage());
+    }
+}
+</div><p id="-i6aekt_55"><span class="control" id="-i6aekt_57">Caracter&iacute;sticas:</span></p><ul class="list _bullet" id="-i6aekt_56"><li class="list__item" id="-i6aekt_58"><p id="-i6aekt_62">Atualiza registro existente</p></li><li class="list__item" id="-i6aekt_59"><p id="-i6aekt_63">Requer ID para identifica&ccedil;&atilde;o</p></li><li class="list__item" id="-i6aekt_60"><p id="-i6aekt_64">Atualiza todos os campos</p></li><li class="list__item" id="-i6aekt_61"><p id="-i6aekt_65">Log de erros SQL</p></li></ul></section><section class="chapter"><h3 id="5-deletar-delete" data-toc="5-deletar-delete">5. Deletar (delete)</h3><div class="code-block" data-lang="java">
+@Override
+public void delete(long id) {
+    try {
+        String sql = &quot;DELETE FROM student WHERE id = ?&quot;;
+        PreparedStatement ps = ConnectionDB.getInstance().prepareStatement(sql);
+        ps.setLong(1, id);
+        ps.execute();
+    } catch (SQLException e) {
+        System.out.println(&quot;ERRO AO DELETAR: &quot; + e.getMessage());
+    }
+}
+</div><p id="-i6aekt_67"><span class="control" id="-i6aekt_69">Caracter&iacute;sticas:</span></p><ul class="list _bullet" id="-i6aekt_68"><li class="list__item" id="-i6aekt_70"><p id="-i6aekt_74">Remove registro por ID</p></li><li class="list__item" id="-i6aekt_71"><p id="-i6aekt_75">Opera&ccedil;&atilde;o n&atilde;o revers&iacute;vel</p></li><li class="list__item" id="-i6aekt_72"><p id="-i6aekt_76">Tratamento de exce&ccedil;&otilde;es</p></li><li class="list__item" id="-i6aekt_73"><p id="-i6aekt_77">Log de erros</p></li></ul></section></section><section class="chapter"><h2 id="conex-o-com-banco-de-dados" data-toc="conex-o-com-banco-de-dados">Conex&atilde;o com Banco de Dados</h2><p id="-i6aekt_78">A classe utiliza <code class="code" id="-i6aekt_82">ConnectionDB</code> para gerenciar conex&otilde;es:</p><div class="code-block" data-lang="java">
+ConnectionDB.getInstance().prepareStatement(sql)
+</div><p id="-i6aekt_80"><span class="control" id="-i6aekt_83">Caracter&iacute;sticas:</span></p><ul class="list _bullet" id="-i6aekt_81"><li class="list__item" id="-i6aekt_84"><p id="-i6aekt_88">Singleton pattern para conex&atilde;o</p></li><li class="list__item" id="-i6aekt_85"><p id="-i6aekt_89">Conex&atilde;o autom&aacute;tica ao MySQL</p></li><li class="list__item" id="-i6aekt_86"><p id="-i6aekt_90">Configura&ccedil;&otilde;es em constantes</p></li><li class="list__item" id="-i6aekt_87"><p id="-i6aekt_91">Tratamento de erros de conex&atilde;o</p></li></ul></section><section class="chapter"><h2 id="boas-pr-ticas-implementadas" data-toc="boas-pr-ticas-implementadas">Boas Pr&aacute;ticas Implementadas</h2><ol class="list _decimal" id="-i6aekt_92" type="1"><li class="list__item" id="-i6aekt_93"><p id="-i6aekt_96"><span class="control" id="-i6aekt_98">Preven&ccedil;&atilde;o de SQL Injection</span></p><ul class="list _bullet" id="-i6aekt_97"><li class="list__item" id="-i6aekt_99"><p id="-i6aekt_101">Uso consistente de PreparedStatement</p></li><li class="list__item" id="-i6aekt_100"><p id="-i6aekt_102">Par&acirc;metros sempre escapados</p></li></ul></li><li class="list__item" id="-i6aekt_94"><p id="-i6aekt_103"><span class="control" id="-i6aekt_105">Tratamento de Recursos</span></p><ul class="list _bullet" id="-i6aekt_104"><li class="list__item" id="-i6aekt_106"><p id="-i6aekt_109">Conex&otilde;es gerenciadas</p></li><li class="list__item" id="-i6aekt_107"><p id="-i6aekt_110">Statements fechados apropriadamente</p></li><li class="list__item" id="-i6aekt_108"><p id="-i6aekt_111">ResultSets processados corretamente</p></li></ul></li><li class="list__item" id="-i6aekt_95"><p id="-i6aekt_112"><span class="control" id="-i6aekt_114">Tratamento de Erros</span></p><ul class="list _bullet" id="-i6aekt_113"><li class="list__item" id="-i6aekt_115"><p id="-i6aekt_118">Exce&ccedil;&otilde;es capturadas e logadas</p></li><li class="list__item" id="-i6aekt_116"><p id="-i6aekt_119">Mensagens de erro informativas</p></li><li class="list__item" id="-i6aekt_117"><p id="-i6aekt_120">Stack traces preservados</p></li></ul></li></ol></section><section class="chapter"><h2 id="melhorias-sugeridas" data-toc="melhorias-sugeridas">Melhorias Sugeridas</h2><ol class="list _decimal" id="-i6aekt_121" type="1"><li class="list__item" id="-i6aekt_127"><p id="-i6aekt_128"><span class="control" id="-i6aekt_129">Gerenciamento de Recursos</span></p></li></ol><div class="code-block" data-lang="java">
+try (PreparedStatement ps = ConnectionDB.getInstance().prepareStatement(sql)) {
+    // código aqui
+}
+</div><ol class="list _decimal" id="-i6aekt_123" type="1" start="2"><li class="list__item" id="-i6aekt_130"><p id="-i6aekt_131"><span class="control" id="-i6aekt_132">Logging Estruturado</span></p></li></ol><div class="code-block" data-lang="java">
+private static final Logger logger = LoggerFactory.getLogger(StudentDAO.class);
+// ...
+logger.error(&quot;Erro ao deletar estudante&quot;, e);
+</div><ol class="list _decimal" id="-i6aekt_125" type="1" start="3"><li class="list__item" id="-i6aekt_133"><p id="-i6aekt_134"><span class="control" id="-i6aekt_135">Valida&ccedil;&otilde;es de Entrada</span></p></li></ol><div class="code-block" data-lang="java">
+public void add(Student student) {
+    if (student == null) {
+        throw new IllegalArgumentException(&quot;Student cannot be null&quot;);
+    }
+    // resto do código
+}
+</div></section><section class="chapter"><h2 id="exemplo-de-uso" data-toc="exemplo-de-uso">Exemplo de Uso</h2><div class="code-block" data-lang="java">
+StudentDAO dao = new StudentDAO();
+
+// Criar novo estudante
+Student newStudent = new Student();
+newStudent.setName(&quot;Maria&quot;);
+newStudent.setAge(20);
+newStudent.setSex('F');
+dao.add(newStudent);
+
+// Buscar todos
+List&lt;Student&gt; allStudents = dao.getAll();
+
+// Buscar por ID
+Student found = dao.byID(1);
+
+// Atualizar
+found.setAge(21);
+dao.update(found, found.getId());
+
+// Deletar
+dao.delete(1);
+</div></section><div class="last-modified">22 abril 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="create-structue-with-maven-intelijj.html" class="navigation-links__prev">Criando com Maven + Intelijj</a><a href="student-dao-jpa-implementation.html" class="navigation-links__next">Implementa&ccedil;&atilde;o do StudentDAO com JPA</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.js"></script></body></html>

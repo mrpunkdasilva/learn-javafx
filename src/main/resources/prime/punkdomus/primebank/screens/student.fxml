@@ -67,7 +67,7 @@
             <TextField fx:id="tf_idade" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
             <!-- Botões -->
-            <Button fx:id="btn_salvar" mnemonicParsing="false" onAction="#showName" prefHeight="29.0" prefWidth="168.0" text="Salvar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="btn_salvar" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="168.0" text="Salvar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Button fx:id="btn_editar" mnemonicParsing="false" prefHeight="33.0" prefWidth="166.0" text="Editar" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="212.0" />

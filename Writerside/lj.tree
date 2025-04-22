@@ -7,13 +7,20 @@
                  start-page="starter-topic.md">
 
     <toc-element topic="starter-topic.md"/>
-    <toc-element topic="Create-Strucure-Project.md">
-        <toc-element topic="Create-structue-with-maven-intelijj.md"/>
+    <toc-element toc-title="Domus 1">
+        <toc-element topic="create-repository.md"/>
+        <toc-element topic="Criando-Classe-para-Connection-MySQL.md"/>
+        <toc-element topic="Primeiro-Model.md"/>
+        <toc-element topic="Create-first-Controller.md"/>
+        <toc-element topic="Criando-a-Primeira-tela.md">
+            <toc-element topic="Connect-FXML-with-Java.md"/>
+        </toc-element>
+        <toc-element topic="Create-Strucure-Project.md">
+            <toc-element topic="Create-structue-with-maven-intelijj.md"/>
+        </toc-element>
+        <toc-element topic="student-dao-implementation.md">
+            <toc-element topic="student-dao-jpa-implementation.md"/>
+            <toc-element topic="student-dao-hibernate-implementation.md"/>
+        </toc-element>
     </toc-element>
-    <toc-element topic="Criando-a-Primeira-tela.md">
-        <toc-element topic="Connect-FXML-with-Java.md"/>
-    </toc-element>
-    <toc-element topic="Create-first-Controller.md"/>
-    <toc-element topic="Primeiro-Model.md"/>
-    <toc-element topic="Criando-Classe-para-Connection-MySQL.md"/>
 </instance-profile>
