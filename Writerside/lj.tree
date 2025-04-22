@@ -23,4 +23,5 @@
         </toc-element>
         <toc-element topic="student-dao-jpa-implementation.md"/>
     </toc-element>
+    <toc-element topic="JavaFX-TableView-Guide.md"/>
 </instance-profile>

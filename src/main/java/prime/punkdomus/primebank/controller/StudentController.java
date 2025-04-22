@@ -83,13 +83,13 @@ public class StudentController implements Initializable {
     }
 
     void prepareTableList() {
-        tc_id.setCellFactory(new PropertyValueFactory<>("id"));
-        tc_nome.setCellFactory(new PropertyValueFactory<>("name"));
-        tc_sexo.setCellFactory(new PropertyValueFactory<>("sexo"));
-        tc_idade.setCellFactory(new PropertyValueFactory<>("idade"));
+        tc_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tc_nome.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tc_sexo.setCellValueFactory(new PropertyValueFactory<>("sex"));
+        tc_idade.setCellValueFactory(new PropertyValueFactory<>("age"));
 
         students = studentDAO.getAll();
-        observableStudents = FXCollections.observableList(students);
+        observableStudents = FXCollections.observableArrayList(students);
         tv_estudante.setItems(observableStudents);
     }
 
