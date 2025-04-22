@@ -19,8 +19,8 @@
             <toc-element topic="Create-structue-with-maven-intelijj.md"/>
         </toc-element>
         <toc-element topic="student-dao-implementation.md">
-            <toc-element topic="student-dao-jpa-implementation.md"/>
             <toc-element topic="student-dao-hibernate-implementation.md"/>
         </toc-element>
+        <toc-element topic="student-dao-jpa-implementation.md"/>
     </toc-element>
 </instance-profile>

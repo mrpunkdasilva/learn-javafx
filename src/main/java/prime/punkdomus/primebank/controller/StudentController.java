@@ -1,13 +1,18 @@
 package prime.punkdomus.primebank.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import prime.punkdomus.primebank.dao.StudentDAO;
 import prime.punkdomus.primebank.model.Student;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class StudentController implements Initializable {
@@ -54,11 +59,13 @@ public class StudentController implements Initializable {
 
     Student student = new Student();
     StudentDAO studentDAO = new StudentDAO();
+    private List<Student> students;
+    private ObservableList<Student> observableStudents;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        prepareTableList();
     }
 
     @FXML
@@ -69,13 +76,21 @@ public class StudentController implements Initializable {
             student.setSex(rb_m.isSelected() ? 'M' : 'F');
 
             studentDAO.add(student);
-            
-            // Opcional: Limpar campos após salvar
+
             clearFields();
-            
-            // Opcional: Mostrar mensagem de sucesso
             showSuccessMessage();
         }
+    }
+
+    void prepareTableList() {
+        tc_id.setCellFactory(new PropertyValueFactory<>("id"));
+        tc_nome.setCellFactory(new PropertyValueFactory<>("name"));
+        tc_sexo.setCellFactory(new PropertyValueFactory<>("sexo"));
+        tc_idade.setCellFactory(new PropertyValueFactory<>("idade"));
+
+        students = studentDAO.getAll();
+        observableStudents = FXCollections.observableList(students);
+        tv_estudante.setItems(observableStudents);
     }
 
     public boolean validator() {
