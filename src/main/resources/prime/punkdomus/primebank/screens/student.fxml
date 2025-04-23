@@ -42,7 +42,7 @@
             </Label>
             <HBox spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <RadioButton fx:id="rb_m" selected="true" text="Masculino">
+                  <RadioButton fx:id="rb_m" selected="true" text="M">
                      <toggleGroup>
                         <ToggleGroup fx:id="sexo" />
                      </toggleGroup>
@@ -50,7 +50,7 @@
                         <Insets top="12.0" />
                      </padding>
                   </RadioButton>
-                  <RadioButton fx:id="rb_f" text="Feminino" toggleGroup="$sexo">
+                  <RadioButton fx:id="rb_f" text="F" toggleGroup="$sexo">
                      <padding>
                         <Insets left="29.0" top="13.0" />
                      </padding>
@@ -68,12 +68,12 @@
 
             <!-- Botões -->
             <Button fx:id="btn_salvar" mnemonicParsing="false" onAction="#save" prefHeight="29.0" prefWidth="168.0" text="Salvar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button fx:id="btn_editar" mnemonicParsing="false" prefHeight="33.0" prefWidth="166.0" text="Editar" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="btn_editar" mnemonicParsing="false" onMouseClicked="#edit" prefHeight="33.0" prefWidth="166.0" text="Editar" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="212.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="btn_deletar" mnemonicParsing="false" prefHeight="29.0" prefWidth="168.0" text="Deletar" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="btn_deletar" mnemonicParsing="false" onAction="#delete" prefHeight="29.0" prefWidth="168.0" text="Deletar" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="418.0" />
                </GridPane.margin>
@@ -82,7 +82,7 @@
       </GridPane>
 
       <!-- Tabela -->
-      <TableView fx:id="tv_estudante" layoutX="431.0" layoutY="353.0" prefHeight="359.0" prefWidth="1146.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="353.0">
+      <TableView fx:id="tv_estudante" layoutX="431.0" layoutY="353.0" onMouseClicked="#fillFields" prefHeight="359.0" prefWidth="1146.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="353.0">
          <columns>
             <TableColumn fx:id="tc_id" prefWidth="75.0" text="ID" />
             <TableColumn fx:id="tc_nome" prefWidth="75.0" text="Nome" />
