@@ -1,0 +1,181 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-04-22T21:42:24.939576766"><title>Trabalhando com TableView em JavaFX | Learn JavaFX</title><script type="application/json" id="virtual-toc-data">[{"id":"configura-o-b-sica-da-tableview","level":0,"title":"Configuração Básica da TableView","anchor":"#configura-o-b-sica-da-tableview"},{"id":"pontos-importantes","level":0,"title":"Pontos Importantes","anchor":"#pontos-importantes"},{"id":"entendendo-propertyvaluefactory","level":0,"title":"Entendendo PropertyValueFactory","anchor":"#entendendo-propertyvaluefactory"},{"id":"eventos-e-sele-o","level":0,"title":"Eventos e Seleção","anchor":"#eventos-e-sele-o"},{"id":"boas-pr-ticas","level":0,"title":"Boas Práticas","anchor":"#boas-pr-ticas"},{"id":"exemplo-completo","level":0,"title":"Exemplo Completo","anchor":"#exemplo-completo"},{"id":"conclus-o","level":0,"title":"Conclusão","anchor":"#conclus-o"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Trabalhando com TableView em JavaFX | Learn JavaFX"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Learn JavaFX Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/javafx-tableview-guide.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Trabalhando com TableView em JavaFX | Learn JavaFX"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/javafx-tableview-guide.html#webpage",
+    "url": "writerside-documentation/javafx-tableview-guide.html",
+    "name": "Trabalhando com TableView em JavaFX | Learn JavaFX",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Learn JavaFX Help"
+}</script><!-- End Schema.org --></head><body data-id="JavaFX-TableView-Guide" data-main-title="Trabalhando com TableView em JavaFX" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Domus 1"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Learn JavaFX  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="JavaFX-TableView-Guide" id="JavaFX-TableView-Guide.md">Trabalhando com TableView em JavaFX</h1><section class="chapter"><h2 id="configura-o-b-sica-da-tableview" data-toc="configura-o-b-sica-da-tableview">Configura&ccedil;&atilde;o B&aacute;sica da TableView</h2><p id="-4v8czb_10">A TableView &eacute; um componente poderoso do JavaFX para exibir dados em formato tabular. Aqui est&aacute; um guia completo de como configur&aacute;-la corretamente.</p><section class="chapter"><h3 id="1-defini-o-no-fxml" data-toc="1-defini-o-no-fxml">1. Defini&ccedil;&atilde;o no FXML</h3><div class="code-block" data-lang="markup">
+&lt;TableView fx:id=&quot;tableView&quot; layoutX=&quot;14.0&quot; layoutY=&quot;388.0&quot; prefHeight=&quot;200.0&quot; prefWidth=&quot;200.0&quot;&gt;
+    &lt;columns&gt;
+        &lt;TableColumn fx:id=&quot;tc_id&quot; text=&quot;ID&quot; /&gt;
+        &lt;TableColumn fx:id=&quot;tc_nome&quot; text=&quot;Nome&quot; /&gt;
+        &lt;TableColumn fx:id=&quot;tc_sexo&quot; text=&quot;Sexo&quot; /&gt;
+        &lt;TableColumn fx:id=&quot;tc_idade&quot; text=&quot;Idade&quot; /&gt;
+    &lt;/columns&gt;
+&lt;/TableView&gt;
+</div></section><section class="chapter"><h3 id="2-declara-o-no-controller" data-toc="2-declara-o-no-controller">2. Declara&ccedil;&atilde;o no Controller</h3><div class="code-block" data-lang="java">
+@FXML private TableView&lt;Student&gt; tableView;
+@FXML private TableColumn&lt;Student, Long&gt; tc_id;
+@FXML private TableColumn&lt;Student, String&gt; tc_nome;
+@FXML private TableColumn&lt;Student, Character&gt; tc_sexo;
+@FXML private TableColumn&lt;Student, Integer&gt; tc_idade;
+
+private List&lt;Student&gt; students;
+private ObservableList&lt;Student&gt; observableStudents;
+</div></section><section class="chapter"><h3 id="3-configura-o-das-colunas" data-toc="3-configura-o-das-colunas">3. Configura&ccedil;&atilde;o das Colunas</h3><div class="code-block" data-lang="java">
+public void prepareTableList() {
+    // Configurando as colunas
+    tc_id.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;id&quot;));
+    tc_nome.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;name&quot;));
+    tc_sexo.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;sex&quot;));
+    tc_idade.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;age&quot;));
+
+    // Carregando dados
+    students = studentDAO.getAll();
+    observableStudents = FXCollections.observableArrayList(students);
+    tableView.setItems(observableStudents);
+}
+</div></section></section><section class="chapter"><h2 id="pontos-importantes" data-toc="pontos-importantes">Pontos Importantes</h2><section class="chapter"><h3 id="propertyvaluefactory" data-toc="propertyvaluefactory">PropertyValueFactory</h3><ul class="list _bullet" id="-4v8czb_21"><li class="list__item" id="-4v8czb_22"><p id="-4v8czb_25">Use <code class="code" id="-4v8czb_26">setCellValueFactory()</code> (n&atilde;o <code class="code" id="-4v8czb_27">setCellFactory()</code>)</p></li><li class="list__item" id="-4v8czb_23"><p id="-4v8czb_28">Os nomes das propriedades devem corresponder aos getters do modelo</p></li><li class="list__item" id="-4v8czb_24"><p id="-4v8czb_29">Exemplo: &quot;name&quot; corresponde a <code class="code" id="-4v8czb_30">getName()</code> no modelo</p></li></ul></section><section class="chapter"><h3 id="tipos-de-dados" data-toc="tipos-de-dados">Tipos de Dados</h3><ul class="list _bullet" id="-4v8czb_31"><li class="list__item" id="-4v8czb_32"><p id="-4v8czb_35">Especifique os tipos gen&eacute;ricos corretos para as colunas</p></li><li class="list__item" id="-4v8czb_33"><p id="-4v8czb_36">Exemplo: <code class="code" id="-4v8czb_37">TableColumn&lt;Student, Integer&gt;</code> para idade</p></li><li class="list__item" id="-4v8czb_34"><p id="-4v8czb_38">Os tipos devem corresponder aos tipos dos atributos do modelo</p></li></ul></section><section class="chapter"><h3 id="atualiza-o-de-dados" data-toc="atualiza-o-de-dados">Atualiza&ccedil;&atilde;o de Dados</h3><div class="code-block" data-lang="java">
+public void refreshTable() {
+    observableStudents.clear();
+    observableStudents.addAll(studentDAO.getAll());
+}
+</div></section><section class="chapter"><h3 id="formata-o-personalizada" data-toc="formata-o-personalizada">Formata&ccedil;&atilde;o Personalizada</h3><div class="code-block" data-lang="java">
+tc_sexo.setCellFactory(column -&gt; new TableCell&lt;Student, Character&gt;() {
+    @Override
+    protected void updateItem(Character item, boolean empty) {
+        super.updateItem(item, empty);
+        if (empty || item == null) {
+            setText(null);
+        } else {
+            setText(item == 'M' ? &quot;Masculino&quot; : &quot;Feminino&quot;);
+        }
+    }
+});
+</div></section></section><section class="chapter"><h2 id="entendendo-propertyvaluefactory" data-toc="entendendo-propertyvaluefactory">Entendendo PropertyValueFactory</h2><p id="-4v8czb_41">O <code class="code" id="-4v8czb_49">PropertyValueFactory</code> &eacute; uma implementa&ccedil;&atilde;o de <code class="code" id="-4v8czb_50">Callback</code> que cria uma propriedade de valor para uma c&eacute;lula da TableView. Vamos entender em detalhes:</p><section class="chapter"><h3 id="sintaxe-b-sica" data-toc="sintaxe-b-sica">Sintaxe B&aacute;sica</h3><div class="code-block" data-lang="java">
+tc_nome.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;name&quot;));
+</div></section><section class="chapter"><h3 id="como-funciona" data-toc="como-funciona">Como Funciona</h3><ol class="list _decimal" id="-4v8czb_52" type="1"><li class="list__item" id="-4v8czb_53"><p id="-4v8czb_55"><span class="control" id="-4v8czb_57">Mapeamento de Propriedades</span></p><ul class="list _bullet" id="-4v8czb_56"><li class="list__item" id="-4v8czb_58"><p id="-4v8czb_61">O par&acirc;metro passado para <code class="code" id="-4v8czb_62">PropertyValueFactory</code> (&quot;name&quot;) deve corresponder ao nome do getter no modelo</p></li><li class="list__item" id="-4v8czb_59"><p id="-4v8czb_63">Exemplo: &quot;name&quot; procura por <code class="code" id="-4v8czb_64">getName()</code> no modelo Student</p></li><li class="list__item" id="-4v8czb_60"><p id="-4v8czb_65">Exemplo: &quot;age&quot; procura por <code class="code" id="-4v8czb_66">getAge()</code> no modelo Student</p></li></ul></li><li class="list__item" id="-4v8czb_54"><p id="-4v8czb_67"><span class="control" id="-4v8czb_70">Tipos Gen&eacute;ricos</span></p><div class="code-block" data-lang="java">
+TableColumn&lt;Student, String&gt; tc_nome;
+//           ^       ^
+//           |       |
+//     Tipo da    Tipo do
+//     Entidade   Atributo
+</div><ul class="list _bullet" id="-4v8czb_69"><li class="list__item" id="-4v8czb_71"><p id="-4v8czb_73">Primeiro tipo (Student): classe do modelo</p></li><li class="list__item" id="-4v8czb_72"><p id="-4v8czb_74">Segundo tipo (String): tipo do atributo</p></li></ul></li></ol></section><section class="chapter"><h3 id="exemplos-pr-ticos" data-toc="exemplos-pr-ticos">Exemplos Pr&aacute;ticos</h3><div class="code-block" data-lang="java">
+// Para um atributo String
+tc_nome.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;name&quot;));
+// Procura por getName() no modelo
+
+// Para um atributo Integer
+tc_idade.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;age&quot;));
+// Procura por getAge() no modelo
+
+// Para um atributo Boolean
+tc_ativo.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;active&quot;));
+// Procura por isActive() ou getActive() no modelo
+</div></section><section class="chapter"><h3 id="alternativas-ao-propertyvaluefactory" data-toc="alternativas-ao-propertyvaluefactory">Alternativas ao PropertyValueFactory</h3><p id="-4v8czb_76">Voc&ecirc; tamb&eacute;m pode usar lambdas para mais flexibilidade:</p><div class="code-block" data-lang="java">
+// Usando lambda
+tc_nome.setCellValueFactory(data -&gt; new SimpleStringProperty(data.getValue().getName()));
+
+// Para cálculos ou formatações complexas
+tc_nomeCompleto.setCellValueFactory(data -&gt; {
+    Student student = data.getValue();
+    return new SimpleStringProperty(student.getFirstName() + &quot; &quot; + student.getLastName());
+});
+</div></section><section class="chapter"><h3 id="quando-usar-cada-abordagem" data-toc="quando-usar-cada-abordagem">Quando Usar Cada Abordagem</h3><ol class="list _decimal" id="-4v8czb_78" type="1"><li class="list__item" id="-4v8czb_79"><p id="-4v8czb_81"><span class="control" id="-4v8czb_83">PropertyValueFactory</span></p><ul class="list _bullet" id="-4v8czb_82"><li class="list__item" id="-4v8czb_84"><p id="-4v8czb_87">Mais simples e direto</p></li><li class="list__item" id="-4v8czb_85"><p id="-4v8czb_88">Bom para mapeamentos simples de propriedades</p></li><li class="list__item" id="-4v8czb_86"><p id="-4v8czb_89">Requer que o modelo siga o padr&atilde;o JavaBean</p></li></ul></li><li class="list__item" id="-4v8czb_80"><p id="-4v8czb_90"><span class="control" id="-4v8czb_92">Lambda</span></p><ul class="list _bullet" id="-4v8czb_91"><li class="list__item" id="-4v8czb_93"><p id="-4v8czb_97">Mais flex&iacute;vel</p></li><li class="list__item" id="-4v8czb_94"><p id="-4v8czb_98">Permite transforma&ccedil;&otilde;es de dados</p></li><li class="list__item" id="-4v8czb_95"><p id="-4v8czb_99">Necess&aacute;rio para l&oacute;gica personalizada</p></li><li class="list__item" id="-4v8czb_96"><p id="-4v8czb_100">Melhor para debug</p></li></ul></li></ol></section><section class="chapter"><h3 id="exemplo-completo-com-diferentes-tipos" data-toc="exemplo-completo-com-diferentes-tipos">Exemplo Completo com Diferentes Tipos</h3><div class="code-block" data-lang="java">
+public void configureColumns() {
+    // String - nome do aluno
+    tc_nome.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;name&quot;));
+    
+    // Integer - idade
+    tc_idade.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;age&quot;));
+    
+    // Character com formatação personalizada
+    tc_sexo.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;sex&quot;));
+    tc_sexo.setCellFactory(column -&gt; new TableCell&lt;Student, Character&gt;() {
+        @Override
+        protected void updateItem(Character item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty || item == null) {
+                setText(null);
+            } else {
+                setText(item == 'M' ? &quot;Masculino&quot; : &quot;Feminino&quot;);
+            }
+        }
+    });
+    
+    // Propriedade calculada usando lambda
+    tc_maiorIdade.setCellValueFactory(data -&gt; 
+        new SimpleBooleanProperty(data.getValue().getAge() &gt;= 18));
+}
+</div></section><section class="chapter"><h3 id="dicas-e-boas-pr-ticas" data-toc="dicas-e-boas-pr-ticas">Dicas e Boas Pr&aacute;ticas</h3><ol class="list _decimal" id="-4v8czb_102" type="1"><li class="list__item" id="-4v8czb_103"><p id="-4v8czb_107"><span class="control" id="-4v8czb_109">Nomenclatura</span></p><ul class="list _bullet" id="-4v8czb_108"><li class="list__item" id="-4v8czb_110"><p id="-4v8czb_112">Use nomes consistentes entre o modelo e PropertyValueFactory</p></li><li class="list__item" id="-4v8czb_111"><p id="-4v8czb_113">Mantenha o padr&atilde;o JavaBean (get/set/is)</p></li></ul></li><li class="list__item" id="-4v8czb_104"><p id="-4v8czb_114"><span class="control" id="-4v8czb_116">Valida&ccedil;&atilde;o</span></p><ul class="list _bullet" id="-4v8czb_115"><li class="list__item" id="-4v8czb_117"><p id="-4v8czb_119">Verifique se os tipos correspondem corretamente</p></li><li class="list__item" id="-4v8czb_118"><p id="-4v8czb_120">Trate valores nulos adequadamente</p></li></ul></li><li class="list__item" id="-4v8czb_105"><p id="-4v8czb_121"><span class="control" id="-4v8czb_123">Performance</span></p><ul class="list _bullet" id="-4v8czb_122"><li class="list__item" id="-4v8czb_124"><p id="-4v8czb_126">PropertyValueFactory usa reflex&atilde;o</p></li><li class="list__item" id="-4v8czb_125"><p id="-4v8czb_127">Para melhor performance em tabelas grandes, considere usar lambdas</p></li></ul></li><li class="list__item" id="-4v8czb_106"><p id="-4v8czb_128"><span class="control" id="-4v8czb_130">Debug</span></p><ul class="list _bullet" id="-4v8czb_129"><li class="list__item" id="-4v8czb_131"><p id="-4v8czb_132">Se a coluna n&atilde;o exibir dados, verifique:</p><ul class="list _bullet" id="-4v8czb_133"><li class="list__item" id="-4v8czb_134"><p id="-4v8czb_137">Nome da propriedade no PropertyValueFactory</p></li><li class="list__item" id="-4v8czb_135"><p id="-4v8czb_138">Tipos gen&eacute;ricos da coluna</p></li><li class="list__item" id="-4v8czb_136"><p id="-4v8czb_139">Exist&ecirc;ncia do getter correspondente no modelo</p></li></ul></li></ul></li></ol></section></section><section class="chapter"><h2 id="eventos-e-sele-o" data-toc="eventos-e-sele-o">Eventos e Sele&ccedil;&atilde;o</h2><section class="chapter"><h3 id="sele-o-de-linha" data-toc="sele-o-de-linha">Sele&ccedil;&atilde;o de Linha</h3><div class="code-block" data-lang="java">
+tableView.getSelectionModel().selectedItemProperty().addListener(
+    (observable, oldValue, newValue) -&gt; {
+        if (newValue != null) {
+            // Preencher formulário com dados selecionados
+            tf_nome.setText(newValue.getName());
+            tf_idade.setText(String.valueOf(newValue.getAge()));
+            rb_m.setSelected(newValue.getSex() == 'M');
+            rb_f.setSelected(newValue.getSex() == 'F');
+        }
+    }
+);
+</div></section><section class="chapter"><h3 id="duplo-clique" data-toc="duplo-clique">Duplo Clique</h3><div class="code-block" data-lang="java">
+tableView.setOnMouseClicked(event -&gt; {
+    if (event.getClickCount() == 2) {
+        Student selected = tableView.getSelectionModel().getSelectedItem();
+        if (selected != null) {
+            // Ação para duplo clique
+        }
+    }
+});
+</div></section></section><section class="chapter"><h2 id="boas-pr-ticas" data-toc="boas-pr-ticas">Boas Pr&aacute;ticas</h2><ol class="list _decimal" id="-4v8czb_144" type="1"><li class="list__item" id="-4v8czb_145"><p id="-4v8czb_149"><span class="control" id="-4v8czb_151">Inicializa&ccedil;&atilde;o</span></p><ul class="list _bullet" id="-4v8czb_150"><li class="list__item" id="-4v8czb_152"><p id="-4v8czb_154">Configure a tabela no m&eacute;todo <code class="code" id="-4v8czb_155">initialize()</code></p></li><li class="list__item" id="-4v8czb_153"><p id="-4v8czb_156">Carregue os dados ap&oacute;s a configura&ccedil;&atilde;o das colunas</p></li></ul></li><li class="list__item" id="-4v8czb_146"><p id="-4v8czb_157"><span class="control" id="-4v8czb_159">Tratamento de Erros</span></p><ul class="list _bullet" id="-4v8czb_158"><li class="list__item" id="-4v8czb_160"><p id="-4v8czb_162">Verifique valores nulos</p></li><li class="list__item" id="-4v8czb_161"><p id="-4v8czb_163">Implemente tratamento de exce&ccedil;&otilde;es</p></li></ul></li><li class="list__item" id="-4v8czb_147"><p id="-4v8czb_164"><span class="control" id="-4v8czb_166">Desempenho</span></p><ul class="list _bullet" id="-4v8czb_165"><li class="list__item" id="-4v8czb_167"><p id="-4v8czb_169">Use <code class="code" id="-4v8czb_170">ObservableList</code> para atualiza&ccedil;&otilde;es din&acirc;micas</p></li><li class="list__item" id="-4v8czb_168"><p id="-4v8czb_171">Considere pagina&ccedil;&atilde;o para grandes conjuntos de dados</p></li></ul></li><li class="list__item" id="-4v8czb_148"><p id="-4v8czb_172"><span class="control" id="-4v8czb_174">Responsividade</span></p><ul class="list _bullet" id="-4v8czb_173"><li class="list__item" id="-4v8czb_175"><p id="-4v8czb_177">Configure redimensionamento de colunas</p></li><li class="list__item" id="-4v8czb_176"><p id="-4v8czb_178">Defina pol&iacute;ticas de crescimento apropriadas</p></li></ul></li></ol></section><section class="chapter"><h2 id="exemplo-completo" data-toc="exemplo-completo">Exemplo Completo</h2><div class="code-block" data-lang="java">
+public class StudentController implements Initializable {
+    @FXML private TableView&lt;Student&gt; tableView;
+    @FXML private TableColumn&lt;Student, Long&gt; tc_id;
+    // ... outros campos
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        prepareTableList();
+        configureTableSelection();
+    }
+
+    private void prepareTableList() {
+        // Configuração das colunas
+        tc_id.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;id&quot;));
+        // ... outras colunas
+
+        // Carregamento inicial
+        refreshTable();
+    }
+
+    private void configureTableSelection() {
+        tableView.getSelectionModel().selectedItemProperty().addListener(
+            (observable, oldValue, newValue) -&gt; {
+                if (newValue != null) {
+                    populateForm(newValue);
+                }
+            }
+        );
+    }
+
+    private void refreshTable() {
+        try {
+            List&lt;Student&gt; students = studentDAO.getAll();
+            observableStudents = FXCollections.observableArrayList(students);
+            tableView.setItems(observableStudents);
+        } catch (Exception e) {
+            showErrorAlert(&quot;Erro ao carregar dados: &quot; + e.getMessage());
+        }
+    }
+}
+</div></section><section class="chapter"><h2 id="conclus-o" data-toc="conclus-o">Conclus&atilde;o</h2><p id="-4v8czb_180">Uma TableView bem configurada &eacute; essencial para uma boa experi&ecirc;ncia do usu&aacute;rio. Siga estas diretrizes para criar interfaces robustas e funcionais com JavaFX.</p></section><div class="last-modified">22 abril 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="student-dao-jpa-implementation.html" class="navigation-links__prev">Implementa&ccedil;&atilde;o do StudentDAO com JPA</a><a href="student-controller-implementation.html" class="navigation-links__next">Implementa&ccedil;&atilde;o do Controller StudentController</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.js"></script></body></html>

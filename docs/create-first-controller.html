@@ -1,0 +1,87 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-04-22T21:42:24.93802812"><title>Criar primeiro Controller | Learn JavaFX</title><script type="application/json" id="virtual-toc-data">[{"id":"estrutura-b-sica-de-um-controller","level":0,"title":"Estrutura Básica de um Controller","anchor":"#estrutura-b-sica-de-um-controller"},{"id":"componentes-principais","level":0,"title":"Componentes Principais","anchor":"#componentes-principais"},{"id":"conectando-controller-ao-fxml","level":0,"title":"Conectando Controller ao FXML","anchor":"#conectando-controller-ao-fxml"},{"id":"boas-pr-ticas","level":0,"title":"Boas Práticas","anchor":"#boas-pr-ticas"},{"id":"dicas-de-desenvolvimento","level":0,"title":"Dicas de Desenvolvimento","anchor":"#dicas-de-desenvolvimento"},{"id":"pr-ximos-passos","level":0,"title":"Próximos Passos","anchor":"#pr-ximos-passos"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Criar primeiro Controller | Learn JavaFX"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Learn JavaFX Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/create-first-controller.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Criar primeiro Controller | Learn JavaFX"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/create-first-controller.html#webpage",
+    "url": "writerside-documentation/create-first-controller.html",
+    "name": "Criar primeiro Controller | Learn JavaFX",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Learn JavaFX Help"
+}</script><!-- End Schema.org --></head><body data-id="Create-first-Controller" data-main-title="Criar primeiro Controller" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Domus 1"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Learn JavaFX  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Create-first-Controller" id="Create-first-Controller.md">Criar primeiro Controller</h1><p id="a0nz5a_3">Controllers s&atilde;o componentes fundamentais em aplica&ccedil;&otilde;es JavaFX, respons&aacute;veis por gerenciar a l&oacute;gica de intera&ccedil;&atilde;o entre a interface do usu&aacute;rio (FXML) e o modelo de dados.</p><section class="chapter"><h2 id="estrutura-b-sica-de-um-controller" data-toc="estrutura-b-sica-de-um-controller">Estrutura B&aacute;sica de um Controller</h2><p id="a0nz5a_10">Um controller JavaFX t&iacute;pico segue esta estrutura:</p><div class="code-block" data-lang="java">
+public class StudentController implements Initializable {
+    // Injeção de componentes FXML
+    @FXML
+    private Button btnSalvar;
+    
+    @FXML
+    private TextField tfNome;
+    
+    // Método de inicialização
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Código de inicialização
+    }
+    
+    // Handlers de eventos
+    @FXML
+    public void handleSalvar(ActionEvent event) {
+        // Lógica do botão salvar
+    }
+}
+</div></section><section class="chapter"><h2 id="componentes-principais" data-toc="componentes-principais">Componentes Principais</h2><section class="chapter"><h3 id="1-anota-es-fxml" data-toc="1-anota-es-fxml">1. Anota&ccedil;&otilde;es FXML</h3><ul class="list _bullet" id="a0nz5a_15"><li class="list__item" id="a0nz5a_16"><p id="a0nz5a_18"><code class="code" id="a0nz5a_19">@FXML</code>: Usada para injetar elementos definidos no FXML no controller</p></li><li class="list__item" id="a0nz5a_17"><p id="a0nz5a_20">Deve ser aplicada em:</p><ul class="list _bullet" id="a0nz5a_21"><li class="list__item" id="a0nz5a_22"><p id="a0nz5a_25">Campos que representam elementos da UI</p></li><li class="list__item" id="a0nz5a_23"><p id="a0nz5a_26">M&eacute;todos que tratam eventos</p></li><li class="list__item" id="a0nz5a_24"><p id="a0nz5a_27">M&eacute;todo initialize (opcional)</p></li></ul></li></ul></section><section class="chapter"><h3 id="2-implementa-o-do-initializable" data-toc="2-implementa-o-do-initializable">2. Implementa&ccedil;&atilde;o do Initializable</h3><div class="code-block" data-lang="java">
+public class SeuController implements Initializable {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Código executado quando a tela é carregada
+    }
+}
+</div></section><section class="chapter"><h3 id="3-exemplo-pr-tico-studentcontroller" data-toc="3-exemplo-pr-tico-studentcontroller">3. Exemplo Pr&aacute;tico: StudentController</h3><p id="a0nz5a_29">Nosso <code class="code" id="a0nz5a_31">StudentController</code> atual demonstra v&aacute;rios conceitos importantes:</p><div class="code-block" data-lang="java">
+public class StudentController implements Initializable {
+    // Campos de UI
+    @FXML
+    private Button btn_deletar;
+    @FXML
+    private Button btn_editar;
+    @FXML
+    private Button btn_salvar;
+    @FXML
+    private RadioButton rb_f;
+    @FXML
+    private RadioButton rb_m;
+    @FXML
+    private TextField tf_nome;
+    @FXML
+    private TextField tf_idade;
+    @FXML
+    private TableView tv_estudante;
+
+    // Método de inicialização
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Inicialização dos componentes
+    }
+
+    // Exemplo de handler de evento
+    @FXML
+    public void showName(ActionEvent actionEvent) {
+        String name = tf_nome.getText();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(&quot;Hello World&quot;);
+        alert.setHeaderText(&quot;Hello World&quot;);
+        alert.setContentText(name);
+        alert.showAndWait();
+    }
+}
+</div></section></section><section class="chapter"><h2 id="conectando-controller-ao-fxml" data-toc="conectando-controller-ao-fxml">Conectando Controller ao FXML</h2><p id="a0nz5a_32">Para conectar um controller ao arquivo FXML, voc&ecirc; precisa:</p><ol class="list _decimal" id="a0nz5a_33" type="1"><li class="list__item" id="a0nz5a_37"><p id="a0nz5a_38">Definir o controller no FXML:</p></li></ol><div class="code-block" data-lang="markup">
+&lt;AnchorPane xmlns=&quot;http://javafx.com/javafx&quot;
+            xmlns:fx=&quot;http://javafx.com/fxml&quot;
+            fx:controller=&quot;prime.punkdomus.primebank.controller.StudentController&quot;&gt;
+</div><ol class="list _decimal" id="a0nz5a_35" type="1" start="2"><li class="list__item" id="a0nz5a_39"><p id="a0nz5a_41">Referenciar os elementos no controller usando <code class="code" id="a0nz5a_42">@FXML</code></p></li><li class="list__item" id="a0nz5a_40"><p id="a0nz5a_43">Definir os handlers de eventos no FXML:</p></li></ol><div class="code-block" data-lang="markup">
+&lt;Button onAction=&quot;#showName&quot; text=&quot;Mostrar Nome&quot;/&gt;
+</div></section><section class="chapter"><h2 id="boas-pr-ticas" data-toc="boas-pr-ticas">Boas Pr&aacute;ticas</h2><ol class="list _decimal" id="a0nz5a_44" type="1"><li class="list__item" id="a0nz5a_45"><p id="a0nz5a_49"><span class="control" id="a0nz5a_51">Nomenclatura</span></p><ul class="list _bullet" id="a0nz5a_50"><li class="list__item" id="a0nz5a_52"><p id="a0nz5a_54">Use nomes descritivos para m&eacute;todos handlers</p></li><li class="list__item" id="a0nz5a_53"><p id="a0nz5a_55">Prefixe campos de UI com identificadores (ex: btn_, tf_, lbl_)</p></li></ul></li><li class="list__item" id="a0nz5a_46"><p id="a0nz5a_56"><span class="control" id="a0nz5a_58">Organiza&ccedil;&atilde;o</span></p><ul class="list _bullet" id="a0nz5a_57"><li class="list__item" id="a0nz5a_59"><p id="a0nz5a_62">Agrupe campos relacionados</p></li><li class="list__item" id="a0nz5a_60"><p id="a0nz5a_63">Mantenha handlers pr&oacute;ximos aos campos que eles manipulam</p></li><li class="list__item" id="a0nz5a_61"><p id="a0nz5a_64">Separe l&oacute;gica de neg&oacute;cios da l&oacute;gica de UI</p></li></ul></li><li class="list__item" id="a0nz5a_47"><p id="a0nz5a_65"><span class="control" id="a0nz5a_67">Inicializa&ccedil;&atilde;o</span></p><ul class="list _bullet" id="a0nz5a_66"><li class="list__item" id="a0nz5a_68"><p id="a0nz5a_71">Use o m&eacute;todo <code class="code" id="a0nz5a_72">initialize()</code> para configura&ccedil;&atilde;o inicial</p></li><li class="list__item" id="a0nz5a_69"><p id="a0nz5a_73">Configure listeners e bindings neste m&eacute;todo</p></li><li class="list__item" id="a0nz5a_70"><p id="a0nz5a_74">Inicialize cole&ccedil;&otilde;es e outros dados necess&aacute;rios</p></li></ul></li><li class="list__item" id="a0nz5a_48"><p id="a0nz5a_75"><span class="control" id="a0nz5a_77">Tratamento de Eventos</span></p><ul class="list _bullet" id="a0nz5a_76"><li class="list__item" id="a0nz5a_78"><p id="a0nz5a_81">Mantenha handlers concisos</p></li><li class="list__item" id="a0nz5a_79"><p id="a0nz5a_82">Delegue l&oacute;gica complexa para classes de servi&ccedil;o</p></li><li class="list__item" id="a0nz5a_80"><p id="a0nz5a_83">Trate exce&ccedil;&otilde;es adequadamente</p></li></ul></li></ol></section><section class="chapter"><h2 id="dicas-de-desenvolvimento" data-toc="dicas-de-desenvolvimento">Dicas de Desenvolvimento</h2><ol class="list _decimal" id="a0nz5a_84" type="1"><li class="list__item" id="a0nz5a_85"><p id="a0nz5a_88"><span class="control" id="a0nz5a_90">Debug</span></p><ul class="list _bullet" id="a0nz5a_89"><li class="list__item" id="a0nz5a_91"><p id="a0nz5a_94">Use <code class="code" id="a0nz5a_95">System.out.println()</code> ou logging para debug</p></li><li class="list__item" id="a0nz5a_92"><p id="a0nz5a_96">Verifique se os elementos FXML est&atilde;o sendo injetados corretamente</p></li><li class="list__item" id="a0nz5a_93"><p id="a0nz5a_97">Confirme se os handlers est&atilde;o sendo chamados</p></li></ul></li><li class="list__item" id="a0nz5a_86"><p id="a0nz5a_98"><span class="control" id="a0nz5a_100">Testes</span></p><ul class="list _bullet" id="a0nz5a_99"><li class="list__item" id="a0nz5a_101"><p id="a0nz5a_104">Teste diferentes cen&aacute;rios de intera&ccedil;&atilde;o</p></li><li class="list__item" id="a0nz5a_102"><p id="a0nz5a_105">Verifique estados inv&aacute;lidos</p></li><li class="list__item" id="a0nz5a_103"><p id="a0nz5a_106">Teste navega&ccedil;&atilde;o entre telas</p></li></ul></li><li class="list__item" id="a0nz5a_87"><p id="a0nz5a_107"><span class="control" id="a0nz5a_109">Manuten&ccedil;&atilde;o</span></p><ul class="list _bullet" id="a0nz5a_108"><li class="list__item" id="a0nz5a_110"><p id="a0nz5a_113">Mantenha o controller focado em uma responsabilidade</p></li><li class="list__item" id="a0nz5a_111"><p id="a0nz5a_114">Documente comportamentos complexos</p></li><li class="list__item" id="a0nz5a_112"><p id="a0nz5a_115">Refatore quando necess&aacute;rio</p></li></ul></li></ol></section><section class="chapter"><h2 id="pr-ximos-passos" data-toc="pr-ximos-passos">Pr&oacute;ximos Passos</h2><ul class="list _bullet" id="a0nz5a_116"><li class="list__item" id="a0nz5a_117"><p id="a0nz5a_121">Implementar valida&ccedil;&atilde;o de campos</p></li><li class="list__item" id="a0nz5a_118"><p id="a0nz5a_122">Adicionar persist&ecirc;ncia de dados</p></li><li class="list__item" id="a0nz5a_119"><p id="a0nz5a_123">Criar telas adicionais</p></li><li class="list__item" id="a0nz5a_120"><p id="a0nz5a_124">Implementar navega&ccedil;&atilde;o entre telas</p></li></ul></section><div class="last-modified">22 abril 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="primeiro-model.html" class="navigation-links__prev">Primeiro Model</a><a href="criando-a-primeira-tela.html" class="navigation-links__next">Criando a primeira tela</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.js"></script></body></html>

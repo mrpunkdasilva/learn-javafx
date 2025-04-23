@@ -1,0 +1,145 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-04-22T21:42:24.954368039"><title>Implementa&ccedil;&atilde;o do Controller StudentController | Learn JavaFX</title><script type="application/json" id="virtual-toc-data">[{"id":"estrutura-b-sica","level":0,"title":"Estrutura Básica","anchor":"#estrutura-b-sica"},{"id":"inicializa-o","level":0,"title":"Inicialização","anchor":"#inicializa-o"},{"id":"gerenciamento-da-tableview","level":0,"title":"Gerenciamento da TableView","anchor":"#gerenciamento-da-tableview"},{"id":"opera-es-crud","level":0,"title":"Operações CRUD","anchor":"#opera-es-crud"},{"id":"valida-o-de-dados","level":0,"title":"Validação de Dados","anchor":"#valida-o-de-dados"},{"id":"utilit-rios-da-interface","level":0,"title":"Utilitários da Interface","anchor":"#utilit-rios-da-interface"},{"id":"boas-pr-ticas-implementadas","level":0,"title":"Boas Práticas Implementadas","anchor":"#boas-pr-ticas-implementadas"},{"id":"pontos-de-aten-o","level":0,"title":"Pontos de Atenção","anchor":"#pontos-de-aten-o"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Implementa&ccedil;&atilde;o do Controller StudentController | Learn JavaFX"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Learn JavaFX Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/student-controller-implementation.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Implementa&ccedil;&atilde;o do Controller StudentController | Learn JavaFX"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/student-controller-implementation.html#webpage",
+    "url": "writerside-documentation/student-controller-implementation.html",
+    "name": "Implementa&ccedil;&atilde;o do Controller StudentController | Learn JavaFX",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Learn JavaFX Help"
+}</script><!-- End Schema.org --></head><body data-id="Student-Controller-Implementation" data-main-title="Implementação do Controller StudentController" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Domus 1"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Learn JavaFX  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Student-Controller-Implementation" id="Student-Controller-Implementation.md">Implementação do Controller StudentController</h1><p id="aaepmv_3">O <code class="code" id="aaepmv_12">StudentController</code> &eacute; respons&aacute;vel por gerenciar a interface do usu&aacute;rio para o cadastro, edi&ccedil;&atilde;o, exclus&atilde;o e visualiza&ccedil;&atilde;o de estudantes. Vamos analisar sua implementa&ccedil;&atilde;o em detalhes.</p><section class="chapter"><h2 id="estrutura-b-sica" data-toc="estrutura-b-sica">Estrutura B&aacute;sica</h2><section class="chapter"><h3 id="componentes-fxml-injetados" data-toc="componentes-fxml-injetados">Componentes FXML Injetados</h3><div class="code-block" data-lang="java">
+@FXML
+private Button btn_deletar;
+@FXML
+private Button btn_editar;
+@FXML
+private Button btn_salvar;
+@FXML
+private RadioButton rb_f, rb_m;
+@FXML
+private TextField tf_nome, tf_idade;
+@FXML
+private TableView tv_estudante;
+</div><p id="aaepmv_16">Estes componentes s&atilde;o injetados automaticamente pelo JavaFX quando o arquivo FXML &eacute; carregado.</p></section><section class="chapter"><h3 id="atributos-de-estado" data-toc="atributos-de-estado">Atributos de Estado</h3><div class="code-block" data-lang="java">
+Student student = new Student();
+StudentDAO studentDAO = new StudentDAO();
+private List&lt;Student&gt; students;
+private ObservableList&lt;Student&gt; observableStudents;
+</div><ul class="list _bullet" id="aaepmv_18"><li class="list__item" id="aaepmv_19"><p id="aaepmv_23"><code class="code" id="aaepmv_24">student</code>: Mant&eacute;m o estado do estudante atual sendo editado/criado</p></li><li class="list__item" id="aaepmv_20"><p id="aaepmv_25"><code class="code" id="aaepmv_26">studentDAO</code>: Respons&aacute;vel pela persist&ecirc;ncia dos dados</p></li><li class="list__item" id="aaepmv_21"><p id="aaepmv_27"><code class="code" id="aaepmv_28">students</code>: Lista de todos os estudantes</p></li><li class="list__item" id="aaepmv_22"><p id="aaepmv_29"><code class="code" id="aaepmv_30">observableStudents</code>: Lista observ&aacute;vel usada pelo TableView</p></li></ul></section></section><section class="chapter"><h2 id="inicializa-o" data-toc="inicializa-o">Inicializa&ccedil;&atilde;o</h2><div class="code-block" data-lang="java">
+@Override
+public void initialize(URL url, ResourceBundle resourceBundle) {
+    prepareTableList();
+    toggleVisibilityButtons();
+}
+</div><p id="aaepmv_32">O m&eacute;todo <code class="code" id="aaepmv_34">initialize</code> &eacute; chamado automaticamente ap&oacute;s o FXML ser carregado e configura:</p><ul class="list _bullet" id="aaepmv_33"><li class="list__item" id="aaepmv_35"><p id="aaepmv_37">A TableView com suas colunas</p></li><li class="list__item" id="aaepmv_36"><p id="aaepmv_38">A visibilidade inicial dos bot&otilde;es</p></li></ul></section><section class="chapter"><h2 id="gerenciamento-da-tableview" data-toc="gerenciamento-da-tableview">Gerenciamento da TableView</h2><section class="chapter"><h3 id="prepara-o-da-tabela" data-toc="prepara-o-da-tabela">Prepara&ccedil;&atilde;o da Tabela</h3><div class="code-block" data-lang="java">
+void prepareTableList() {
+    tc_id.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;id&quot;));
+    tc_nome.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;name&quot;));
+    tc_sexo.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;sex&quot;));
+    tc_idade.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;age&quot;));
+
+    students = studentDAO.getAll();
+    observableStudents = FXCollections.observableArrayList(students);
+    tv_estudante.setItems(observableStudents);
+}
+</div><p id="aaepmv_42">Este m&eacute;todo:</p><ol class="list _decimal" id="aaepmv_43" type="1"><li class="list__item" id="aaepmv_44"><p id="aaepmv_48">Configura o mapeamento das colunas com as propriedades do modelo</p></li><li class="list__item" id="aaepmv_45"><p id="aaepmv_49">Carrega os dados do banco</p></li><li class="list__item" id="aaepmv_46"><p id="aaepmv_50">Cria uma lista observ&aacute;vel</p></li><li class="list__item" id="aaepmv_47"><p id="aaepmv_51">Associa a lista &agrave; TableView</p></li></ol></section><section class="chapter"><h3 id="atualiza-o-da-tabela" data-toc="atualiza-o-da-tabela">Atualiza&ccedil;&atilde;o da Tabela</h3><div class="code-block" data-lang="java">
+private void reloadTable() {
+    students = studentDAO.getAll();
+    observableStudents = FXCollections.observableArrayList(students);
+    tv_estudante.setItems(observableStudents);
+}
+</div><p id="aaepmv_53">M&eacute;todo utilit&aacute;rio para recarregar os dados da tabela ap&oacute;s opera&ccedil;&otilde;es de CRUD.</p></section></section><section class="chapter"><h2 id="opera-es-crud" data-toc="opera-es-crud">Opera&ccedil;&otilde;es CRUD</h2><section class="chapter"><h3 id="create-criar" data-toc="create-criar">Create (Criar)</h3><div class="code-block" data-lang="java">
+@FXML
+public void save(ActionEvent actionEvent) {
+    if (validator()) {
+        student.setName(tf_nome.getText().toString());
+        student.setAge(Integer.parseInt(tf_idade.getText()));
+        student.setSex(rb_m.isSelected() ? 'M' : 'F');
+
+        studentDAO.add(student);
+
+        clearFields();
+        showSuccessMessage();
+        reloadTable();
+    }
+}
+</div></section><section class="chapter"><h3 id="read-ler" data-toc="read-ler">Read (Ler)</h3><div class="code-block" data-lang="java">
+@FXML
+public void fillFields(MouseEvent event) {
+    student = (Student) tv_estudante.getSelectionModel().getSelectedItem();
+    if (student != null) {
+        // Preenche os campos com dados do estudante selecionado
+    }
+}
+</div></section><section class="chapter"><h3 id="update-atualizar" data-toc="update-atualizar">Update (Atualizar)</h3><div class="code-block" data-lang="java">
+@FXML
+public void edit(MouseEvent event) {
+    if (validator()) {
+        // Atualiza o objeto student com dados dos campos
+        studentDAO.update(student, student.getId());
+        // Limpa campos e atualiza interface
+    }
+}
+</div></section><section class="chapter"><h3 id="delete-excluir" data-toc="delete-excluir">Delete (Excluir)</h3><div class="code-block" data-lang="java">
+@FXML
+void delete() {
+    Alert alert = new Alert(Alert.AlertType.WARNING);
+    // Confirmação de exclusão
+    if (result.get() == ButtonType.OK) {
+        studentDAO.delete(student.getId());
+        clearFields();
+        reloadTable();
+    }
+}
+</div></section></section><section class="chapter"><h2 id="valida-o-de-dados" data-toc="valida-o-de-dados">Valida&ccedil;&atilde;o de Dados</h2><div class="code-block" data-lang="java">
+public boolean validator() {
+    StringBuffer message = new StringBuffer();
+    
+    // Validação do nome
+    if (tf_nome.getText().isEmpty()) {
+        message.append(&quot;Nome não pode ser vazio\n&quot;);
+    }
+
+    // Validação da idade
+    if (tf_idade.getText().isEmpty()) {
+        message.append(&quot;Idade não pode ser vazia\n&quot;);
+    } else {
+        try {
+            int age = Integer.parseInt(tf_idade.getText());
+            if (age &lt;= 0) {
+                message.append(&quot;Idade deve ser maior que zero\n&quot;);
+            }
+        } catch (NumberFormatException e) {
+            message.append(&quot;Idade deve ser um número válido\n&quot;);
+        }
+    }
+
+    // Exibe mensagens de erro se houver
+    if (!message.isEmpty()) {
+        showErrorAlert(message.toString());
+        return false;
+    }
+    
+    return true;
+}
+</div></section><section class="chapter"><h2 id="utilit-rios-da-interface" data-toc="utilit-rios-da-interface">Utilit&aacute;rios da Interface</h2><section class="chapter"><h3 id="limpeza-de-campos" data-toc="limpeza-de-campos">Limpeza de Campos</h3><div class="code-block" data-lang="java">
+private void clearFields() {
+    tf_nome.clear();
+    tf_idade.clear();
+    rb_m.setSelected(true);
+}
+</div></section><section class="chapter"><h3 id="mensagens-ao-usu-rio" data-toc="mensagens-ao-usu-rio">Mensagens ao Usu&aacute;rio</h3><div class="code-block" data-lang="java">
+private void showSuccessMessage() {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle(&quot;Sucesso&quot;);
+    alert.setHeaderText(null);
+    alert.setContentText(&quot;Estudante salvo com sucesso!&quot;);
+    alert.showAndWait();
+}
+</div></section></section><section class="chapter"><h2 id="boas-pr-ticas-implementadas" data-toc="boas-pr-ticas-implementadas">Boas Pr&aacute;ticas Implementadas</h2><ol class="list _decimal" id="aaepmv_67" type="1"><li class="list__item" id="aaepmv_68"><p id="aaepmv_72"><span class="control" id="aaepmv_74">Valida&ccedil;&atilde;o de Dados</span></p><ul class="list _bullet" id="aaepmv_73"><li class="list__item" id="aaepmv_75"><p id="aaepmv_77">Valida&ccedil;&atilde;o completa antes de opera&ccedil;&otilde;es CRUD</p></li><li class="list__item" id="aaepmv_76"><p id="aaepmv_78">Feedback claro ao usu&aacute;rio</p></li></ul></li><li class="list__item" id="aaepmv_69"><p id="aaepmv_79"><span class="control" id="aaepmv_81">Gerenciamento de Estado</span></p><ul class="list _bullet" id="aaepmv_80"><li class="list__item" id="aaepmv_82"><p id="aaepmv_84">Uso de objeto <code class="code" id="aaepmv_85">student</code> para manter estado atual</p></li><li class="list__item" id="aaepmv_83"><p id="aaepmv_86">Atualiza&ccedil;&atilde;o consistente da interface</p></li></ul></li><li class="list__item" id="aaepmv_70"><p id="aaepmv_87"><span class="control" id="aaepmv_89">Feedback ao Usu&aacute;rio</span></p><ul class="list _bullet" id="aaepmv_88"><li class="list__item" id="aaepmv_90"><p id="aaepmv_92">Mensagens de sucesso e erro</p></li><li class="list__item" id="aaepmv_91"><p id="aaepmv_93">Confirma&ccedil;&atilde;o antes de exclus&atilde;o</p></li></ul></li><li class="list__item" id="aaepmv_71"><p id="aaepmv_94"><span class="control" id="aaepmv_96">Organiza&ccedil;&atilde;o do C&oacute;digo</span></p><ul class="list _bullet" id="aaepmv_95"><li class="list__item" id="aaepmv_97"><p id="aaepmv_99">M&eacute;todos bem definidos e com responsabilidade &uacute;nica</p></li><li class="list__item" id="aaepmv_98"><p id="aaepmv_100">Separa&ccedil;&atilde;o clara entre l&oacute;gica de neg&oacute;cio e interface</p></li></ul></li></ol></section><section class="chapter"><h2 id="pontos-de-aten-o" data-toc="pontos-de-aten-o">Pontos de Aten&ccedil;&atilde;o</h2><ol class="list _decimal" id="aaepmv_101" type="1"><li class="list__item" id="aaepmv_102"><p id="aaepmv_105"><span class="control" id="aaepmv_107">Tratamento de Erros</span></p><ul class="list _bullet" id="aaepmv_106"><li class="list__item" id="aaepmv_108"><p id="aaepmv_110">Implementar try-catch para opera&ccedil;&otilde;es de banco</p></li><li class="list__item" id="aaepmv_109"><p id="aaepmv_111">Feedback adequado em caso de falhas</p></li></ul></li><li class="list__item" id="aaepmv_103"><p id="aaepmv_112"><span class="control" id="aaepmv_114">Atualiza&ccedil;&atilde;o da Interface</span></p><ul class="list _bullet" id="aaepmv_113"><li class="list__item" id="aaepmv_115"><p id="aaepmv_117">Sempre atualizar a tabela ap&oacute;s opera&ccedil;&otilde;es CRUD</p></li><li class="list__item" id="aaepmv_116"><p id="aaepmv_118">Manter consist&ecirc;ncia entre modelo e view</p></li></ul></li><li class="list__item" id="aaepmv_104"><p id="aaepmv_119"><span class="control" id="aaepmv_121">Valida&ccedil;&atilde;o</span></p><ul class="list _bullet" id="aaepmv_120"><li class="list__item" id="aaepmv_122"><p id="aaepmv_124">Validar todos os campos antes de opera&ccedil;&otilde;es</p></li><li class="list__item" id="aaepmv_123"><p id="aaepmv_125">Fornecer feedback claro sobre erros</p></li></ul></li></ol></section><div class="last-modified">23 abril 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="javafx-tableview-guide.html" class="navigation-links__prev">Trabalhando com TableView em JavaFX</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.js"></script></body></html>

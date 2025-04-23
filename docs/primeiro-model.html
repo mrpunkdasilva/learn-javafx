@@ -1,0 +1,113 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-04-22T21:42:24.957201098"><title>Primeiro Model | Learn JavaFX</title><script type="application/json" id="virtual-toc-data">[{"id":"estrutura-b-sica-de-um-model","level":0,"title":"Estrutura Básica de um Model","anchor":"#estrutura-b-sica-de-um-model"},{"id":"boas-pr-ticas","level":0,"title":"Boas Práticas","anchor":"#boas-pr-ticas"},{"id":"integra-o-com-javafx","level":0,"title":"Integração com JavaFX","anchor":"#integra-o-com-javafx"},{"id":"persist-ncia-de-dados","level":0,"title":"Persistência de Dados","anchor":"#persist-ncia-de-dados"},{"id":"boas-pr-ticas-de-modelagem","level":0,"title":"Boas Práticas de Modelagem","anchor":"#boas-pr-ticas-de-modelagem"},{"id":"pr-ximos-passos","level":0,"title":"Próximos Passos","anchor":"#pr-ximos-passos"},{"id":"exerc-cios-pr-ticos","level":0,"title":"Exercícios Práticos","anchor":"#exerc-cios-pr-ticos"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Primeiro Model | Learn JavaFX"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Learn JavaFX Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/primeiro-model.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Primeiro Model | Learn JavaFX"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/primeiro-model.html#webpage",
+    "url": "writerside-documentation/primeiro-model.html",
+    "name": "Primeiro Model | Learn JavaFX",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Learn JavaFX Help"
+}</script><!-- End Schema.org --></head><body data-id="Primeiro-Model" data-main-title="Primeiro Model" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Domus 1"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Learn JavaFX  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Primeiro-Model" id="Primeiro-Model.md">Primeiro Model</h1><p id="f9pqi7_3">Models s&atilde;o classes que representam os dados e a l&oacute;gica de neg&oacute;cios da sua aplica&ccedil;&atilde;o JavaFX. Eles s&atilde;o a camada de dados no padr&atilde;o MVC (Model-View-Controller).</p><section class="chapter"><h2 id="estrutura-b-sica-de-um-model" data-toc="estrutura-b-sica-de-um-model">Estrutura B&aacute;sica de um Model</h2><p id="f9pqi7_11">Vamos analisar nosso primeiro model, a classe <code class="code" id="f9pqi7_14">Student</code>:</p><div class="code-block" data-lang="java">
+public class Student {
+    private long id;
+    private String name;
+    private int age;
+    private char sex;
+
+    // Getters e Setters
+}
+</div><section class="chapter"><h3 id="anatomia-do-model" data-toc="anatomia-do-model">Anatomia do Model</h3><ol class="list _decimal" id="f9pqi7_15" type="1"><li class="list__item" id="f9pqi7_16"><p id="f9pqi7_18"><span class="control" id="f9pqi7_20">Atributos Privados</span></p><ul class="list _bullet" id="f9pqi7_19"><li class="list__item" id="f9pqi7_21"><p id="f9pqi7_24">Use <code class="code" id="f9pqi7_25">private</code> para encapsulamento</p></li><li class="list__item" id="f9pqi7_22"><p id="f9pqi7_26">Escolha tipos de dados apropriados</p></li><li class="list__item" id="f9pqi7_23"><p id="f9pqi7_27">Nomeie de forma clara e descritiva</p></li></ul></li><li class="list__item" id="f9pqi7_17"><p id="f9pqi7_28"><span class="control" id="f9pqi7_30">Getters e Setters</span></p><ul class="list _bullet" id="f9pqi7_29"><li class="list__item" id="f9pqi7_31"><p id="f9pqi7_34">Fornecem acesso controlado aos atributos</p></li><li class="list__item" id="f9pqi7_32"><p id="f9pqi7_35">Permitem valida&ccedil;&atilde;o de dados</p></li><li class="list__item" id="f9pqi7_33"><p id="f9pqi7_36">Mant&ecirc;m o encapsulamento</p></li></ul></li></ol></section></section><section class="chapter"><h2 id="boas-pr-ticas" data-toc="boas-pr-ticas">Boas Pr&aacute;ticas</h2><section class="chapter"><h3 id="1-valida-o-de-dados" data-toc="1-valida-o-de-dados">1. Valida&ccedil;&atilde;o de Dados</h3><div class="code-block" data-lang="java">
+public void setAge(int age) {
+    if (age &lt; 0) {
+        throw new IllegalArgumentException(&quot;Idade não pode ser negativa&quot;);
+    }
+    this.age = age;
+}
+
+public void setSex(char sex) {
+    if (sex != 'M' &amp;&amp; sex != 'F') {
+        throw new IllegalArgumentException(&quot;Sexo deve ser 'M' ou 'F'&quot;);
+    }
+    this.sex = sex;
+}
+</div></section><section class="chapter"><h3 id="2-construtores" data-toc="2-construtores">2. Construtores</h3><div class="code-block" data-lang="java">
+public class Student {
+    // Construtor padrão
+    public Student() {
+    }
+
+    // Construtor com parâmetros
+    public Student(String name, int age, char sex) {
+        this.name = name;
+        setAge(age);
+        setSex(sex);
+    }
+}
+</div></section><section class="chapter"><h3 id="3-m-todos-de-utilidade" data-toc="3-m-todos-de-utilidade">3. M&eacute;todos de Utilidade</h3><div class="code-block" data-lang="java">
+public boolean isAdult() {
+    return age &gt;= 18;
+}
+
+@Override
+public String toString() {
+    return &quot;Student{&quot; +
+           &quot;id=&quot; + id +
+           &quot;, name='&quot; + name + '\'' +
+           &quot;, age=&quot; + age +
+           &quot;, sex=&quot; + sex +
+           '}';
+}
+</div></section></section><section class="chapter"><h2 id="integra-o-com-javafx" data-toc="integra-o-com-javafx">Integra&ccedil;&atilde;o com JavaFX</h2><section class="chapter"><h3 id="1-observable-properties" data-toc="1-observable-properties">1. Observable Properties</h3><p id="f9pqi7_45">Para melhor integra&ccedil;&atilde;o com JavaFX, podemos usar Properties:</p><div class="code-block" data-lang="java">
+public class Student {
+    private final StringProperty name = new SimpleStringProperty();
+    private final IntegerProperty age = new SimpleIntegerProperty();
+    
+    // Getters e Setters para Properties
+    public StringProperty nameProperty() {
+        return name;
+    }
+    
+    public String getName() {
+        return name.get();
+    }
+    
+    public void setName(String value) {
+        name.set(value);
+    }
+}
+</div></section><section class="chapter"><h3 id="2-binding-com-a-interface" data-toc="2-binding-com-a-interface">2. Binding com a Interface</h3><p id="f9pqi7_47">No controller:</p><div class="code-block" data-lang="java">
+@FXML
+private TextField tfNome;
+
+public void initialize() {
+    Student student = new Student();
+    tfNome.textProperty().bindBidirectional(student.nameProperty());
+}
+</div></section></section><section class="chapter"><h2 id="persist-ncia-de-dados" data-toc="persist-ncia-de-dados">Persist&ecirc;ncia de Dados</h2><section class="chapter"><h3 id="1-exemplo-de-lista-em-mem-ria" data-toc="1-exemplo-de-lista-em-mem-ria">1. Exemplo de Lista em Mem&oacute;ria</h3><div class="code-block" data-lang="java">
+public class StudentRepository {
+    private static final List&lt;Student&gt; students = new ArrayList&lt;&gt;();
+    
+    public static void add(Student student) {
+        students.add(student);
+    }
+    
+    public static List&lt;Student&gt; getAll() {
+        return new ArrayList&lt;&gt;(students);
+    }
+}
+</div></section><section class="chapter"><h3 id="2-observable-collections" data-toc="2-observable-collections">2. Observable Collections</h3><div class="code-block" data-lang="java">
+public class StudentRepository {
+    private static final ObservableList&lt;Student&gt; students = 
+        FXCollections.observableArrayList();
+    
+    public static ObservableList&lt;Student&gt; getStudents() {
+        return students;
+    }
+}
+</div></section></section><section class="chapter"><h2 id="boas-pr-ticas-de-modelagem" data-toc="boas-pr-ticas-de-modelagem">Boas Pr&aacute;ticas de Modelagem</h2><ol class="list _decimal" id="f9pqi7_53" type="1"><li class="list__item" id="f9pqi7_54"><p id="f9pqi7_58"><span class="control" id="f9pqi7_60">Imutabilidade Quando Poss&iacute;vel</span></p><ul class="list _bullet" id="f9pqi7_59"><li class="list__item" id="f9pqi7_61"><p id="f9pqi7_63">Use <code class="code" id="f9pqi7_64">final</code> para atributos que n&atilde;o devem mudar</p></li><li class="list__item" id="f9pqi7_62"><p id="f9pqi7_65">Considere criar vers&otilde;es imut&aacute;veis dos objetos</p></li></ul></li><li class="list__item" id="f9pqi7_55"><p id="f9pqi7_66"><span class="control" id="f9pqi7_68">Valida&ccedil;&atilde;o Robusta</span></p><ul class="list _bullet" id="f9pqi7_67"><li class="list__item" id="f9pqi7_69"><p id="f9pqi7_72">Valide dados em setters</p></li><li class="list__item" id="f9pqi7_70"><p id="f9pqi7_73">Lance exce&ccedil;&otilde;es apropriadas</p></li><li class="list__item" id="f9pqi7_71"><p id="f9pqi7_74">Documente restri&ccedil;&otilde;es</p></li></ul></li><li class="list__item" id="f9pqi7_56"><p id="f9pqi7_75"><span class="control" id="f9pqi7_77">Documenta&ccedil;&atilde;o</span></p><ul class="list _bullet" id="f9pqi7_76"><li class="list__item" id="f9pqi7_78"><p id="f9pqi7_81">Use JavaDoc para documentar a classe e m&eacute;todos importantes</p></li><li class="list__item" id="f9pqi7_79"><p id="f9pqi7_82">Explique regras de neg&oacute;cio complexas</p></li><li class="list__item" id="f9pqi7_80"><p id="f9pqi7_83">Documente exce&ccedil;&otilde;es</p></li></ul></li><li class="list__item" id="f9pqi7_57"><p id="f9pqi7_84"><span class="control" id="f9pqi7_86">Testes</span></p><ul class="list _bullet" id="f9pqi7_85"><li class="list__item" id="f9pqi7_87"><p id="f9pqi7_90">Crie testes unit&aacute;rios</p></li><li class="list__item" id="f9pqi7_88"><p id="f9pqi7_91">Teste casos de borda</p></li><li class="list__item" id="f9pqi7_89"><p id="f9pqi7_92">Verifique valida&ccedil;&otilde;es</p></li></ul></li></ol></section><section class="chapter"><h2 id="pr-ximos-passos" data-toc="pr-ximos-passos">Pr&oacute;ximos Passos</h2><ol class="list _decimal" id="f9pqi7_93" type="1"><li class="list__item" id="f9pqi7_94"><p id="f9pqi7_98">Implementar mais valida&ccedil;&otilde;es no model <code class="code" id="f9pqi7_99">Student</code></p></li><li class="list__item" id="f9pqi7_95"><p id="f9pqi7_100">Adicionar suporte a persist&ecirc;ncia em banco de dados</p></li><li class="list__item" id="f9pqi7_96"><p id="f9pqi7_101">Criar models relacionados (ex: <code class="code" id="f9pqi7_102">Course</code>, <code class="code" id="f9pqi7_103">Grade</code>)</p></li><li class="list__item" id="f9pqi7_97"><p id="f9pqi7_104">Implementar padr&otilde;es de projeto relevantes</p></li></ol></section><section class="chapter"><h2 id="exerc-cios-pr-ticos" data-toc="exerc-cios-pr-ticos">Exerc&iacute;cios Pr&aacute;ticos</h2><ol class="list _decimal" id="f9pqi7_105" type="1"><li class="list__item" id="f9pqi7_106"><p id="f9pqi7_110">Adicione mais campos ao model <code class="code" id="f9pqi7_111">Student</code> (ex: email, matr&iacute;cula)</p></li><li class="list__item" id="f9pqi7_107"><p id="f9pqi7_112">Implemente valida&ccedil;&otilde;es para os novos campos</p></li><li class="list__item" id="f9pqi7_108"><p id="f9pqi7_113">Crie um m&eacute;todo para calcular a idade baseado na data de nascimento</p></li><li class="list__item" id="f9pqi7_109"><p id="f9pqi7_114">Implemente <code class="code" id="f9pqi7_115">equals()</code> e <code class="code" id="f9pqi7_116">hashCode()</code></p></li></ol></section><div class="last-modified">09 abril 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="criando-classe-para-connection-mysql.html" class="navigation-links__prev">Criando Classe para Connection MySQL</a><a href="create-first-controller.html" class="navigation-links__next">Criar primeiro Controller</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b776/app.js"></script></body></html>
